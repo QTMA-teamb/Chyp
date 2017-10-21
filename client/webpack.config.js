@@ -5,7 +5,6 @@ const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
   template: path.resolve(__dirname,"./src/app.index.html"),
   filename: "app.index.html",
   inject: "body"
-
 })
 const distDir = path.resolve(__dirname, 'dist');
 const srcDir = path.resolve(__dirname, 'src');

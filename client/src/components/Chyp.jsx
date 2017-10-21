@@ -25,7 +25,7 @@ export default class Chyp extends React.Component{
     return(
       <div>
         <h1>Hello World</h1>
-        <h2>Test2</h2>
+        <h2>Test47</h2>
           {
             this.state.descriptions.map((description) => {
               return <Description description = {description}></Description>
