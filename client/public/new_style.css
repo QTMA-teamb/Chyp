@@ -1,0 +1,255 @@
+@import url('https://fonts.googleapis.com/css?family=Yantramanav:100');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400');
+@import url('https://fonts.googleapis.com/css?family=Hind');
+
+html, body{
+	margin:0;
+	padding:0;
+	height:100%;
+	width:100%;
+	overflow : hidden;
+}
+.intro{
+	height: 100%;
+	width: 100%;
+	margin: auto;
+	background: url(http://www.foxhallresort.com/img/ui/img-corporate-Social-Events-Holiday-Parties.jpg) no-repeat 50% 50%;
+	display: table;
+	top: 0;
+	background-position: top center;
+	background-size:cover;
+
+}
+.screenshots{
+
+	height: 100%;
+	width: 100%;
+	margin: auto;
+	/*background: url(http://images.dailyhive.com/20170428120718/Outdoors.jpg) no-repeat 50% 50%;*/
+position: absolute;
+	display: table;
+
+	background-size: cover;
+}
+.intro .inner{
+	display: table-cell;
+	vertical-align: middle;
+	width: 100%;
+	max-width: none;
+	height: inherit;
+}
+.content{
+	max-width: 600px;
+	margin: 0 auto;
+	text-align: center;
+	padding-bottom: 30%;
+}
+.content h1{
+	font-family: 'Hind', sans-serif;
+	font-size: 600%;
+	font-weight: 400;
+	color:  #e2edff;
+	line-height: 100%;
+	position: relative;
+	top: 30px;
+}
+.content h2{
+	font-family: 'Hind', sans-serif;
+	font-size: 200%;
+	font-weight: lighter;
+	color:  #e2edff;
+	/*line-height: 90%;*/
+	position: relative;
+	top: -10px;
+}
+.content h3{
+	font-family: 'Hind', sans-serif;
+	font-size: 200%;
+	font-weight: 500;
+	color:  #e2edff;
+	/*line-height: 90%;*/
+	position: relative;
+	top: 30px;
+	left: auto;
+}
+.content form{
+	position: relative;
+}
+.loginBtn{
+	top : 900px;
+}
+
+p{
+	font-size: 150%;
+	line-height: 150%;
+	color: white;
+}
+
+ul{
+	list-style-type: none;
+	margin: 0;
+	/*padding: 4px;*/
+	overflow: hidden;
+
+}
+.nav a:link,a:visited{
+	display: block;
+	font-weight: bold;
+	color: :#FFFFFF;
+	width: 150px;
+	text-align: center;
+	text-transform: uppercase;
+	text-decoration: none;
+	font-family: 'Hind', sans-serif;
+	font-size: 120%;
+	font-weight: 100;
+	height: 60px;
+	color:  #e2edff;
+	transition: all 0.5s;
+}
+.nav a:hover, a:active{
+	background-color: #00CC89;
+
+}
+nav ul li{
+	list-style-type: none;
+	display: inline-block;
+	transition: all 0.1s;
+
+
+}
+nav ul{
+	float: right;
+	margin-right: 30px;
+}
+
+nav{
+	position: absolute;
+	top: 0px;
+	width: 100%;
+	height: 60px;
+	background-color: rgba(54,60,82,1);
+	line-height: 70px;
+
+}
+.demoPhone{
+	position: relative;
+	top: 200px;
+	left: 200px;
+}
+
+/*--- Media Queries --*/
+@media screen and (max-width: 900px) {
+.content{
+	padding-bottom: 30%;
+}
+.content h1{
+	font-size: 450%;
+	top: 30px;
+
+}
+.content h2{
+	font-size: 150%;
+	top: 30px;
+}
+.content h3{
+	font-size: 150%;
+	top: 100px;
+}
+.form-wrapper input, button{
+	position: relative;
+	width: 300px;
+}
+.form-wrapper{
+	top: -40px;
+}
+.btn{
+	font-size: 130%;
+	padding: 9px 17px;
+}
+.nav a:link,a:visited{
+	width: 90px;
+	font-size: 120%;
+	font-weight: 100;
+
+}
+}
+@media screen and (max-width: 768px) {
+	.content{
+		padding-bottom: 40%;
+	}
+	.content h1{
+		font-size: 350%;
+		top: 50px;
+
+	}
+	.content h2{
+		font-size: 150%;
+		top: 40px;
+	}
+	.content h3{
+		position: relative;
+		font-size: 150%
+		top: 300px;
+	}
+	.btn{
+		font-size: 16=0%;
+		padding: 7px 15px;
+	}
+	p{
+		font-size: 120%;
+		line-height: 100%
+	}
+	.nav a:link,a:visited{
+		width: 70px;
+		font-size: 100%;
+		font-weight: 100;
+
+	}
+
+}
+@media screen and (max-width: 480px) {
+	.content{
+		padding-bottom: 100%;
+	}
+	.content h1{
+		font-size: 300%;
+		top: 90px;
+	}
+	.content h2{
+		font-size: 130%;
+		top: 130px;
+	}
+	.content h3{
+		font-size: 140%;
+		top: 190px;
+	}
+	.form-wrapper{
+		/*top: 250px;*/
+		width: 400px;
+		top: 50px;
+	}
+	.form-wrapper input{
+		width: 260px;
+	}
+
+	.btn{
+		font-size: 110%;
+		padding: 6px 14px;
+	}
+	p{
+		font-size: 100%;
+		line-height: 100%
+	}
+	.nav a:link,a:visited{
+		width: 50px;
+		font-size: 90%;
+		font-weight: 100;
+		display: none;
+
+	}
+	.inner img{
+		/*width: 150px;*/
+	}
+
+}
