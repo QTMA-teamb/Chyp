@@ -88,12 +88,10 @@ position: absolute;
 .cf {
     zoom:1;
 }
-/*.loginBtn{
+.fb-login-button{
 	position: relative;
 	top: 15px;
-	padding: 12px 28px;
-}*/
-
+}
 
 /* Form wrapper styling */
 .form-wrapper {
@@ -278,6 +276,9 @@ nav{
 	font-size: 150%;
 	top: 100px;
 }
+.fb-login-button{
+	top:80px;
+}
 .form-wrapper input, button{
 	position: relative;
 	width: 300px;
@@ -295,9 +296,7 @@ nav{
 	font-weight: 100;
 
 }
-.events{
-	
-}
+
 }
 @media screen and (max-width: 768px) {
 	.content{
@@ -356,6 +355,9 @@ nav{
 	}
 	.form-wrapper input{
 		width: 260px;
+	}
+	.fb-login-button{
+		top: 170px;
 	}
 
 	.btn{
@@ -421,6 +423,9 @@ nav{
 	}
 	.inner img{
 		/*width: 150px;*/
+	}
+	.fb-login-button{
+		top: 190px;
 	}
 
 }
