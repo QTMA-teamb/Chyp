@@ -11,7 +11,7 @@ html, body{
 	height: 100%;
 	width: 100%;
 	margin: auto;
-	background: url(http://www.foxhallresort.com/img/ui/img-corporate-Social-Events-Holiday-Parties.jpg) no-repeat 50% 50%;
+	background: url(https://cdn.wallpapersafari.com/75/99/V3UN2j.jpg) no-repeat 50% 50%;
 	display: table;
 	top: 0;
 	background-position: top center;
@@ -46,7 +46,7 @@ position: absolute;
 	font-family: "Hind", sans-serif;
 	font-size: 600%;
 	font-weight: 400;
-	color:  #e2edff;
+	color: rgba(54,60,82,1);
 	line-height: 100%;
 	position: relative;
 	top: 50px;
@@ -55,7 +55,7 @@ position: absolute;
 	font-family: "Hind", sans-serif;
 	font-size: 200%;
 	font-weight: lighter;
-	color:  #e2edff;
+	color: rgba(54,60,82,1);
 	/*line-height: 90%;*/
 	position: relative;
 	top: 10px;
@@ -64,7 +64,7 @@ position: absolute;
 	font-family: "Hind", sans-serif;
 	font-size: 200%;
 	font-weight: 500;
-	color:  #e2edff;
+	color: rgba(54,60,82,1);
 	/*line-height: 90%;*/
 	position: relative;
 	top: 50px;
@@ -294,6 +294,9 @@ nav{
 	font-size: 110%;
 	font-weight: 100;
 
+}
+.events{
+	
 }
 }
 @media screen and (max-width: 768px) {
