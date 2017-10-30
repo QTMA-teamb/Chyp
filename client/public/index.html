@@ -29,6 +29,7 @@
 	    // for FB.getLoginStatus().
 	    if (response.status === 'connected') {
 	      // Logged into your app and Facebook.
+				// checkLoginState();
 	      testAPI();
 	    } else {
 	      // The person is not logged into your app or we are unable to tell.
@@ -42,6 +43,9 @@
 	  // code below.
 	  function checkLoginState() {
 	    FB.getLoginStatus(function(response) {
+
+
+
 	      statusChangeCallback(response);
 	    });
 	  }
@@ -68,6 +72,35 @@
 	  // These three cases are handled in the callback function.
 
 	  FB.getLoginStatus(function(response) {
+			// checks if user already authorized
+	    if (response.status === 'connected') {
+        FB.api('me?fields=id,name,email', function(user) {
+		       if(user != null) {
+              username  = user.name;
+              uid = user.id;
+              email = user.email;
+
+							document.getElementById('lblLogin').innerHTML =
+				        'Thanks for logging in, ' + user.name + '!';
+							document.getElementById('btnLogin').style.display = 'none';
+	          }
+        });
+
+	    }
+			else {
+	// If user is not authorized call FB.login for pop up window for authorization  , scope defines list of persmission requested with user
+	    FB.login(function(response) {
+          if (response.authResponse.accessToken) {
+            FB.api('me?fields=id,name,email', function(user) {
+                if(user != null) {
+                  username  = user.name;
+                  uid = user.id;
+                  email = user.email;
+                }
+            })
+          }
+      }, {scope:'email'});
+		}
 	    statusChangeCallback(response);
 	  });
 
@@ -88,20 +121,29 @@
 	  function testAPI() {
 	    console.log('Welcome!  Fetching your information.... ');
 	    FB.api('/me', function(response) {
+				console.log("this is"+response.status);
 	      console.log('Successful login for: ' + response.name);
-	      document.getElementById('lblLogin').innerHTML =
-	        'Thanks for logging in, ' + response.name + '!';
-
+				document.getElementById('lblLogin').innerHTML =
+					'Thanks for logging in, ' + response.name + '!';
+				document.getElementById('btnLogin').style.display = 'none';
 
 	    });
 	  }
-	</script>
 
-	<!--
-	  Below we include the Login Button social plugin. This button uses
-	  the JavaScript SDK to present a graphical Login button that triggers
-	  the FB.login() function when clicked.
-	-->
+
+		function checkUser(){
+			FB.api('/me', function(response) {
+			if (response.name){
+				 window.location.href = 'new_index.html';
+			}
+			else
+			{
+				alert("Please Login With Facebook!");
+			}
+		});
+
+		}
+	</script>
 
 
 
@@ -118,12 +160,13 @@
 					<section class = "os-animation" data-os-animation="fadeIn"
 					data-os-animation-delay="0.1s">
 						<nav>
-								<img src = 'logoDark.png' width = '160' height="60"/>
+								<img id = "logo" src = 'logoDark.png' width = '160' height="60"/>
 								<ul class = 'nav'>
-									<li><a href='#home'>Home</a></li>
-									<li><a id = "events" href='new_index.html'>Create Events</a></li>
-									<li><a href='#contact'>Contact</a></li>
-									<li><a href='#about'>About</a></li>
+									<li><button href='#home'>Home</button></li>
+									<li><button type= "button" id = "events" onClick = 'checkUser();'>Events</button></li>
+									<li><button href='#contact'>Contact</button></li>
+									<li><button href='#about'>About</button></li>
+
 								</ul>
 						</nav>
 				</section>
@@ -144,7 +187,7 @@
 							<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
 							</fb:login-button>
 						</div> -->
-						<div class="fb-login-button" data-width="200" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="true"></div>
+						<div id = "btnLogin" class="fb-login-button" data-width="200" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="true" onlogin="checkLoginState();"></div>
 
 
 

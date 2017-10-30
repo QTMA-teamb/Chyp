@@ -24,7 +24,7 @@ html, body{
 	width: 100%;
 	margin: auto;
 	/*background: url(http://images.dailyhive.com/20170428120718/Outdoors.jpg) no-repeat 50% 50%;*/
-position: absolute;
+	position: absolute;
 	display: table;
 
 	background-size: cover;
@@ -94,7 +94,7 @@ position: absolute;
 }
 
 /* Form wrapper styling */
-.form-wrapper {
+/*.form-wrapper {
     width: 450px;
     padding: 15px;
     margin: 150px auto 50px auto;
@@ -102,11 +102,11 @@ position: absolute;
     background: rgba(0,0,0,.2);
     border-radius: 10px;
     box-shadow: 0 1px 1px rgba(0,0,0,.4) inset, 0 1px 0 rgba(255,255,255,.2);
-}
+}*/
 
 /* Form text input */
 
-.form-wrapper input {
+/*.form-wrapper input {
     width: 330px;
     height: 20px;
     padding: 10px 5px;
@@ -142,7 +142,7 @@ position: absolute;
 }
 
 /* Form submit button */
-.form-wrapper button {
+/*.form-wrapper button {
     overflow: visible;
     position: relative;
     float: right;
@@ -157,7 +157,7 @@ position: absolute;
     background: rgba(0, 204, 137, 1);
     border-radius: 0 3px 3px 0;
     text-shadow: 0 -1px 0 rgba(0, 0 ,0, .3);
-}
+}*/
 
 .form-wrapper button:hover {
     background: rgba(0, 150, 110, 1);
@@ -168,7 +168,7 @@ position: absolute;
     background: rgba(0, 130, 110, 1);
     outline: 0;
 
-}
+}*/
 
 .form-wrapper button:before { /* left arrow */
     content: "";
@@ -206,13 +206,14 @@ p{
 }
 
 ul{
-	list-style-type: none;
+	list-style-type:none;
 	margin: 0;
-	/*padding: 4px;*/
+	padding: 0;
 	overflow: hidden;
 
 }
-.nav a:link,a:visited{
+
+/*.nav a:link,a:visited, button:hover, button:active{
 	display: block;
 	font-weight: bold;
 	color: :#FFFFFF;
@@ -226,11 +227,17 @@ ul{
 	height: 60px;
 	color:  #e2edff;
 	transition: all 0.5s;
-}
-.nav a:hover, a:active{
+	border: none;
+}*/
+.nav a:hover, a:active, button:hover, button:active{
 	background-color: #00CC89;
 
 }
+.nav button:hover, button:active{
+	top : 0px;
+	background-color: #00CC89;
+}
+
 nav ul li{
 	list-style-type: none;
 	display: inline-block;
@@ -249,8 +256,29 @@ nav{
 	width: 100%;
 	height: 60px;
 	background-color: rgba(54,60,82,1);
-	line-height: 70px;
+	/*line-height: 70px;*/
 
+}
+.nav button{
+	position: relative;
+	top : 0px;
+	display: block;
+	font-weight: bold;
+	color: :#FFFFFF;
+	width: 150px;
+	text-align: center;
+	text-transform: uppercase;
+	transition: all 0.5s;
+	text-decoration: none;
+	font-family: "Hind", sans-serif;
+	font-size: 120%;
+	font-weight: 100;
+	height: 60px;
+	color:  #e2edff;
+	background-color: rgba(54,60,82,0);
+	border: none;
+	border-color: rgba(54,60,82,0);
+	cursor: pointer;
 }
 .demoPhone{
 	position: relative;
@@ -290,7 +318,7 @@ nav{
 	font-size: 130%;
 	padding: 9px 17px;
 }
-.nav a:link,a:visited{
+.nav button{
 	width: 85px;
 	font-size: 110%;
 	font-weight: 100;
@@ -324,7 +352,7 @@ nav{
 		font-size: 120%;
 		line-height: 100%
 	}
-	.nav a:link,a:visited{
+	.nav button{
 		width: 60px;
 		font-size: 90%;
 		font-weight: 100;
@@ -368,15 +396,15 @@ nav{
 		font-size: 100%;
 		line-height: 100%
 	}
-	.nav a:link,a:visited{
-		width: 50px;
-		font-size: 90%;
+	.nav button{
+		width: 55px;
+		font-size: 67%;
 		font-weight: 100;
-		display: none;
 
 	}
-	.inner img{
-		/*width: 150px;*/
+	nav img{
+		height: 60px;
+		width: 110px;
 	}
 
 }
@@ -414,15 +442,17 @@ nav{
 		font-size: 100%;
 		line-height: 100%
 	}
-	.nav a:link,a:visited{
-		width: 50px;
-		font-size: 90%;
-		font-weight: 100;
-		display: none;
+
+	.nav button{
+		width: 55px;
+		font-size: 70%;
+		font-weight: 90;
+		/*display: none;*/
 
 	}
-	.inner img{
-		/*width: 150px;*/
+nav img{
+		width: 110px;
+		height: 60px;
 	}
 	.fb-login-button{
 		top: 190px;
