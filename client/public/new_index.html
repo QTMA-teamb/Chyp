@@ -128,6 +128,18 @@ $( function() {
 	      console.log('Successful login for: ' + response.name);
 	    });
 	  }
+
+		function submitAction(){
+			if (document.getElementById('descript').value !='' && document.getElementById('lblName').value !='' &&
+			document.getElementById('lblEmail').value !='' &&
+			document.getElementById('datepicker').value !=''){
+
+				alert("Successfuly Create Event!");
+				window.location.href = 'index.html';
+			}
+			else
+			alert('Please Fill Out All Fields!');
+		}
 	</script>
 
 	<header>
@@ -158,7 +170,7 @@ $( function() {
 			<input type="text" id="datepicker">
 	</div>
 
-		<input type="submit" href='index.html'value="Create Your Event!" />
+		<input type="submit" href = "#"onClick ='submitAction()'value="Create Your Event!" />
 	</form>
 	</div>
 
