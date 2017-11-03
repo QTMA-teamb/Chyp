@@ -62,18 +62,6 @@ $( function() {
 	    version    : 'v2.8' // use graph api version 2.8
 	  });
 
-	  // Now that we've initialized the JavaScript SDK, we call
-	  // FB.getLoginStatus().  This function gets the state of the
-	  // person visiting this page and can return one of three states to
-	  // the callback you provide.  They can be:
-	  //
-	  // 1. Logged into your app ('connected')
-	  // 2. Logged into Facebook, but not your app ('not_authorized')
-	  // 3. Not logged into Facebook and can't tell if they are logged into
-	  //    your app or not.
-	  //
-	  // These three cases are handled in the callback function.
-
 	  FB.getLoginStatus(function(response) {
 			// checks if user already authorized
 	    if (response.status === 'connected') {
@@ -139,6 +127,7 @@ $( function() {
 			}
 			else
 			alert('Please Fill Out All Fields!');
+
 		}
 	</script>
 
@@ -148,8 +137,8 @@ $( function() {
 
 	<div id="form">
 
-	<form id="waterform" method="post">
-
+	<!-- <form id="waterform" method="post"> -->
+<form>
 <!--  Add readonly to the name and email so it autofills with facebook info-->
 	<div class="formgroup" id="name-form">
 	    <label for="name">Your name*</label>
@@ -170,7 +159,7 @@ $( function() {
 			<input type="text" id="datepicker">
 	</div>
 
-		<input type="submit" href = "#"onClick ='submitAction()'value="Create Your Event!" />
+		<input id = "submit" onClick ='submitAction()' value="Create Your Event!" />
 	</form>
 	</div>
 

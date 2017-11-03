@@ -73,7 +73,7 @@ textarea{
 	resize: none;
 	overflow: auto;
 }
-input[type="submit"]{
+#submit{
 	background-color: #33AF79;
 	color: white;
 	height: 50px;
@@ -86,7 +86,7 @@ input[type="submit"]{
 	-o-transition: background-color 0.5s;
 	transition: background-color 0.5s;
 }
-input[type="submit"]:hover{
+#submit :hover{
 	background-color: #33AF79;
 
 }
