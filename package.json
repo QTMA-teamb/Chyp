@@ -1,13 +1,10 @@
 {
-<<<<<<< HEAD
-  "name": "test-app",
+  "name": "test-ppp",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
-    "react-facebook-login": "^3.6.2",
-    "react-router-dom": "^4.2.2",
     "react-scripts": "1.0.17"
   },
   "scripts": {
@@ -15,31 +12,5 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
-=======
-  "name": "chyp",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "clean": "rm -rf client/dist",
-    "build": "npm run clean && webpack --config client/webpack.config.js",
-    "serve": "node server/index.js",
-    "start": "npm run build && npm run serve"
-  },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "axios": "^0.16.2",
-    "babel-core": "^6.26.0",
-    "babel-loader": "^7.1.2",
-    "babel-preset-es2015": "^6.24.1",
-    "babel-preset-react": "^6.24.1",
-    "express": "^4.16.2",
-    "fb-react-sdk": "^1.0.4",
-    "html-webpack-plugin": "^2.30.1",
-    "react": "^16.0.0",
-    "react-dom": "^16.0.0",
-    "webpack": "^3.8.1"
->>>>>>> 384e6d7627c0497ab60c9deaeb6f9e10e0e7453b
   }
 }
