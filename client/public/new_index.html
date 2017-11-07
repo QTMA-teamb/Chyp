@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<head>
+	<style type ='text/css'>
+
+	</style>
+	<title>Chyp</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="new_style.css">
+	<link href="myfavicon.ico" rel="shortcut icon">
+
+<meta charset="utf-8">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+$( function() {
+	$( "#datepicker" ).datepicker();
+} );
+</script>
+
+</head>
+<body>
+
+	<script>
+	  // This is called with the results from from FB.getLoginStatus().
+	  function statusChangeCallback(response) {
+	    console.log('statusChangeCallback');
+	    console.log(response);
+	    // The response object is returned with a status field that lets the
+	    // app know the current login status of the person.
+	    // Full docs on the response object can be found in the documentation
+	    // for FB.getLoginStatus().
+	    if (response.status === 'connected') {
+	      // Logged into your app and Facebook.
+				// checkLoginState();
+	      testAPI();
+	    } else {
+	      // The person is not logged into your app or we are unable to tell.
+	      document.getElementById('status').innerHTML = 'Please log ' +
+	        'into this app.';
+	    }
+	  }
+
+	  // This function is called when someone finishes with the Login
+	  // Button.  See the onlogin handler attached to it in the sample
+	  // code below.
+	  function checkLoginState() {
+	    FB.getLoginStatus(function(response) {
+
+
+
+	      statusChangeCallback(response);
+	    });
+	  }
+
+	  window.fbAsyncInit = function() {
+	  FB.init({
+	    appId      : '360886547672323',
+	    cookie     : true,  // enable cookies to allow the server to access
+	                        // the session
+	    xfbml      : true,  // parse social plugins on this page
+	    version    : 'v2.8' // use graph api version 2.8
+	  });
+
+	  FB.getLoginStatus(function(response) {
+			// checks if user already authorized
+	    if (response.status === 'connected') {
+        FB.api('me?fields=id,name,email', function(user) {
+		       if(user != null) {
+              username  = user.name;
+              uid = user.id;
+              email = user.email;
+
+							document.getElementById('lblName').value =
+				        user.name;
+							document.getElementById('lblEmail').value = user.email;
+	          }
+        });
+
+	    }
+			else {
+	// If user is not authorized call FB.login for pop up window for authorization  , scope defines list of persmission requested with user
+	    FB.login(function(response) {
+          if (response.authResponse.accessToken) {
+            FB.api('me?fields=id,name,email', function(user) {
+                if(user != null) {
+                  username  = user.name;
+                  uid = user.id;
+                  email = user.email;
+                }
+            })
+          }
+      }, {scope:'email'});
+		}
+	    statusChangeCallback(response);
+	  });
+
+	  };
+
+	  // Load the SDK asynchronously
+	  (function(d, s, id){
+	            var js, fjs = d.getElementsByTagName(s)[0];
+	            if (d.getElementById(id)) {return;}
+	            js = d.createElement(s); js.id = id;
+	            js.src = "https://connect.facebook.net/en_US/sdk.js";
+	            fjs.parentNode.insertBefore(js, fjs);
+	          }(document, 'script', 'facebook-jssdk')
+	        );
+
+	  // Here we run a very simple test of the Graph API after login is
+	  // successful.  See statusChangeCallback() for when this call is made.
+	  function testAPI() {
+	    console.log('Welcome!  Fetching your information.... ');
+	    FB.api('/me', function(response) {
+
+	      console.log('Successful login for: ' + response.name);
+	    });
+	  }
+
+		function submitAction(){
+			if (document.getElementById('descript').value !='' && document.getElementById('lblName').value !='' &&
+			document.getElementById('lblEmail').value !='' &&
+			document.getElementById('datepicker').value !=''){
+
+				alert("Successfuly Create Event!");
+				window.location.href = 'index.html';
+			}
+			else
+			alert('Please Fill Out All Fields!');
+
+		}
+	</script>
+
+	<header>
+		<h1>Create an Event</h1>
+	</header>
+
+	<div id="form">
+
+	<!-- <form id="waterform" method="post"> -->
+<form>
+<!--  Add readonly to the name and email so it autofills with facebook info-->
+	<div class="formgroup" id="name-form">
+	    <label for="name">Your name*</label>
+	    <input id ="lblName" type="text" id="name" name="name" readonly/>
+	</div>
+
+	<div class="formgroup" id="email-form">
+	    <label for="email">Your e-mail*</label>
+	    <input id ="lblEmail" type="email" id="email" name="email" readonly/>
+	</div>
+	<div class="formgroup" id="description-form">
+	    <label for="descript">Description</label>
+	    <textarea id="descript" name="descript"></textarea>
+	</div>
+
+	<div class="formgroup" id="message-form">
+	    <label for="Date">Select a Date*</label>
+			<input type="text" id="datepicker">
+	</div>
+
+		<input id = "submit" onClick ='submitAction()' value="Create Your Event!" />
+	</form>
+	</div>
+
+
+
+</body>
+</html>

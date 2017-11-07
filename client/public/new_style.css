@@ -1,0 +1,124 @@
+@import url("https://fonts.googleapis.com/css?family=Hind");
+
+
+body, html{
+	height: auto%;
+	padding: 0;
+	margin: 0;
+	font-family: "Hind", sans-serif;
+	background-color: #444;
+}
+h1{
+	font-weight: normal;
+	font-size: 4em;
+	font-family: 'Hind', sans-serif;
+	margin: 0 auto;
+	margin-top: 0px;
+	width: 500px;
+	color: #444;
+	text-align: center;
+	line-height: 250%;
+
+}
+
+header{
+	height: 160px;
+	background-color: #33AF71
+}
+
+#form{
+	height: 100%;
+	background-color: #444;
+	overflow: hidden;
+	position: relative;
+
+}
+form{
+	margin: 0 auto;
+	width: 500px;
+	padding-top: 40px;
+	color: white;
+	position: relative;
+
+
+}
+label, input, textarea{
+	display: block;
+}
+input, textarea{
+	width: 500px;
+	border: none;
+	border-radius: 20px;
+	outline: none;
+	padding: 10px;
+	font-family: 'Hind', sans-serif;
+	font-size: 1em;
+	color: #676767;
+	transition: border 0.5s;
+	-webkit-transition: border 0.5s;
+	-moz-transition: border 0.5s;
+	-o-transition: border 0.5s;
+	/*border: solid 3px #98d4f3;*/
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	box-sizing:border-box;
+
+}
+input:focus, textarea:focus{
+	border: solid 3px #33AF79;
+}
+
+textarea{
+	height: 150px;
+	resize: none;
+	overflow: auto;
+}
+#submit{
+	background-color: #33AF79;
+	color: white;
+	height: 50px;
+	cursor: pointer;
+	margin-top: 30px;
+	font-size: 1.29em;
+	font-family: 'Hind', sans-serif;
+	-webkit-transition: background-color 0.5s;
+	-moz-transition: background-color 0.5s;
+	-o-transition: background-color 0.5s;
+	transition: background-color 0.5s;
+}
+#submit :hover{
+	background-color: #33AF79;
+
+}
+label{
+	font-size: 1.5em;
+	margin-top: 20px;
+	padding-left: 20px;
+}
+
+@media screen and (max-width: 400px) {
+	html,body{
+		height: auto;
+		width: 400px;
+		overflow-x: hidden;
+	}
+	h1{
+		text-align: left;
+		font-size: 3em;
+		position: relative;
+		margin-left: 0px;
+		left: 30px;
+		top: 25px;
+	}
+	#form{
+		width: 400px;
+
+	}
+	input, textarea{
+		width: 360px;
+		position: relative;
+		left: 14px;
+		padding-left: 20px;
+	}
+
+}
