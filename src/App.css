@@ -1,0 +1,205 @@
+@import url("https://fonts.googleapis.com/css?family=Hind");
+.content{
+	max-width: 600px;
+	margin: 0 auto;
+	text-align: center;
+	padding-bottom: 10%;
+}
+.content h1{
+	font-family: "Hind", sans-serif;
+	font-size: 600%;
+	font-weight: 400;
+	color: rgba(54,60,82,1);
+	line-height: 100%;
+	position: relative;
+	top: 50px;
+}
+.content h2{
+	font-family: "Hind", sans-serif;
+	font-size: 200%;
+	font-weight: lighter;
+	color: rgba(54,60,82,1);
+	position: relative;
+	top: 10px;
+}
+.content h3{
+	font-family: "Hind", sans-serif;
+	font-size: 200%;
+	font-weight: 500;
+	color: rgba(54,60,82,1);
+	position: relative;
+	top: 10px;
+	left: auto;
+}
+@media screen and (max-width: 900px) {
+.content{
+	padding-bottom: 30%;
+}
+.content h1{
+	font-size: 450%;
+	top: 30px;
+
+}
+.content h2{
+	font-size: 150%;
+	top: 30px;
+}
+.content h3{
+	font-size: 150%;
+	top: 100px;
+}
+.fb-login-button{
+	top:80px;
+}
+.form-wrapper input, button{
+	position: relative;
+	width: 300px;
+}
+.form-wrapper{
+	top: -40px;
+}
+.btn{
+	font-size: 130%;
+	padding: 9px 17px;
+}
+.nav button{
+	width: 85px;
+	font-size: 110%;
+	font-weight: 100;
+
+}
+
+}
+@media screen and (max-width: 768px) {
+	.content{
+		padding-bottom: 40%;
+	}
+	.content h1{
+		font-size: 350%;
+		top: 50px;
+
+	}
+	.content h2{
+		font-size: 150%;
+		top: 40px;
+	}
+	.content h3{
+		position: relative;
+		font-size: 150%;
+		top: 300px;
+	}
+	.btn{
+		font-size: 16=0%;
+		padding: 7px 15px;
+	}
+	p{
+		font-size: 120%;
+		line-height: 100%
+	}
+	.nav button{
+		width: 60px;
+		font-size: 90%;
+		font-weight: 100;
+
+	}
+
+}
+@media screen and (max-width: 480px) {
+	.content{
+		padding-bottom: 100%;
+	}
+	.content h1{
+		font-size: 300%;
+		top: 90px;
+	}
+	.content h2{
+		font-size: 130%;
+		top: 130px;
+	}
+	.content h3{
+		font-size: 140%;
+		top: 190px;
+	}
+	.form-wrapper{
+		/*top: 250px;*/
+		width: 400px;
+		top: 50px;
+	}
+	.form-wrapper input{
+		width: 260px;
+	}
+	.fb-login-button{
+		top: 170px;
+	}
+
+	.btn{
+		font-size: 110%;
+		padding: 6px 14px;
+	}
+	p{
+		font-size: 100%;
+		line-height: 100%
+	}
+	.nav button{
+		width: 55px;
+		font-size: 67%;
+		font-weight: 100;
+
+	}
+	nav img{
+		height: 60px;
+		width: 110px;
+	}
+
+}
+@media screen and (max-width: 400px) {
+	.content{
+		padding-bottom: 100%;
+	}
+	.content h1{
+		font-size: 300%;
+		top: 90px;
+	}
+	.content h2{
+		font-size: 120%;
+		top: 110px;
+		text-align: center;
+	}
+	.content h3{
+		font-size: 140%;
+		top: 210px;
+	}
+	.form-wrapper{
+		/*top: 250px;*/
+		width: 340px;
+		top: 80px;
+	}
+	.form-wrapper input{
+		width: 220px;
+	}
+
+	.btn{
+		font-size: 110%;
+		padding: 6px 14px;
+	}
+	p{
+		font-size: 100%;
+		line-height: 100%
+	}
+
+	.nav button{
+		width: 55px;
+		font-size: 70%;
+		font-weight: 90;
+		/*display: none;*/
+
+	}
+nav img{
+		width: 110px;
+		height: 60px;
+	}
+	.fb-login-button{
+		top: 190px;
+	}
+
+}
