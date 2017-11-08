@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from './logoDark.png';
+import logo from './Logo.png';
 import './App.css';
 import Header from "./components/Header/Header.js"
 import Home from "./components/Home/Home.js"
