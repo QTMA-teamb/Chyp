@@ -1,10 +1,22 @@
 @import url("https://fonts.googleapis.com/css?family=Hind");
+body{
+	 height: 100%;
+	 width: 100%;
+}
+main{
+	background: url(https://cdn.wallpapersafari.com/75/99/V3UN2j.jpg);
+	height: 100%;
+	width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 .content{
 	max-width: 600px;
 	margin: 0 auto;
 	text-align: center;
 	padding-bottom: 10%;
-	background: url(https://cdn.wallpapersafari.com/75/99/V3UN2j.jpg) no-repeat 50% 50%;
+
 }
 .content h1{
 	font-family: "Hind", sans-serif;
