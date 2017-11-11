@@ -9,7 +9,7 @@ ul{
 }
 nav ul{
 	float: right;
-	margin-right: 30px;
+	/*margin-right: 30px;*/
 }
 
 nav{
@@ -46,4 +46,38 @@ nav{
 	margin: 0 auto;
 	text-align: center;
 	padding-bottom: 10%;
+}
+img{
+	position: relative;
+	top: 5px;
+}
+@media screen and (max-width: 900px) {
+	.nav a{
+		width: 100px;
+		font-size: 100%
+	}
+}
+@media screen and (max-width: 768px) {
+	.nav a{
+		width: 80px;
+		font-size: 80%
+	}
+	img{
+		top: 10px;
+		width: 120px;
+		height: 35px;
+	}
+}
+@media screen and (max-width: 480px) {
+	.nav a{
+		width: 60px;
+		font-size: 75%;
+	}
+
+}
+@media screen and (max-width: 400px) {
+	.nav a{
+		width: 60px;
+		font-size: 60%
+	}
 }

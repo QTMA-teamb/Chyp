@@ -45,174 +45,86 @@ main{
 	left: auto;
 }
 @media screen and (max-width: 900px) {
-.content{
-	padding-bottom: 30%;
-}
-.content h1{
-	font-size: 450%;
-	top: 30px;
-
-}
-.content h2{
-	font-size: 150%;
-	top: 30px;
-}
-.content h3{
-	font-size: 150%;
-	top: 100px;
-}
-.fb-login-button{
-	top:80px;
-}
-.form-wrapper input, button{
-	position: relative;
-	width: 300px;
-}
-.form-wrapper{
-	top: -40px;
-}
-.btn{
-	font-size: 130%;
-	padding: 9px 17px;
-}
-.nav button{
-	width: 85px;
-	font-size: 110%;
-	font-weight: 100;
-
-}
-
+	.content{
+		padding-bottom: 30%;
+	}
+	.content h1{
+		font-size: 4rem;
+		top: 80px;
+	}
+	.content h2{
+		font-size: 150%;
+		top: 80px;
+	}
+	.content h3{
+		font-size: 150%;
+		top: 80px;
+	}
+	.content #btnLogin{
+		font-size: 1.3rem;
+		top: 80px;
+	}
 }
 @media screen and (max-width: 768px) {
 	.content{
 		padding-bottom: 40%;
 	}
 	.content h1{
-		font-size: 350%;
-		top: 50px;
-
+		font-size: 4rem;
+		top: 80px;
 	}
 	.content h2{
 		font-size: 150%;
-		top: 40px;
+		top: 80px;
 	}
 	.content h3{
-		position: relative;
-		font-size: 150%;
-		top: 300px;
+		top: 80px;
 	}
-	.btn{
-		font-size: 16=0%;
-		padding: 7px 15px;
+	.content #btnLogin{
+		font-size: 1.3rem;
+		top: 80px;
 	}
-	p{
-		font-size: 120%;
-		line-height: 100%
-	}
-	.nav button{
-		width: 60px;
-		font-size: 90%;
-		font-weight: 100;
-
-	}
-
 }
 @media screen and (max-width: 480px) {
 	.content{
 		padding-bottom: 100%;
 	}
 	.content h1{
-		font-size: 300%;
-		top: 90px;
+		font-size: 4rem;
+		top: 80px;
 	}
 	.content h2{
-		font-size: 130%;
-		top: 130px;
+		font-size: 150%;
+		top: 80px;
 	}
 	.content h3{
-		font-size: 140%;
-		top: 190px;
+		font-size: 150%;
+		top: 80px;
 	}
-	.form-wrapper{
-		/*top: 250px;*/
-		width: 400px;
-		top: 50px;
+	.content #btnLogin{
+		font-size: 1.3rem;
+		top: 80px;
 	}
-	.form-wrapper input{
-		width: 260px;
-	}
-	.fb-login-button{
-		top: 170px;
-	}
-
-	.btn{
-		font-size: 110%;
-		padding: 6px 14px;
-	}
-	p{
-		font-size: 100%;
-		line-height: 100%
-	}
-	.nav button{
-		width: 55px;
-		font-size: 67%;
-		font-weight: 100;
-
-	}
-	nav img{
-		height: 60px;
-		width: 110px;
-	}
-
 }
 @media screen and (max-width: 400px) {
 	.content{
 		padding-bottom: 100%;
 	}
 	.content h1{
-		font-size: 300%;
+		font-size: 4rem;
 		top: 90px;
 	}
 	.content h2{
-		font-size: 120%;
+		font-size: 1.4rem;
 		top: 110px;
 		text-align: center;
 	}
 	.content h3{
-		font-size: 140%;
-		top: 210px;
+		font-size: 1.3rem;
+		top: 120px;
 	}
-	.form-wrapper{
-		/*top: 250px;*/
-		width: 340px;
-		top: 80px;
+	.content #btnLogin{
+		font-size: 1.3rem;
+		top: 110px;
 	}
-	.form-wrapper input{
-		width: 220px;
-	}
-
-	.btn{
-		font-size: 110%;
-		padding: 6px 14px;
-	}
-	p{
-		font-size: 100%;
-		line-height: 100%
-	}
-
-	.nav button{
-		width: 55px;
-		font-size: 70%;
-		font-weight: 90;
-		/*display: none;*/
-
-	}
-nav img{
-		width: 110px;
-		height: 60px;
-	}
-	.fb-login-button{
-		top: 190px;
-	}
-
 }

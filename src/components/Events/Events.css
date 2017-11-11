@@ -1,0 +1,49 @@
+@import url("https://fonts.googleapis.com/css?family=Hind");
+table{
+	font-size: 30px;
+	/*background: -webkit-linear-gradient(left, #25c481, #25b7c4);
+	background: linear-gradient(to right, #00CC89, #25b7c4);*/
+	text-transform: uppercase;
+	font-family: "Hind", sans-serif;
+	width: 100%;
+	text-align: center;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+	display: table;
+	table-layout: fixed;
+	position: relative;
+	top: 60px;
+
+}
+#host{
+	color: rgba(0,0,0,0.7);
+	font-size: 28px;
+}
+ul Link{
+	position: relative;
+	top : 0px;
+	display: block;
+	font-weight: bold;
+	color: #FFFFFF;
+	width: 150px;
+	text-align: center;
+	text-transform: uppercase;
+	transition: all 0.5s;
+	text-decoration: none;
+	font-family: "Hind", sans-serif;
+	font-size: 120%;
+	font-weight: 100;
+	height: 60px;
+	color:  #e2edff;
+	background-color: rgba(54,60,82,0);
+	border: none;
+	border-color: rgba(54,60,82,0);
+	cursor: pointer;
+}
+/*ul a:hover, a:active, Link:hover, Link:active{
+	background-color: #00CC89;
+
+}
+ul Link:hover, Link:active{
+	top : 0px;
+	background-color: #00CC89;
+}*/
