@@ -4,12 +4,16 @@ body{
 	 width: 100%;
 }
 main{
-	background: url(https://cdn.wallpapersafari.com/75/99/V3UN2j.jpg);
+	background: url(https://cdn.wallpapersafari.com/75/99/V3UN2j.jpg) center no-repeat;
+	background-size: 100% 100%;
 	height: 100%;
 	width: 100%;
-  background-position: center;
+  /*background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: cover;*/
+}
+button{
+	/*background-color: blue;*/
 }
 .content{
 	max-width: 600px;

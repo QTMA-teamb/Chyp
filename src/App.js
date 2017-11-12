@@ -11,8 +11,8 @@ import {
 } from 'react-router-dom'
 
 const MyFacebookButton = ({ onClick }) => (
-  <button onClick={onClick}>
-    Login with facebook
+  <button id = "btnLogin" onClick={onClick} >
+  Login With Facebook
   </button>
 );
 const authenticate = (response) => {
@@ -20,6 +20,15 @@ const authenticate = (response) => {
   console.log(response.first_name)
   console.log(response.last_name)
   console.log(response.email)
+  console.log(response.accessToken)
+  console.log(response.userID)
+
+  document.getElementById('lblLogin').innerHTML =
+    'Thanks for logging in, ' + response.first_name + '!';
+  document.getElementById('btnLogin').style.display = 'none';
+  //call function in node function ()
+
+
   // Api call to server so we can validate the token
 };
 
@@ -36,20 +45,20 @@ class App extends Component {
               <h1>Welcome To Chyp</h1>
               <h2>Chyp lets you collect payments for a conference, party, or any other event in a click</h2>
               <h3 id= 'lblLogin'>Login With Facebook!</h3>
-              <div id = "btnLogin" class="fb-login-button" data-width="200" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="true" onlogin="checkLoginState();"></div>
+              <div id = "btnLogin" data-width="200" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="true" onlogin="checkLoginState();">
               <FacebookAuth
                     appId="360886547672323"
                     callback={authenticate}
                     component={MyFacebookButton}
                     scope="public_profile,user_friends,user_events"
-                    fields="first_name,last_name,email,picture"
+                    fields="name,first_name,last_name,email,picture"
                   />
-
+                  </div>
             </div>
           )}/>
           </main>
           <Route exact path="/events" component={Home}/>
-          <Route exact path="/createe" component={Create}/>
+          <Route exact path="/create" component={Create}/>
 
         </div>
       </Router>
