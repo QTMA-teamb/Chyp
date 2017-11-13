@@ -15,16 +15,16 @@ body {
   position: absolute;
   font-family: 'Hind', sans-serif;
   color:#fff;
-  top: 60px;
+  top: 80px;
   right: 0;
-  left: 0;
+  left: 20px;;
   margin: 0;
   overflow: hidden;
   border-radius: 0px;
   box-shadow: 0px 10px 20px -9px rgba(0, 0, 0, 0.5);
   text-align: center;
   transition:all 0.4s;
-  background: url(https://secure.meetupstatic.com/photos/event/4/9/9/0/600_465018832.jpeg) center no-repeat;
+  background: url(https://louisem.com/wp-content/uploads/2014/10/facebook-event-image-size.png) center no-repeat;
   background-size: 100%;
 }
 .blog-card a{

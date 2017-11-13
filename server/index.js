@@ -1,25 +1,21 @@
-// const http = require('http');
-//
-// const PORT = 8080;
-//
-// http.createServer((req, res) => {
-//     console.log(`Received request for ${req.url}`);
-//     res.writeHead(200, { 'Content-Type': 'text/plain' });
-//     res.write('Hello World!\n');
-//     res.end(`Received request for ${req.url}`);
-//   })
-//   .listen(PORT, () => {
-//     console.log(`Server running at http://localhost:${PORT}/`);
-//   });
+const bodyParser = require('body-parser');
 var express = require('express');
 var app = express();
-var http = require('http');
-var server = http.createServer(app);
+const port = process.env.PORT || 3030;
+const api = require('./components/api.router');
 
-app.use(express.bodyParser());
-app.post('/', function(req, res) {
-  console.log(req.body);
-  res.send(200);
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+app.use(bodyParser.json());
+app.use('/api', api);
+app.use((req,res) =>{
+  res.status(404).send(`Page not found`);
+});
+app.use((err,req,res) =>{
+  res.status(500).send(err);
 });
 
-server.listen(process.env.PORT, process.env.IP);
+app.listen(port, () => console.log(`server running on port ${port}`));

@@ -52,7 +52,7 @@ class App extends Component {
                     component={MyFacebookButton}
                     scope="public_profile,user_friends,user_events"
                     fields="name,first_name,last_name,email,picture"
-                  />
+              />
                   </div>
             </div>
           )}/>

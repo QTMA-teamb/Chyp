@@ -7,8 +7,8 @@ class Card extends Component {
     return (
       <div class="blog-card spring-fever">
         <div class="title-content">
-          <h3><a href="#">Name of Event (On Click Takes Them To Facebook?)</a></h3>
-            <div class="intro"> <a>Date</a> </div>
+          <h3><a href="#">BBQ at 234 Johnson!</a></h3>
+            <div class="intro"> <a>12/14/17</a> </div>
         </div>
       <div class="card-info">
       Description of the event would go here Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim...
