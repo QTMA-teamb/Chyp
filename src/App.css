@@ -13,7 +13,12 @@ main{
   background-size: cover;*/
 }
 button{
-	/*background-color: blue;*/
+	padding: 15px 25px;
+	background-color: #4266B2;
+	font-size: 1em;
+	font: lucida;
+	color: white;
+	cursor: pointer;
 }
 .content{
 	max-width: 600px;

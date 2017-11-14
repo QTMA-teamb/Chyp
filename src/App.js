@@ -11,8 +11,8 @@ import {
 } from 'react-router-dom'
 
 const MyFacebookButton = ({ onClick }) => (
-  <button id = "btnLogin" onClick={onClick} >
-  Login With Facebook
+  <button id = "btnLogin" type= "submit" onClick={onClick} >
+  Continue With Facebook
   </button>
 );
 const authenticate = (response) => {
@@ -31,6 +31,7 @@ const authenticate = (response) => {
 
   // Api call to server so we can validate the token
 };
+
 
 class App extends Component {
 
