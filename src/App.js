@@ -15,7 +15,7 @@ const MyFacebookButton = ({ onClick }) => (
   Continue With Facebook
   </button>
 );
-var username = 'Login With Facebook!'
+var username = 'Click To Login With Facebook!'
 
 
 const authenticate = (response) => {
