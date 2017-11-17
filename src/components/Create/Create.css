@@ -278,6 +278,13 @@ body {
   background-size: 355px 210px;
 }
 }
+@media (max-width:400px){
+
+.blog-card{
+  width:345px;
+  background-size: 345px 205px;
+}
+}
 
 
 /*  ================  */

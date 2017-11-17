@@ -15,22 +15,33 @@ const MyFacebookButton = ({ onClick }) => (
   Continue With Facebook
   </button>
 );
+var username = 'Login With Facebook!'
+
+
 const authenticate = (response) => {
+  if (response.status != "not_authorized"){
   console.log(response);
-  console.log(response.first_name)
+  username = 'Thanks for logging in '+ response.first_name +'!';
+  console.log(username)
   console.log(response.last_name)
   console.log(response.email)
   console.log(response.accessToken)
   console.log(response.userID)
+  console.log(response.events)
+
 
   document.getElementById('lblLogin').innerHTML =
     'Thanks for logging in, ' + response.first_name + '!';
   document.getElementById('btnLogin').style.display = 'none';
   //call function in node function ()
-
+}
 
   // Api call to server so we can validate the token
 };
+
+if (username != 'Login With Facebook!'){
+  document.getElementById('btnLogin').style.display = 'none';
+}
 
 
 class App extends Component {
@@ -45,14 +56,15 @@ class App extends Component {
             <div id = "mainn" class = 'content'>
               <h1>Welcome To Chyp</h1>
               <h2>Chyp lets you collect payments for a conference, party, or any other event in a click</h2>
-              <h3 id= 'lblLogin'>Login With Facebook!</h3>
+              <h3 id= 'lblLogin'>{username}</h3>
               <div id = "btnLogin" data-width="200" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="true" onlogin="checkLoginState();">
               <FacebookAuth
                     appId="360886547672323"
                     callback={authenticate}
                     component={MyFacebookButton}
-                    scope="public_profile,user_friends,user_events"
-                    fields="name,first_name,last_name,email,picture"
+                    scope="public_profile,email,user_events"
+                    fields="name,first_name,last_name,email,picture,events"
+                    edges = 'events'
               />
                   </div>
             </div>

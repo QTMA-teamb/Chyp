@@ -19,6 +19,7 @@ button{
 	font: lucida;
 	color: white;
 	cursor: pointer;
+	position: relative;
 }
 .content{
 	max-width: 600px;
@@ -72,6 +73,10 @@ button{
 	.content #btnLogin{
 		font-size: 1.3rem;
 		top: 80px;
+	}
+	button{
+		font-size: 1.0em;
+		top: 280px;
 	}
 }
 @media screen and (max-width: 768px) {
@@ -136,4 +141,5 @@ button{
 		font-size: 1.3rem;
 		top: 110px;
 	}
+
 }
