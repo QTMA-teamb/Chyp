@@ -23,46 +23,18 @@ body {
   border-radius: 10px;
   box-shadow: 0px 10px 20px -9px rgba(0, 0, 0, 0.5);
   text-align: center;
-  transition:all 0.4s;
-  background: url(https://scontent.xx.fbcdn.net/v/t31.0-8/s720x720/21414842_10155732251703259_1351735492518028916_o.jpg?oh=328b8344365f2cf3832bb32026321904&oe=5A95284C) no-repeat;
-  background-size: 405px 210px;
   background-color: white;
 }
-
+.cover-photo{
+  position: relative;
+  top: 0px;
+  /*clip: rect(0px,10px,10px,0px);*/
+}
 .blog-card a{
   color: rgba(54,60,82,1);
   text-decoration:none;
-  /*transition:all 0.2s*/
 }
-/*.blog-card .color-overlay {
-  background: rgba(64, 84, 94,0.5);
-  width: 440px;
-  height: 210px;
-  position: absolute;
-  border-radius: 10px;
-  z-index: 10;
-  top: 0;
-  left: 0;
-  transition: background 0.3s cubic-bezier(0.33, 0.66, 0.66, 0.2);
-}*/
-/*.blog-card .gradient-overlay{
-  width: 440px;
-}*/
 
-/*.blog-card:hover{
-    box-shadow: 0px 18px 20px -9px rgba(0, 10, 30, 0.75);
-    height: 80%;
-}*/
-/*.blog-card:hover .card-info {
-  opacity: 1;
-  bottom: 100px;
-}*/
-/*.blog-card:hover .color-overlay {
-  background: rgba(54,60,82,0.8);
-}*/
-/*.blog-card:hover .title-content{
-  margin-top:70px
-}*/
 .title-content {
   text-align: center;
   margin: 170px 0 0 0;
@@ -73,13 +45,6 @@ body {
   /*left: -10px ;*/
   transition:all 0.6s
 }
-
-/*.blog-card:hover h3:after{
-
-  animation: changeLetter 0.3s 1 linear;
-  width:80%
-}*/
-
 .blog-card h3,h1 {
   font-size: 1.9em;
   font-weight: 400;
@@ -92,19 +57,6 @@ body {
 
   transition:all 0.2s
 }
-/*.blog-card h3 a:hover{
-  text-shadow: 0px 8px 20px rgba(0, 0, 0, 0.95);
-}*/
-/*h3:after {
-  content: " ";
-  display: block;
-  width: 10%;
-  height: 2px;
-  margin: 20px auto;
-  border: 0;
-  background: #00CC89;
-  transition:all 0.2s
-}*/
 
 @keyframes changeLetter {
   0% {
@@ -270,123 +222,15 @@ body {
   .utility-info li:last-of-type{
     width:100%
   }
-  /*.blog-card:hover .title-content,.title-content{
-    margin-top:40px
-}*/
 .blog-card{
-  width:355px;
-  background-size: 355px 210px;
+  width:225px;
+  background-size: 400px 225px;
 }
 }
 @media (max-width:400px){
 
 .blog-card{
   width:345px;
-  background-size: 345px 205px;
+  /*background-size: 345px 205px;*/
 }
-}
-
-
-/*  ================  */
-
-/* ignore this bit :P */
-
-.profile-header{ background:#333 url(https://images.unsplash.com/photo-1435783099294-283725c37230?dpr=1&auto=compress,format&fit=crop&w=1376&h=635&q=80&cs=tinysrgb&crop=&bg=) top center no-repeat; background-size:cover; font-size:3em;position:relative}
-.profile-header:after{
-  position:absolute;
-  content:"";
-  display:block;
-  width:100%;
-  height:100%;
-  top:0;
-  left:0;
-  background:rgba(23, 23, 31, 0.42);
-  z-index:0
-}
-#profile-links a{
-  font-family: 'Hind', sans-serif;
-  font-size:1.2em
-}
-
-#following-this-user{
-  pointer-events:none
-}
-#follow-this-user{
-    font-size:1.2em;
-    border-color:#359ef9
-}
-#follow-this-user:after{
-    content:"\1f448"
-}
-.links-and-stats {
-    background: rgb(20, 20, 21);
-}
-.profile-name h1 {
-   text-shadow:0 6px 9px rgba(0, 0, 0, 0.48)
-}
-.profile-avatar {
-    bottom: -10px;
-    width: 150px;
-    height: 150px;
-    border: 0px solid #1E1E1E;
-    background: rgba(2, 2, 2, 0.49);
-    box-shadow:0 19px 19px -10px rgba(0, 0, 0, 0.63)
-}
-.profile-username, .upsell,.profile-location,.primary-pro{
-  opacity:0;
-}
-.upsell,#pen-as-header-question{
-  display:none
-}
-.profile-nav-1 a{
-  font-size:1.2rem;
-}
-/*.profile-bio, .profile-nav-1 a.active,.profile-nav-1 a:hover {
-    color: rgba(20, 20, 21, 0.59) !important;
-    font-size: 1.2rem
-}*/
-.meta .pen-title {
-  font-family: 'Hind', sans-serif;
-  text-align:center
-}
-.pagination-button{
-  background-color:#00CC89;
-  border-color:#00CC89;
-  transition:all 0.2s
-}
-/*.pagination-button:hover{
-  box-shadow:0 3px 8px rgba(0,0,0,0.2)
-}*/
-.single-project .stats,.single-pen .stats {
-    text-align:center;
-    width:100%
-}
-.stats svg {
-    fill: #bda26b;
-}
-.stats svg, .loves .icon-heart {
-    fill: rgba(47, 47, 49, 0) !important;
-    stroke:#ba6 !important;
-    stroke-width:0.1em !important;
-}
-.loves .icon-heart {
-   stroke-width:0.5em !important;
-}
-.comments svg {
-   stroke-width:0.35em !important;
-}
-.single-stat.loves.loved-1 svg
-{
-    stroke:#fff !important
-}
-
-/*.single-pen:hover h3:after{
-    width:40%;
-    transition:all 0.2s
-}*/
-.pen-actions{
-  border:0px !important
-}
-.meta{
-  box-shadow:none !important
 }

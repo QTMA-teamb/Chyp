@@ -5,6 +5,7 @@
   "dependencies": {
     "axios": "^0.17.1",
     "body-parser": "^1.18.2",
+    "fb-react-sdk": "^1.0.4",
     "passport-facebook": "^2.1.1",
     "react": "^16.1.0",
     "react-dom": "^16.1.0",

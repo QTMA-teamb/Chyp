@@ -15,20 +15,38 @@ const MyFacebookButton = ({ onClick }) => (
   Continue With Facebook
   </button>
 );
-var username = 'Click To Login With Facebook!'
+var username = 'Login With Facebook!'
+var street = []
+var cover = []
+var name = []
+var location = []
 
+var total = []
 
 const authenticate = (response) => {
   if (response.status != "not_authorized"){
   console.log(response);
   username = 'Thanks for logging in '+ response.first_name +'!';
   console.log(username)
+
   console.log(response.last_name)
   console.log(response.email)
   console.log(response.accessToken)
   console.log(response.userID)
   console.log(response.events)
+  var i = 0;
+  for (i = 0; i < response.events.data.length; i++){
+      if (response.events.data[i].is_viewer_admin != false)
+      {
+        cover.push(response.events.data[i].cover.source);
+        street.push(response.events.data[i].place.location.street);
+        name.push(response.events.data[i].name);
+        location.push(response.events.data[i].place.name);
+      }
 
+
+  }
+console.log(name)
 
   document.getElementById('lblLogin').innerHTML =
     'Thanks for logging in, ' + response.first_name + '!';
@@ -39,9 +57,6 @@ const authenticate = (response) => {
   // Api call to server so we can validate the token
 };
 
-if (username != 'Login With Facebook!'){
-  document.getElementById('btnLogin').style.display = 'none';
-}
 
 
 class App extends Component {
@@ -57,21 +72,25 @@ class App extends Component {
               <h1>Welcome To Chyp</h1>
               <h2>Chyp lets you collect payments for a conference, party, or any other event in a click</h2>
               <h3 id= 'lblLogin'>{username}</h3>
-              <div id = "btnLogin" data-width="200" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="true" onlogin="checkLoginState();">
+              <div id = "btnLogin" data-width="200" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="true">
               <FacebookAuth
                     appId="360886547672323"
                     callback={authenticate}
                     component={MyFacebookButton}
                     scope="public_profile,email,user_events"
-                    fields="name,first_name,last_name,email,picture,events"
-                    edges = 'events'
+                    fields="name,first_name,last_name,email,picture,events{is_viewer_admin,start_time,place,cover,description,name}"
               />
                   </div>
             </div>
           )}/>
           </main>
-          <Route exact path="/events" component={Home}/>
-          <Route exact path="/create" component={Create}/>
+          <Route exact path="/events" render={(props) => (
+            <Home {...props} /> )}/>/>
+
+              <Route exact path="/create" render={(props) => (
+                <Create {...props} name = {name} id = {street} cover = {cover} location = {location}/> )}/>/>
+
+            }
 
         </div>
       </Router>
