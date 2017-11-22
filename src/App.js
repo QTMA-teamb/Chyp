@@ -22,16 +22,16 @@ var location = []
 
 
 const authenticate = (response) => {
-  console.log(response);
+  // console.log(response);
   if (response.accessToken){
   username = 'Thanks for logging in '+ response.first_name +'!';
-  console.log(username)
-
-  console.log(response.last_name)
-  console.log(response.email)
-  console.log(response.accessToken)
-  console.log(response.userID)
-  console.log(response.events)
+  // console.log(username)
+  //
+  // console.log(response.last_name)
+  // console.log(response.email)
+  // console.log(response.accessToken)
+  // console.log(response.userID)
+  // console.log(response.events)
 
   var i = 0;
   if (response.events){
@@ -69,7 +69,7 @@ const authenticate = (response) => {
 
   }
 }
-console.log(name)
+// console.log(name)
 
   document.getElementById('lblLogin').innerHTML =
    username;
