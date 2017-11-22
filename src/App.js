@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 import './App.css';
 import Header from "./components/Header/Header.js"
 import Home from "./components/Events/Events.js"
@@ -21,11 +20,10 @@ var cover = []
 var name = []
 var location = []
 
-var total = []
 
 const authenticate = (response) => {
-  if (response.status != "not_authorized"){
   console.log(response);
+  if (response.accessToken){
   username = 'Thanks for logging in '+ response.first_name +'!';
   console.log(username)
 
@@ -34,26 +32,51 @@ const authenticate = (response) => {
   console.log(response.accessToken)
   console.log(response.userID)
   console.log(response.events)
+
   var i = 0;
+  if (response.events){
   for (i = 0; i < response.events.data.length; i++){
       if (response.events.data[i].is_viewer_admin != false)
       {
-        cover.push(response.events.data[i].cover.source);
-        street.push(response.events.data[i].place.location.street);
-        name.push(response.events.data[i].name);
-        location.push(response.events.data[i].place.name);
+        if (response.events.data[i].cover){
+          cover.push(response.events.data[i].cover.source);
+        }
+        else{
+          cover.push("https://x.kinja-static.com/assets/images/logos/placeholders/default.png");
+        }
+
+          if (response.events.data[i].place){
+            if(response.events.data[i].place.location)
+            {
+              street.push(response.events.data[i].place.location.street);
+              location.push(response.events.data[i].place.name);
+            }
+            else {
+              street.push("Not Stated");
+              location.push("Not Stated");
+            }
+          }
+          else{
+            street.push("Not Stated");
+            location.push("Not Stated");
+          }
+
+
+          name.push(response.events.data[i].name);
+
       }
 
 
   }
+}
 console.log(name)
 
   document.getElementById('lblLogin').innerHTML =
-    'Thanks for logging in, ' + response.first_name + '!';
+   username;
   document.getElementById('btnLogin').style.display = 'none';
   //call function in node function ()
-}
 
+}
   // Api call to server so we can validate the token
 };
 

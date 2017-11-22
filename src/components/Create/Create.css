@@ -52,6 +52,7 @@ body {
   font-family: 'Hind', sans-serif;
   margin-bottom: 0;
   display:inline-block;
+  white-space: nowrap;
 }
 .blog-card h3 a{
 
@@ -68,7 +69,7 @@ body {
 }
 
 .intro {
-  /*width: 170px;*/
+  white-space: nowrap;
   position: relative;
   color: rgba(54,60,82,1);
   font-size: 1.0em;

@@ -11,7 +11,7 @@ class Header extends Component {
       <div classhost="Header">
       <header>
         <nav>
-          <Link to = '/'><img id = "logo" src = {logo} width = '160' height="47"/></Link>
+          <Link to = '/'><img id = "logo" src = {logo} width = '160' height="47" alt = 'logo'/></Link>
             <ul class = 'nav'>
               <li><Link to='/'>Home</Link></li>
               <li><Link to='/events' id = "events">Events</Link></li>
