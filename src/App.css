@@ -2,15 +2,14 @@
 body{
 	 height: 100%;
 	 width: 100%;
+
 }
 main{
 	background: url(https://cdn.wallpapersafari.com/75/99/V3UN2j.jpg) center no-repeat;
-	background-size: 100% 100%;
-	height: 100%;
-	width: 100%;
-  /*background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;*/
+	 background-size: cover;
+ /*background-attachment: fixed;*/
+ height: 100%;
+ width: 100%;
 }
 button{
 	padding: 15px 25px;
@@ -20,9 +19,10 @@ button{
 	color: white;
 	cursor: pointer;
 	position: relative;
+	top:100px;
 }
 .content{
-	max-width: 600px;
+	max-width: 100%;
 	margin: 0 auto;
 	text-align: center;
 	padding-bottom: 10%;
@@ -35,6 +35,7 @@ button{
 	color: rgba(54,60,82,1);
 	line-height: 100%;
 	position: relative;
+	text-overflow: inherit;
 	top: 50px;
 }
 .content h2{
@@ -43,17 +44,18 @@ button{
 	font-weight: lighter;
 	color: rgba(54,60,82,1);
 	position: relative;
-	top: 10px;
+	top: 40px;
 }
 .content h3{
 	font-family: "Hind", sans-serif;
-	font-size: 200%;
+	font-size: 2.3em;
 	font-weight: 500;
 	color: rgba(54,60,82,1);
 	position: relative;
-	top: 10px;
+	top: 130px;
 	left: auto;
 }
+
 @media screen and (max-width: 900px) {
 	.content{
 		padding-bottom: 30%;
@@ -104,7 +106,8 @@ button{
 		padding-bottom: 100%;
 	}
 	.content h1{
-		font-size: 4rem;
+		font-size: 3em;
+
 		top: 80px;
 	}
 	.content h2{
@@ -125,7 +128,7 @@ button{
 		padding-bottom: 100%;
 	}
 	.content h1{
-		font-size: 4rem;
+		font-size: 2.8em;
 		top: 90px;
 	}
 	.content h2{

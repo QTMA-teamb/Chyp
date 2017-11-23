@@ -28,6 +28,7 @@ body {
 .cover-photo{
   position: relative;
   top: 0px;
+  color: black;
   /*clip: rect(0px,10px,10px,0px);*/
 }
 .blog-card a{
@@ -219,19 +220,16 @@ body {
   }
 }
 
-@media (max-width:500px){
-  .utility-info li:last-of-type{
-    width:100%
-  }
+@media (max-width:430px){
 .blog-card{
-  width:225px;
-  background-size: 400px 225px;
+  width:345px;
+  left: 7.5%;
 }
 }
-@media (max-width:400px){
+/*@media (max-width:400px){
 
 .blog-card{
   width:345px;
-  /*background-size: 345px 205px;*/
+  left: 7.5%;
 }
-}
+}*/

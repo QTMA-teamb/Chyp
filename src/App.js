@@ -3,36 +3,33 @@ import './App.css';
 import Header from "./components/Header/Header.js"
 import Home from "./components/Events/Events.js"
 import Create from "./components/Create/Create.js"
+import About from "./components/About/About.js"
 import FacebookAuth from 'react-facebook-auth';
 import {
   BrowserRouter as Router,
   Route
 } from 'react-router-dom'
 
+
+
 const MyFacebookButton = ({ onClick }) => (
   <button id = "btnLogin" type= "submit" onClick={onClick} >
-  Continue With Facebook
+    Continue With Facebook
   </button>
 );
+
 var username = 'Login With Facebook!'
 var street = []
 var cover = []
 var name = []
 var location = []
-
+var accessToken
 
 const authenticate = (response) => {
   // console.log(response);
   if (response.accessToken){
   username = 'Thanks for logging in '+ response.first_name +'!';
-  // console.log(username)
-  //
-  // console.log(response.last_name)
-  // console.log(response.email)
-  // console.log(response.accessToken)
-  // console.log(response.userID)
-  // console.log(response.events)
-
+  accessToken = response.accessToken;
   var i = 0;
   if (response.events){
   for (i = 0; i < response.events.data.length; i++){
@@ -69,7 +66,6 @@ const authenticate = (response) => {
 
   }
 }
-// console.log(name)
 
   document.getElementById('lblLogin').innerHTML =
    username;
@@ -88,35 +84,43 @@ class App extends Component {
     return (
       <Router>
         <div classhost="App">
+
         <Header />
         <main>
           <Route exact path="/" render={() => (
             <div id = "mainn" class = 'content'>
-              <h1>Welcome To Chyp</h1>
-              <h2>Chyp lets you collect payments for a conference, party, or any other event in a click</h2>
+              <h1><span>Welcome To Chyp</span></h1>
+              <h2>Chyp lets you collect payments for a<br></br> conference, party, or any other event in a click</h2>
               <h3 id= 'lblLogin'>{username}</h3>
-              <div id = "btnLogin" data-width="200" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="true">
+
+              <div data-width="200" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="true">
+
               <FacebookAuth
                     appId="360886547672323"
                     callback={authenticate}
                     component={MyFacebookButton}
                     scope="public_profile,email,user_events"
-                    fields="name,first_name,last_name,email,picture,events{is_viewer_admin,start_time,place,cover,description,name}"
-              />
+                    fields="name,first_name,last_name,email,picture,events{is_viewer_admin,start_time,place,cover,description,name}"/>
                   </div>
+
             </div>
+
           )}/>
           </main>
           <Route exact path="/events" render={(props) => (
-            <Home {...props} /> )}/>/>
+            <Home {...props} /> )}/>
 
-              <Route exact path="/create" render={(props) => (
-                <Create {...props} name = {name} id = {street} cover = {cover} location = {location}/> )}/>/>
+            <Route exact path="/about" render={(props) => (
+              <About {...props} /> )}/>
 
-            }
+            <Route exact path= "/create" render={(props) => (
+              <Create {...props} token = {accessToken} name = {name} id = {street} cover = {cover} location = {location}/> )}/>
+
+
 
         </div>
       </Router>
+
     );
   }
 }
