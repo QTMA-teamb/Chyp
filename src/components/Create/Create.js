@@ -10,10 +10,12 @@ componentDidMount(){
   if (!this.props.token){
     window.location.href = "../";
     alert('Please Login With Facebook to Continue!')
+    return
   }
-  if (!this.props.cover[0]){
+  else if (!this.props.cover[0]){
     window.location.href = "../";
     alert('You are not an admin to any events!')
+    return
   }
 
 }
