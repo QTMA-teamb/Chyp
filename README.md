@@ -1,1 +1,1 @@
-This project was created by Gregory MacEachern, Lucas Manuel and Cameron Perry with contributions from Zack Harley.
+This project is in association with the Queens Technology and Media Association

@@ -1,3 +1,5 @@
+
+
 import React, { Component } from 'react';
 import './App.css';
 import Header from "./components/Header/Header.js"
@@ -19,10 +21,12 @@ const MyFacebookButton = ({ onClick }) => (
 );
 
 var username = 'Login With Facebook!'
-var street = []
-var cover = []
-var name = []
-var location = []
+// var street = []
+// var cover = []
+// var name = []
+// var location = []
+// var id = []
+const total = []
 var accessToken
 
 const authenticate = (response) => {
@@ -30,41 +34,50 @@ const authenticate = (response) => {
   if (response.accessToken){
   username = 'Thanks for logging in '+ response.first_name +'!';
   accessToken = response.accessToken;
+
+
   var i = 0;
   if (response.events){
   for (i = 0; i < response.events.data.length; i++){
       if (response.events.data[i].is_viewer_admin != false)
       {
-        if (response.events.data[i].cover){
-          cover.push(response.events.data[i].cover.source);
-        }
-        else{
-          cover.push("https://x.kinja-static.com/assets/images/logos/placeholders/default.png");
-        }
 
-          if (response.events.data[i].place){
-            if(response.events.data[i].place.location)
-            {
-              street.push(response.events.data[i].place.location.street);
-              location.push(response.events.data[i].place.name);
+
+
+
+
+
+
+            if (response.events.data[i].cover && response.events.data[i].place){
+                if (response.events.data[i].place.location){
+                  total.push({name: response.events.data[i].name, street: response.events.data[i].place.location.street, location: response.events.data[i].place.name, cover: response.events.data[i].cover.source, id: response.events.data[i].id})
+                }
+              else{
+              total.push({name: response.events.data[i].name, street: "Not Stated", location: "Not Stated", cover: response.events.data[i].cover.source, id: response.events.data[i].id})
+              }
             }
-            else {
-              street.push("Not Stated");
-              location.push("Not Stated");
-            }
-          }
-          else{
-            street.push("Not Stated");
-            location.push("Not Stated");
-          }
+            else if (response.events.data[i].cover && !response.events.data[i].place){
+                total.push({name: response.events.data[i].name, street: "Not Stated", location: "Not Stated", cover: response.events.data[i].cover.source, id: response.events.data[i].id})
+              }
+            else if (!response.events.data[i].cover && response.events.data[i].place){
+                  total.push({name: response.events.data[i].name, street: response.events.data[i].place.location.street, location: response.events.data[i].place.name, cover: "https://x.kinja-static.com/assets/images/logos/placeholders/default.png", id: response.events.data[i].id})
+                }
+            else if (!response.events.data[i].cover && !response.events.data[i].place){
+                    total.push({name: response.events.data[i].name, street: "Not Stated", location: "Not Stated", cover: "https://x.kinja-static.com/assets/images/logos/placeholders/default.png", id: response.events.data[i].id})
+                }
 
-
-          name.push(response.events.data[i].name);
 
       }
 
 
   }
+
+
+
+
+
+
+  console.log(total)
 }
 
   document.getElementById('lblLogin').innerHTML =
@@ -114,7 +127,7 @@ class App extends Component {
               <About {...props} /> )}/>
 
             <Route exact path= "/create" render={(props) => (
-              <Create {...props} token = {accessToken} name = {name} id = {street} cover = {cover} location = {location}/> )}/>
+              <Create {...props} token = {accessToken} total = {total}/> )}/>
 
 
 
