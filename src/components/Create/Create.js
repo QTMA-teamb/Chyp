@@ -20,25 +20,27 @@ componentDidMount(){
 render() {
     return (
       <div>
-        {this.props.total.map((item, index) => (
-      <div class="blog-card spring-fever">
-        <img class = "cover-photo" key = {item.id} src = {item.cover} height = '210' width = '400' alt = "Cover Photo"/>
-        <div class="title-content">
-
-          <h3><a href="#"  key = {item.id}>{item.name}</a></h3>
-
-            <div class="intro">
-            <a key = {item.id}>{item.location}</a><br></br>
-            <a key = {item.id}>{item.street}</a>
-            </div>
+        <div>
+          <h1>Your Facebook Events</h1>
         </div>
-      <div class="card-info">
-        <a href="#">Add To Chyp!<span class="licon icon-arr icon-black"></span></a>
-      </div>
+        {this.props.total.map((item, index) => (
+          <div class="blog-card spring-fever">
+            <img class = "cover-photo" key = {item.id} src = {item.cover} height = '210' width = '400' alt = "Cover Photo"/>
+              <div class="title-content">
 
-  </div>
+                <h3><a href="#"  key = {item.id}>{item.name}</a></h3>
+
+                  <div class="intro">
+                    <a key = {item.id}>{item.location}</a><br></br>
+                    <a key = {item.id}>{item.street}</a>
+                  </div>
+              </div>
+              <div class="card-info">
+                <a href="#">Add To Chyp!<span class="licon icon-arr icon-black"></span></a>
+              </div>
+          </div>
       ))}
-  </div>
+    </div>
     );
 
   }

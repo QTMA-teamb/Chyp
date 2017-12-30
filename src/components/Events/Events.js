@@ -2,59 +2,34 @@ import React, { Component } from 'react';
 import './Events.css';
 import axios from 'axios';
 
-class Home extends Component {
+class Events extends Component {
 
-  constructor() {
-    super();
-    this.state = {
-      data: []
+  componentDidMount(){
+    if ((!this.props.user_location) ||(!this.props.accessToken) ){
+      window.location.href = "../";
+      alert('Please Login With Facebook to Continue!')
+    }else if (this.props.user_location == "Not Defined"){
+      alert('Please Enter A Location For Your Area')
+      //Add textbox support
     }
+
   }
-  componentWillMount() {
-    const _this = this;
-    axios.get('http://localhost:3030/api/events')
-      .then((response) => {
-          _this.setState({data: response.data})
-      })
-      .catch(console.error)
-  }
+
   render() {
-    console.log(this.state.data)
-    let rows = this.state.data.map(person => {
-      return <PersonRow key = {
-        person.id
-      }
-      data = {
-        person
-      }
+      return (
+        <div>
+          <div class = "local">
+            <h1>Local Events</h1>
+            <h2>These events are gathered based on your location in </h2>
+          </div>
+          <div class = "custom">
+            <h1>Events For You</h1>
 
-      />
-    })
-    return <table >
-      < tbody > {
-        rows
-      } < /tbody> < /table>
+          </div>
+        </div>
+
+      )
   }
 }
 
-const PersonRow = (props) => {
-  return (
-    <tr>
-      <td>
-        { props.data.id }
-      </td>
-      <td>
-        { props.data.name }
-      </td>
-      <td id = "host">
-        { props.data.host }
-      </td>
-      <td>
-        { props.data.date }
-      </td>
-
-    </tr>
-  );
-}
-
-export default Home;
+export default Events;

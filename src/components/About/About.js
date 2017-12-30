@@ -5,7 +5,7 @@ class About extends Component {
 
   render() {
     return (
-      <div>
+      <div class= "main">
       <h1>How does Chyp work?</h1>
       <h2>Set up ticketing for your Facebook events in less than 60 seconds</h2>
       <p>

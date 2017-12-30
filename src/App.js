@@ -3,7 +3,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Header from "./components/Header/Header.js"
-import Home from "./components/Events/Events.js"
+import Events from "./components/Events/Events.js"
 import Create from "./components/Create/Create.js"
 import About from "./components/About/About.js"
 import FacebookAuth from 'react-facebook-auth';
@@ -12,49 +12,40 @@ import {
   Route
 } from 'react-router-dom'
 
-
-
 const MyFacebookButton = ({ onClick }) => (
   <button id = "btnLogin" type= "submit" onClick={onClick} >
     Continue With Facebook
   </button>
 );
 
-var username = 'Login With Facebook!'
-// var street = []
-// var cover = []
-// var name = []
-// var location = []
-// var id = []
+let username = 'Login With Facebook!'
 const total = []
-var accessToken
+let user_location
+let accessToken
 
 const authenticate = (response) => {
-  // console.log(response);
   if (response.accessToken){
-  username = 'Thanks for logging in '+ response.first_name +'!';
-  accessToken = response.accessToken;
+    username = 'Thanks for logging in '+ response.first_name +'!';
+    accessToken = response.accessToken;
 
+    if (response.location){
+      user_location = response.location;
+    }else{
+      user_location = "Not Defined"
+    }
 
-  var i = 0;
-  if (response.events){
-  for (i = 0; i < response.events.data.length; i++){
-      if (response.events.data[i].is_viewer_admin != false)
-      {
-
-
-
-
-
-
-
+    var i = 0;
+    if (response.events){
+      for (i = 0; i < response.events.data.length; i++){
+        if (response.events.data[i].is_viewer_admin != false)
+          {
             if (response.events.data[i].cover && response.events.data[i].place){
                 if (response.events.data[i].place.location){
                   total.push({name: response.events.data[i].name, street: response.events.data[i].place.location.street, location: response.events.data[i].place.name, cover: response.events.data[i].cover.source, id: response.events.data[i].id})
                 }
-              else{
-              total.push({name: response.events.data[i].name, street: "Not Stated", location: "Not Stated", cover: response.events.data[i].cover.source, id: response.events.data[i].id})
-              }
+                else{
+                  total.push({name: response.events.data[i].name, street: "Not Stated", location: "Not Stated", cover: response.events.data[i].cover.source, id: response.events.data[i].id})
+                }
             }
             else if (response.events.data[i].cover && !response.events.data[i].place){
                 total.push({name: response.events.data[i].name, street: "Not Stated", location: "Not Stated", cover: response.events.data[i].cover.source, id: response.events.data[i].id})
@@ -65,17 +56,8 @@ const authenticate = (response) => {
             else if (!response.events.data[i].cover && !response.events.data[i].place){
                     total.push({name: response.events.data[i].name, street: "Not Stated", location: "Not Stated", cover: "https://x.kinja-static.com/assets/images/logos/placeholders/default.png", id: response.events.data[i].id})
                 }
-
-
+          }
       }
-
-
-  }
-
-
-
-
-
 
   console.log(total)
 }
@@ -84,7 +66,6 @@ const authenticate = (response) => {
    username;
   document.getElementById('btnLogin').style.display = 'none';
   //call function in node function ()
-
 }
   // Api call to server so we can validate the token
 };
@@ -108,32 +89,28 @@ class App extends Component {
 
               <div data-width="200" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="true">
 
-              <FacebookAuth
+                <FacebookAuth
                     appId="360886547672323"
                     callback={authenticate}
                     component={MyFacebookButton}
                     scope="public_profile,email,user_events"
                     fields="name,first_name,last_name,email,picture,events{is_viewer_admin,start_time,place,cover,description,name}"/>
-                  </div>
+              </div>
 
-            </div>
+          </div>
 
-          )}/>
+        )}/>
           </main>
           <Route exact path="/events" render={(props) => (
-            <Home {...props} /> )}/>
+            <Events {...props} userlocation = {user_location} /> )}/>
 
             <Route exact path="/about" render={(props) => (
               <About {...props} /> )}/>
 
             <Route exact path= "/create" render={(props) => (
               <Create {...props} token = {accessToken} total = {total}/> )}/>
-
-
-
         </div>
       </Router>
-
     );
   }
 }
