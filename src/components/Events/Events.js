@@ -2,25 +2,41 @@ import React, { Component } from 'react';
 import './Events.css';
 import axios from 'axios';
 
+var newLocation;
+
+function userLocation(){
+  var location = prompt("Please enter your location:", "Your Location");
+  if (location == null || location == "") {
+    alert('Please Enter A Valid Location');
+    userLocation();
+    return
+  } else {
+     return location;
+  }
+}
+
 class Events extends Component {
 
   componentDidMount(){
-    if ((!this.props.user_location) ||(!this.props.accessToken) ){
+    newLocation = this.props.userlocation;
+    if (!this.props.token){
       window.location.href = "../";
       alert('Please Login With Facebook to Continue!')
-    }else if (this.props.user_location == "Not Defined"){
-      alert('Please Enter A Location For Your Area')
-      //Add textbox support
+      return
+    }else if (!this.props.userlocation){
+      newLocation = userLocation();
     }
-
+    console.log(newLocation);
+    document.getElementById("open").innerHTML ="Looking for events in " + newLocation;
   }
+
 
   render() {
       return (
         <div>
           <div class = "local">
             <h1>Local Events</h1>
-            <h2>These events are gathered based on your location in </h2>
+            <h2 id = "open">{newLocation}</h2>
           </div>
           <div class = "custom">
             <h1>Events For You</h1>

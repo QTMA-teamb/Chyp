@@ -1,5 +1,3 @@
-
-
 import React, { Component } from 'react';
 import './App.css';
 import Header from "./components/Header/Header.js"
@@ -24,15 +22,17 @@ let user_location
 let accessToken
 
 const authenticate = (response) => {
+  console.log(response);
   if (response.accessToken){
     username = 'Thanks for logging in '+ response.first_name +'!';
     accessToken = response.accessToken;
 
-    if (response.location){
-      user_location = response.location;
-    }else{
-      user_location = "Not Defined"
+    if (response.location.name){
+      user_location = response.location.name;
+
     }
+    console.log(user_location);
+
 
     var i = 0;
     if (response.events){
@@ -93,8 +93,8 @@ class App extends Component {
                     appId="360886547672323"
                     callback={authenticate}
                     component={MyFacebookButton}
-                    scope="public_profile,email,user_events"
-                    fields="name,first_name,last_name,email,picture,events{is_viewer_admin,start_time,place,cover,description,name}"/>
+                    scope="public_profile,email,user_events,user_location"
+                    fields="name,first_name,location,last_name,email,picture,events{is_viewer_admin,start_time,place,cover,description,name}"/>
               </div>
 
           </div>
@@ -102,7 +102,7 @@ class App extends Component {
         )}/>
           </main>
           <Route exact path="/events" render={(props) => (
-            <Events {...props} userlocation = {user_location} /> )}/>
+            <Events {...props} userlocation = {user_location} token = {accessToken} /> )}/>
 
             <Route exact path="/about" render={(props) => (
               <About {...props} /> )}/>

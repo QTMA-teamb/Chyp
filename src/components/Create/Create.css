@@ -7,7 +7,12 @@ body {
   background-size:  100% 100%;
   font-family: 'Hind', sans-serif;
 }
-
+#title{
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  top: 9px;
+}
 .blog-card {
   max-width: 550px;
   width:400px;

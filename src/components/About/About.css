@@ -18,6 +18,13 @@ h1, h2, p{
 		text-align: center;
 		font-family: "Hind", sans-serif;
 }
-.main{
-	background-image: "./Background_Pattern.png";
+.bg{
+	position: absolute;
+  top: 60px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+	background-image: url("./Background_Pattern.png");
+	background-size: cover;
+
 }

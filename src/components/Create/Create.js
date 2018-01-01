@@ -10,19 +10,19 @@ componentDidMount(){
   if (!this.props.token){
     window.location.href = "../";
     alert('Please Login With Facebook to Continue!')
+    return
   }
   if (!this.props.total[0]){
     window.location.href = "../";
     alert('You are not an admin to any events!')
+    return
   }
 }
 
 render() {
     return (
       <div>
-        <div>
-          <h1>Your Facebook Events</h1>
-        </div>
+        <h1 id = "title">Your Facebook Events</h1>
         {this.props.total.map((item, index) => (
           <div class="blog-card spring-fever">
             <img class = "cover-photo" key = {item.id} src = {item.cover} height = '210' width = '400' alt = "Cover Photo"/>

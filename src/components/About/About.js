@@ -6,6 +6,9 @@ class About extends Component {
   render() {
     return (
       <div class= "main">
+      <div class = "bg">
+        <img src = "./Background_Pattern.png" />
+      </div>
       <h1>How does Chyp work?</h1>
       <h2>Set up ticketing for your Facebook events in less than 60 seconds</h2>
       <p>
@@ -20,6 +23,7 @@ class About extends Component {
 
         <b>Step four:</b><br></br>
         Receive a payment link to share on the event</p>
+
 
       </div>
     );
