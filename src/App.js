@@ -33,31 +33,19 @@ const authenticate = (response) => {
     }
     console.log(user_location);
 
-
-    var i = 0;
-    if (response.events){
-      for (i = 0; i < response.events.data.length; i++){
-        if (response.events.data[i].is_viewer_admin != false)
-          {
-            if (response.events.data[i].cover && response.events.data[i].place){
-                if (response.events.data[i].place.location){
-                  total.push({name: response.events.data[i].name, street: response.events.data[i].place.location.street, location: response.events.data[i].place.name, cover: response.events.data[i].cover.source, id: response.events.data[i].id})
-                }
-                else{
-                  total.push({name: response.events.data[i].name, street: "Not Stated", location: "Not Stated", cover: response.events.data[i].cover.source, id: response.events.data[i].id})
-                }
-            }
-            else if (response.events.data[i].cover && !response.events.data[i].place){
-                total.push({name: response.events.data[i].name, street: "Not Stated", location: "Not Stated", cover: response.events.data[i].cover.source, id: response.events.data[i].id})
-              }
-            else if (!response.events.data[i].cover && response.events.data[i].place){
-                  total.push({name: response.events.data[i].name, street: response.events.data[i].place.location.street, location: response.events.data[i].place.name, cover: "https://x.kinja-static.com/assets/images/logos/placeholders/default.png", id: response.events.data[i].id})
-                }
-            else if (!response.events.data[i].cover && !response.events.data[i].place){
-                    total.push({name: response.events.data[i].name, street: "Not Stated", location: "Not Stated", cover: "https://x.kinja-static.com/assets/images/logos/placeholders/default.png", id: response.events.data[i].id})
-                }
-          }
-      }
+    if (response.events) {
+      response.events.data.forEach( event => {
+        if (event.is_viewer_admin != false) {
+          total.push({
+            name: event.name,
+            street: !event.place || !event.place.location || !event.place.location.street ? 'Not Stated' : event.place.location.street,
+            location: !event.place || !event.place.location || !event.place.location.name ? 'Not Stated' : event.place.location.name,
+            cover: !event.cover ? "https://x.kinja-static.com/assets/images/logos/placeholders/default.png" : event.cover.source,
+            id: event.id
+          })
+        }
+      })
+    }
 
   console.log(total)
 }
@@ -68,7 +56,6 @@ const authenticate = (response) => {
   //call function in node function ()
 }
   // Api call to server so we can validate the token
-};
 
 
 
