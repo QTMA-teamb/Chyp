@@ -24,7 +24,7 @@ render() {
       <div>
         <h1 id = "title">Your Facebook Events</h1>
         {this.props.total.map((item, index) => (
-          <div class="blog-card spring-fever">
+          <div class="block-card">
             <img class = "cover-photo" key = {item.id} src = {item.cover} height = '210' width = '400' alt = "Cover Photo"/>
               <div class="title-content">
 
