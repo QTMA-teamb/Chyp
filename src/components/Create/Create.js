@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import './Create.css';
 import '../../App.js'
 
+import CreateCard from './CreateCard';
 
-
-class Card extends Component {
+class Create extends Component {
 
 componentDidMount(){
   if (!this.props.token){
@@ -19,31 +19,19 @@ componentDidMount(){
   }
 }
 
-render() {
+  render() {
     return (
       <div>
-        <h1 id = "title">Your Facebook Events</h1>
-        {this.props.total.map((item, index) => (
-          <div class="block-card">
-            <img class = "cover-photo" key = {item.id} src = {item.cover} height = '210' width = '400' alt = "Cover Photo"/>
-              <div class="title-content">
-
-                <h3><a href="#"  key = {item.id}>{item.name}</a></h3>
-
-                  <div class="intro">
-                    <a key = {item.id}>{item.location}</a><br></br>
-                    <a key = {item.id}>{item.street}</a>
-                  </div>
-              </div>
-              <div class="card-info">
-                <a href="#">Add To Chyp!<span class="licon icon-arr icon-black"></span></a>
-              </div>
-          </div>
-      ))}
-    </div>
+        <h1 id="title">Choose an Event to Set Up on Chyp</h1>
+        <div className='create-cards-container'>
+          {this.props.total.map( (event) => (
+          <CreateCard event={event} key={event.id} />
+          ))}
+        </div>
+      </div>
     );
-
   }
+
 }
 
-export default Card;
+export default Create;

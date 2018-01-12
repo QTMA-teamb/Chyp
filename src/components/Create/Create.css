@@ -1,61 +1,58 @@
 @import url("https://fonts.googleapis.com/css?family=Hind");
+
 html,body{
   height:100%
 }
+
 body {
   background: url(https://cdn.wallpapersafari.com/75/99/V3UN2j.jpg) center no-repeat;
   background-size:  100% 100%;
   font-family: 'Hind', sans-serif;
 }
-#title{
-  position: absolute;
+
+#title {
   text-align: center;
   width: 100%;
-  top: 9px;
+  margin-top: 50px;
 }
+
 .block-card {
   max-width: 550px;
-  width:400px;
+  width: 400px;
   height: 380px;
-  position: relative;
+  margin: 30px;
+  margin-bottom: 30px;
   float: left;
   font-family: 'Hind', sans-serif;
   color:#fff;
-  top: 170px;
-  right: 0;
-  left: 20px;
-  margin: 0;
   overflow: hidden;
   border-radius: 10px;
   box-shadow: 0px 10px 20px -9px rgba(0, 0, 0, 0.5);
   text-align: center;
   background-color: white;
 }
-.cover-photo{
-  position: relative;
+.cover-photo {
   top: 0px;
   color: black;
   /*clip: rect(0px,10px,10px,0px);*/
 }
-.block-card a{
+.block-card a {
   color: rgba(54,60,82,1);
-  text-decoration:none;
+  text-decoration: none;
 }
 
 .title-content {
   text-align: center;
-  margin: 170px 0 0 0;
-  position: absolute;
   width: 100%;
-  top: 20px;
   transition:all 0.6s
 }
+
 .block-card h3,h1 {
   font-size: 1.9em;
   font-weight: 400;
   letter-spacing: 1px;
   font-family: 'Hind', sans-serif;
-  margin-bottom: 0;
+  margin: 0;
   display:inline-block;
   white-space: nowrap;
 }
@@ -65,7 +62,6 @@ body {
 
 .intro {
   white-space: nowrap;
-  position: relative;
   color: rgba(54,60,82,1);
   font-size: 1.0em;
   color: rgba(54,60,82,1);
@@ -73,11 +69,18 @@ body {
   line-height: 18px;
 }
 
+.create-cards-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: left;
+  margin-top: 60px;
+}
+
 .card-info {
   box-sizing: border-box;
   padding: 0;
   width: 100%;
-  position: absolute;
   bottom: 0px;
   /*left: 50px;*/
   margin: 0 auto;
