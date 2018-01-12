@@ -22,15 +22,15 @@ let user_location
 let accessToken
 
 const authenticate = (response) => {
+
   console.log(response);
-  if (response.accessToken){
+
+  if (response.accessToken) {
     username = 'Thanks for logging in '+ response.first_name +'!';
     accessToken = response.accessToken;
 
-    if (response.location.name){
-      user_location = response.location.name;
+    user_location = response.location.name ? response.location.name : null;
 
-    }
     console.log(user_location);
 
     if (response.events) {
@@ -39,7 +39,7 @@ const authenticate = (response) => {
           total.push({
             name: event.name,
             street: !event.place || !event.place.location || !event.place.location.street ? 'Address Not Stated' : event.place.location.street,
-            location: !event.place || !event.place.location || !event.place.location.name ? 'Location Name Not Stated' : event.place.location.name,
+            location: !event.place || !event.place.name ? 'Location Name Not Stated' : event.place.name,
             cover: !event.cover ? "https://x.kinja-static.com/assets/images/logos/placeholders/default.png" : event.cover.source,
             id: event.id
           })
