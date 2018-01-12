@@ -35,11 +35,11 @@ const authenticate = (response) => {
 
     if (response.events) {
       response.events.data.forEach( event => {
-        if (event.is_viewer_admin != false) {
+        if (event.is_viewer_admin !== false) {
           total.push({
             name: event.name,
-            street: !event.place || !event.place.location || !event.place.location.street ? 'Not Stated' : event.place.location.street,
-            location: !event.place || !event.place.location || !event.place.location.name ? 'Not Stated' : event.place.location.name,
+            street: !event.place || !event.place.location || !event.place.location.street ? 'Address Not Stated' : event.place.location.street,
+            location: !event.place || !event.place.location || !event.place.location.name ? 'Location Name Not Stated' : event.place.location.name,
             cover: !event.cover ? "https://x.kinja-static.com/assets/images/logos/placeholders/default.png" : event.cover.source,
             id: event.id
           })
