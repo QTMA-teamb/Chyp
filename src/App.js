@@ -69,7 +69,7 @@ class App extends Component {
         <Header />
         <main>
           <Route exact path="/" render={() => (
-            <div id = "mainn" class = 'content'>
+            <div id="main" class='content'>
               <h1><span>Welcome To Chyp</span></h1>
               <h2>Chyp lets you collect payments for a<br></br> conference, party, or any other event in a click</h2>
               <h3 id= 'lblLogin'>{username}</h3>

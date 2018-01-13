@@ -31,11 +31,7 @@ body {
   text-align: center;
   background-color: white;
 }
-.cover-photo {
-  top: 0px;
-  color: black;
-  /*clip: rect(0px,10px,10px,0px);*/
-}
+
 .block-card a {
   color: rgba(54,60,82,1);
   text-decoration: none;

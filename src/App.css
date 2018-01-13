@@ -1,24 +1,25 @@
 @import url("https://fonts.googleapis.com/css?family=Hind");
-body{
+body {
 	 height: 100%;
 	 width: 100%;
 }
-main{
+main {
 	background: url(https://cdn.wallpapersafari.com/75/99/V3UN2j.jpg) center no-repeat;
 	 background-size: cover;
  height: 100%;
  width: 100%;
 }
-button{
+
+button {
 	padding: 15px 25px;
 	background-color: #4266B2;
 	font-size: 1em;
 	font: lucida;
 	color: white;
 	cursor: pointer;
-	position: relative;
-	top:100px;
+ 	top: 100px;
 }
+
 .content{
 	max-width: 100%;
 	margin: 0 auto;
@@ -26,32 +27,31 @@ button{
 	padding-bottom: 10%;
 
 }
+
 .content h1{
 	font-family: "Hind", sans-serif;
 	font-size: 600%;
 	font-weight: 400;
 	color: rgba(54,60,82,1);
 	line-height: 100%;
-	position: relative;
 	text-overflow: inherit;
-	top: 50px;
+	margin-top: 60px;
 }
+
 .content h2{
 	font-family: "Hind", sans-serif;
 	font-size: 200%;
 	font-weight: lighter;
 	color: rgba(54,60,82,1);
-	position: relative;
-	top: 40px;
+	margin-top: 40px;
 }
+
 .content h3{
 	font-family: "Hind", sans-serif;
 	font-size: 2.3em;
 	font-weight: 500;
 	color: rgba(54,60,82,1);
-	position: relative;
-	top: 130px;
-	left: auto;
+	margin-top: 130px;
 }
 
 @media screen and (max-width: 900px) {

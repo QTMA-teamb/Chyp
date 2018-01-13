@@ -7,22 +7,23 @@ ul{
 	display: flex;
 	flex-direction: row;
 }
+
 nav ul{
 	float: right;
 	/*margin-right: 30px;*/
 }
 
-nav{
-	position: absolute;
-	top: 0px;
+nav {
+	position: fixed;
+	top: 0;
+	left: 0;
 	width: 100%;
 	height: 60px;
 	background-color: rgba(54,60,82,1);
 }
+
 .nav a{
-	position: relative;
-	top: 0px;
-	display: block;
+	float: right;
 	width: 150px;
 	text-align: center;
 	text-transform: uppercase;
@@ -30,27 +31,28 @@ nav{
 	text-decoration: none;
 	font-family: "Hind", sans-serif;
 	font-size: 120%;
-	font-weight: 100;
-	height: 60px;
-	color:  #e2edff;
-	border: none;
-	border-color: rgba(54,60,82,0);
-	cursor: pointer;
 	line-height: 60px;
+	font-weight: 100;
+	color:  #e2edff;
+	cursor: pointer;
 }
 .nav a:hover, a:active{
 	background-color: #00CC89;
 }
+
 .Header{
   max-width: 600px;
 	margin: 0 auto;
 	text-align: center;
 	padding-bottom: 10%;
 }
-img{
-	position: relative;
-	top: 5px;
+
+#logo {
+	float: left;
+	margin-top: 5px;
+	margin-left: 5px;
 }
+
 @media screen and (max-width: 900px) {
 	.nav a{
 		width: 100px;
