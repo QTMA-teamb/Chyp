@@ -1,16 +1,19 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import "./popUp.css"
+import fire from '../../fire.js';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 class ModalExample extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      modal: false
+      modal: false,
+      submitted: false
     };
 
     this.toggle = this.toggle.bind(this);
+    this.submitEvent = this.submitEvent.bind(this);
   }
 
   toggle() {
@@ -19,19 +22,33 @@ class ModalExample extends React.Component {
     });
   }
 
+  submitEvent() {
+    const newRef = fire.database().ref('events/').push();
+    newRef.set(this.props.event);
+    this.setState({
+      submitted: true,
+      event_id: newRef.key
+    })
+  }
+
   render() {
     return (
       <div>
         <Button className = "initButton" onClick={this.toggle}>Add To Chyp</Button>
         <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-          <ModalHeader toggle={this.toggle}>Modal title</ModalHeader>
+          <ModalHeader toggle={this.toggle}>Set a Ticket Price</ModalHeader>
           <ModalBody>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            { this.state.submitted
+              ? 'Visit your event page at: www.chyp.ca/event/' + this.state.event_id
+              : 'place price input form here'
+            }
           </ModalBody>
-          <ModalFooter>
-            <Button color="primary" onClick={this.toggle}>Do Something</Button>{' '}
-            <Button color="secondary" onClick={this.toggle}>Cancel</Button>
-          </ModalFooter>
+          { this.state.submitted ? null :
+            <ModalFooter>
+              <Button color="primary" onClick={this.submitEvent}>Confirm and Add to Chyp</Button>{' '}
+              <Button color="secondary" onClick={this.toggle}>Back to Events</Button>
+            </ModalFooter>
+          }
         </Modal>
       </div>
     );

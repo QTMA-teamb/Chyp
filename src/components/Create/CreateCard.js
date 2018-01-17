@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PopUp from '../PopUp/popUp.js'
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 class CreateCard extends Component {
 
@@ -22,7 +21,7 @@ class CreateCard extends Component {
               </div>
           </div>
           <div class="card-info">
-            <PopUp />
+            <PopUp event={this.props.event} />
           </div>
       </div>
     );
