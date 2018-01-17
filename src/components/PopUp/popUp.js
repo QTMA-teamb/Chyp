@@ -34,9 +34,9 @@ class ModalExample extends React.Component {
   render() {
     return (
       <div>
-        <Button className = "initButton" onClick={this.toggle}>Add To Chyp</Button>
+        <Button className = "initButton" onClick={this.toggle}>Add To Chyp!</Button>
         <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-          <ModalHeader toggle={this.toggle}>Set a Ticket Price</ModalHeader>
+          <ModalHeader toggle={this.toggle}>Set a Ticket Price for this Event!</ModalHeader>
           <ModalBody>
             { this.state.submitted
               ? 'Visit your event page at: www.chyp.ca/event/' + this.state.event_id
