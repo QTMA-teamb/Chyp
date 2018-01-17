@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Events.css';
 import axios from 'axios';
+import CreateCard from '../Create/CreateCard';
 
 var newLocation;
 
@@ -37,6 +38,11 @@ class Events extends Component {
           <div class = "local">
             <h1>Local Events</h1>
             <h2 id = "open">{newLocation}</h2>
+            <div>
+            {this.props.all_Events.map( (event) => (
+            <CreateCard event={event} key={event.id} />
+            ))}
+            </div>
           </div>
           <div class = "custom">
             <h1>Events For You</h1>
