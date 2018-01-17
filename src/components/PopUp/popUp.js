@@ -4,6 +4,7 @@ import "./popUp.css"
 import fire from '../../fire.js';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
+
 class ModalExample extends React.Component {
   constructor(props) {
     super(props);
@@ -23,6 +24,7 @@ class ModalExample extends React.Component {
   }
 
   submitEvent() {
+
     const newRef = fire.database().ref('events/').push();
     newRef.set(this.props.event);
     this.setState({
@@ -40,7 +42,7 @@ class ModalExample extends React.Component {
           <ModalBody>
             { this.state.submitted
               ? 'Visit your event page at: www.chyp.ca/event/' + this.state.event_id
-              : 'place price input form here'
+              : <input type = "number"></input>
             }
           </ModalBody>
           { this.state.submitted ? null :

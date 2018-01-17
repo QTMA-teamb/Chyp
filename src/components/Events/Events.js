@@ -38,7 +38,7 @@ class Events extends Component {
           <div class = "local">
             <h1>Local Events</h1>
             <h2 id = "open">{newLocation}</h2>
-            <div>
+            <div className = "Card">
             {this.props.all_Events.map( (event) => (
             <CreateCard event={event} key={event.id} />
             ))}

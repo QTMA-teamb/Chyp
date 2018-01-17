@@ -7,7 +7,6 @@ class About extends Component {
     return (
       <div class= "main">
       <div class = "bg">
-        <img src = "./Background_Pattern.png" />
       </div>
       <h1>How does Chyp work?</h1>
       <h2>Set up ticketing for your Facebook events in less than 60 seconds</h2>
