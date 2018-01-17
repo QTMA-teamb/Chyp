@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './Create.css';
 import '../../App.js'
-
 import CreateCard from './CreateCard';
 
 class Create extends Component {
@@ -18,6 +17,7 @@ componentDidMount(){
     return
   }
 }
+
 
   render() {
     return (

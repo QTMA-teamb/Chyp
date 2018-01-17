@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
+import PopUp from '../PopUp/popUp.js'
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 class CreateCard extends Component {
+
+  handleClick(){
+    <PopUp />
+  }
 
   render() {
     return (
@@ -11,11 +17,12 @@ class CreateCard extends Component {
 
               <div class="intro">
                 <a key = {this.props.event.id}>{this.props.event.location}</a><br></br>
-                <a key = {this.props.event.id}>{this.props.event.street}</a>
+                <a key = {this.props.event.id}>{this.props.event.street}</a><br></br>
+                <a key = {this.props.event.id}>{this.props.event.end_time}</a>
               </div>
           </div>
           <div class="card-info">
-            <a href="#">Add To Chyp!<span class="licon icon-arr icon-black"></span></a>
+            <PopUp />
           </div>
       </div>
     );

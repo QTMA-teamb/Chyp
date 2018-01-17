@@ -32,7 +32,7 @@ body {
   background-color: white;
 }
 
-.block-card a {
+.block-card a button {
   color: rgba(54,60,82,1);
   text-decoration: none;
 }
@@ -52,7 +52,7 @@ body {
   display:inline-block;
   white-space: nowrap;
 }
-.block-card h3 a{
+.block-card h3 a button{
   transition:all 0.2s
 }
 
@@ -85,7 +85,7 @@ body {
   line-height: 15px;
 }
 
-.card-info a{
+.card-info a button{
   display:block;
   width:120px;
   height: 30px;

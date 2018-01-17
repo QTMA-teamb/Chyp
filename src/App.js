@@ -18,6 +18,7 @@ const MyFacebookButton = ({ onClick }) => (
 
 let username = 'Login With Facebook!'
 const total = []
+const allEvents = []
 let user_location
 let accessToken
 
@@ -44,10 +45,21 @@ const authenticate = (response) => {
             id: event.id
           })
         }
+        else{
+          allEvents.push({
+            name: event.name,
+            street: !event.place || !event.place.location || !event.place.location.street ? 'Address Not Stated' : event.place.location.street,
+            location: !event.place || !event.place.name ? 'Location Name Not Stated' : event.place.name,
+            cover: !event.cover ? "https://x.kinja-static.com/assets/images/logos/placeholders/default.png" : event.cover.source,
+            id: event.id,
+            event_time: event.end_time
+          })
+        }
       })
     }
 
   console.log(total)
+  console.log(allEvents)
 }
 
   document.getElementById('lblLogin').innerHTML =
@@ -81,7 +93,7 @@ class App extends Component {
                     callback={authenticate}
                     component={MyFacebookButton}
                     scope="public_profile,email,user_events,user_location"
-                    fields="name,first_name,location,last_name,email,picture,events{is_viewer_admin,start_time,place,cover,description,name}"/>
+                    fields="name,first_name,location,last_name,email,picture,events{is_viewer_admin,start_time,place,cover,description,name,end_time}"/>
               </div>
 
           </div>
@@ -89,7 +101,7 @@ class App extends Component {
         )}/>
           </main>
           <Route exact path="/events" render={(props) => (
-            <Events {...props} userlocation = {user_location} token = {accessToken} /> )}/>
+            <Events {...props} userlocation = {user_location} token = {accessToken} all_Events = {allEvents} /> )}/>
 
             <Route exact path="/about" render={(props) => (
               <About {...props} /> )}/>

@@ -1,0 +1,10 @@
+.initButton{
+  margin-top: 20px;
+  height:40px;
+  width: 150px;
+  background-color: #00CC89;
+  border-color: transparent;
+}
+.initButton:hover{
+    background-color: #00CC89;
+}
