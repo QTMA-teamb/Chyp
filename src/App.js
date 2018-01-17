@@ -23,15 +23,11 @@ let accessToken
 
 const authenticate = (response) => {
 
-  console.log(response);
-
   if (response.accessToken) {
     username = 'Thanks for logging in '+ response.first_name +'!';
     accessToken = response.accessToken;
 
     user_location = response.location.name ? response.location.name : null;
-
-    console.log(user_location);
 
     if (response.events) {
       response.events.data.forEach( event => {
@@ -46,17 +42,11 @@ const authenticate = (response) => {
         }
       })
     }
-
-  console.log(total)
 }
 
-  document.getElementById('lblLogin').innerHTML =
-   username;
+  document.getElementById('lblLogin').innerHTML = username;
   document.getElementById('btnLogin').style.display = 'none';
-  //call function in node function ()
 }
-  // Api call to server so we can validate the token
-
 
 
 class App extends Component {
@@ -95,7 +85,7 @@ class App extends Component {
               <About {...props} /> )}/>
 
             <Route exact path= "/create" render={(props) => (
-              <Create {...props} token = {accessToken} total = {total}/> )}/>
+              <Create {...props} token={accessToken} total={total}/> )}/>
         </div>
       </Router>
     );
