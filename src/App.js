@@ -21,36 +21,44 @@ const total = []
 const allEvents = []
 let user_location
 let accessToken
+let now = new Date()
 
 const authenticate = (response) => {
-
+  console.log(response)
   if (response.accessToken) {
     username = 'Thanks for logging in '+ response.first_name +'!';
     accessToken = response.accessToken;
 
-    user_location = response.location.name ? response.location.name : null;
+    if (response.location)
+      user_location = response.location.name ? response.location.name : null;
 
     if (response.events) {
       response.events.data.forEach( event => {
+
+        let eventTime = new Date(event.end_time).getTime();
+        let n = new Date().getTime();
+
         if (event.is_viewer_admin !== false) {
           total.push({
             name: event.name,
             street: !event.place || !event.place.location || !event.place.location.street ? 'Address Not Stated' : event.place.location.street,
             location: !event.place || !event.place.name ? 'Location Name Not Stated' : event.place.name,
             cover: !event.cover ? "https://x.kinja-static.com/assets/images/logos/placeholders/default.png" : event.cover.source,
-            id: event.id
-          })
-        }
-        else{
-          allEvents.push({
-            name: event.name,
-            street: !event.place || !event.place.location || !event.place.location.street ? 'Address Not Stated' : event.place.location.street,
-            location: !event.place || !event.place.name ? 'Location Name Not Stated' : event.place.name,
-            cover: !event.cover ? "https://x.kinja-static.com/assets/images/logos/placeholders/default.png" : event.cover.source,
             id: event.id,
-            event_time: event.end_time
+            event_time: new Date(event.end_time)
           })
         }
+        else if(event.end_time && (eventTime >= n)){
+            allEvents.push({
+              name: event.name,
+              street: !event.place || !event.place.location || !event.place.location.street ? 'Address Not Stated' : event.place.location.street,
+              location: !event.place || !event.place.name ? 'Location Name Not Stated' : event.place.name,
+              cover: !event.cover ? "https://x.kinja-static.com/assets/images/logos/placeholders/default.png" : event.cover.source,
+              id: event.id,
+              event_time: new Date(event.end_time)
+            })
+          }
+
       })
     }
 

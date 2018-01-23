@@ -10,11 +10,13 @@ class ModalExample extends React.Component {
     super(props);
     this.state = {
       modal: false,
-      submitted: false
+      submitted: false,
+      price: 0
     };
 
     this.toggle = this.toggle.bind(this);
     this.submitEvent = this.submitEvent.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
   toggle() {
@@ -23,10 +25,17 @@ class ModalExample extends React.Component {
     });
   }
 
-  submitEvent() {
+  handleChange(event) {
+    this.setState({
+      price: event.target.value
+    });
+  }
 
+  submitEvent() {
+    let event_data = this.props.event;
+    event_data.price = this.state.price;
     const newRef = fire.database().ref('events/').push();
-    newRef.set(this.props.event);
+    newRef.set(event_data);
     this.setState({
       submitted: true,
       event_id: newRef.key
@@ -42,7 +51,7 @@ class ModalExample extends React.Component {
           <ModalBody>
             { this.state.submitted
               ? 'Visit your event page at: www.chyp.ca/event/' + this.state.event_id
-              : <input type = "number"></input>
+              : <input type='number' step='0.01' value={this.state.price} onChange={this.handleChange}></input>
             }
           </ModalBody>
           { this.state.submitted ? null :
