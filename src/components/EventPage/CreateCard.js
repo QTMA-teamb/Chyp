@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PopUp from '../PopUp/popUp.js'
 import './Create.css';
+import withRouter from 'react-router'
 
 class CreateCard extends Component {
 
@@ -22,7 +23,7 @@ class CreateCard extends Component {
           <div class="title-content">
             <h3><a href={myURL}  key = {this.props.event.id}>{processed_name}</a></h3>
 
-              <div class="intro">
+              <div class="intro"> 
                 <a key = {this.props.event.id}>{processed_location}</a><br></br>
                 <a key = {this.props.event.id}>{processed_street}</a><br></br>
                 <a key = {this.props.event.id}>{this.props.event.end_time}</a>

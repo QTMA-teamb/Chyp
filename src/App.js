@@ -4,6 +4,7 @@ import Header from "./components/Header/Header.js"
 import Events from "./components/Events/Events.js"
 import Create from "./components/Create/Create.js"
 import About from "./components/About/About.js"
+import EventPage from "./components/EventPage/EventPage.js"
 import FacebookAuth from 'react-facebook-auth'
 import {
   BrowserRouter as Router,
@@ -84,6 +85,7 @@ class App extends Component {
               <h3 id= 'lblLogin'>{username}</h3>
 
               <div data-width="200" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="true">
+
                 { accessToken ? null :
                   <FacebookAuth
                       appId="360886547672323"
@@ -92,6 +94,7 @@ class App extends Component {
                       scope="public_profile,email,user_events,user_location"
                       fields="name,first_name,location,last_name,email,picture,events{is_viewer_admin,start_time,place,cover,description,name,end_time}"/>
                 }
+
               </div>
 
           </div>
@@ -106,6 +109,9 @@ class App extends Component {
 
             <Route exact path= "/create" render={(props) => (
               <Create {...props} token={accessToken} total={total}/> )}/>
+
+            <Route exact path='/event' render={ (props) => (
+              <EventPage {...props} /> )} />
         </div>
       </Router>
     );

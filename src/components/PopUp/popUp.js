@@ -49,7 +49,7 @@ class ModalExample extends React.Component {
           <ModalHeader toggle={this.toggle}>Set a Ticket Price for this Event!</ModalHeader>
           <ModalBody>
             { this.state.submitted
-              ? 'Visit your event page at: www.chyp.ca/event/' + this.state.event_id
+              ? 'Visit your event page at: www.chyp.ca/event?id=' + this.state.event_id
               : <input type='number' step='0.01' value={this.state.price} onChange={this.handleChange}></input>
             }
           </ModalBody>
