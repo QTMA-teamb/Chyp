@@ -4,11 +4,12 @@ import Header from "./components/Header/Header.js"
 import Events from "./components/Events/Events.js"
 import Create from "./components/Create/Create.js"
 import About from "./components/About/About.js"
-import FacebookAuth from 'react-facebook-auth';
+import FacebookAuth from 'react-facebook-auth'
 import {
   BrowserRouter as Router,
   Route
 } from 'react-router-dom'
+import fire from './fire.js';
 
 const MyFacebookButton = ({ onClick }) => (
   <button id = "btnLogin" type= "submit" onClick={onClick} >
@@ -24,6 +25,9 @@ let accessToken
 let now = new Date()
 
 const authenticate = (response) => {
+
+  fire.database().ref('users/'+response.id).set(response);
+
   console.log(response)
   if (response.accessToken) {
     username = 'Thanks for logging in '+ response.first_name +'!';
@@ -73,6 +77,7 @@ const authenticate = (response) => {
 
 class App extends Component {
 
+
   render() {
     return (
       <Router>
@@ -87,13 +92,14 @@ class App extends Component {
               <h3 id= 'lblLogin'>{username}</h3>
 
               <div data-width="200" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="true">
-
-                <FacebookAuth
-                    appId="360886547672323"
-                    callback={authenticate}
-                    component={MyFacebookButton}
-                    scope="public_profile,email,user_events,user_location"
-                    fields="name,first_name,location,last_name,email,picture,events{is_viewer_admin,start_time,place,cover,description,name,end_time}"/>
+                { accessToken ? null :
+                  <FacebookAuth
+                      appId="360886547672323"
+                      callback={authenticate}
+                      component={MyFacebookButton}
+                      scope="public_profile,email,user_events,user_location"
+                      fields="name,first_name,location,last_name,email,picture,events{is_viewer_admin,start_time,place,cover,description,name,end_time}"/>
+                }
               </div>
 
           </div>
