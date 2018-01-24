@@ -34,11 +34,10 @@ class ModalExample extends React.Component {
   submitEvent() {
     let event_data = this.props.event;
     event_data.price = this.state.price;
-    const newRef = fire.database().ref('events/').push();
-    newRef.set(event_data);
+    const newRef = fire.database().ref('events/' + this.props.event.id).set(event_data);
     this.setState({
       submitted: true,
-      event_id: newRef.key
+      event_id: this.props.event.id
     })
   }
 
