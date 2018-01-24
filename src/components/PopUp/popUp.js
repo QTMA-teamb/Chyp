@@ -2,6 +2,7 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import "./popUp.css"
 import fire from '../../fire.js';
+import { withRouter } from 'react-router';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 
@@ -34,11 +35,9 @@ class ModalExample extends React.Component {
   submitEvent() {
     let event_data = this.props.event;
     event_data.price = this.state.price;
-    const newRef = fire.database().ref('events/' + this.props.event.id).set(event_data);
-    this.setState({
-      submitted: true,
-      event_id: this.props.event.id
-    })
+    const newRef = fire.database().ref('events/' + this.props.event.id).set(event_data).then( () => {
+      this.props.history.push('/event?id=' + this.props.event.id);
+    });
   }
 
   render() {
@@ -49,7 +48,7 @@ class ModalExample extends React.Component {
           <ModalHeader toggle={this.toggle}>Set a Ticket Price for this Event!</ModalHeader>
           <ModalBody>
             { this.state.submitted
-              ? 'Visit your event page at: www.chyp.ca/event?id=' + this.state.event_id
+              ? 'Visit your event page.'
               : <input type='number' step='0.01' value={this.state.price} onChange={this.handleChange}></input>
             }
           </ModalBody>
@@ -65,4 +64,4 @@ class ModalExample extends React.Component {
   }
 }
 
-export default ModalExample;
+export default withRouter(ModalExample);
