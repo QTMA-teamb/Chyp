@@ -46,14 +46,7 @@ const authenticate = (response) => {
         if (event.is_viewer_admin !== false) {
           total.push(event);
         } else if (event.end_time && (eventTime >= n)) {
-          allEvents.push({
-            name: event.name,
-            street: !event.place || !event.place.location || !event.place.location.street ? 'Address Not Stated' : event.place.location.street,
-            location: !event.place || !event.place.name ? 'Location Name Not Stated' : event.place.name,
-            cover: !event.cover ? "https://x.kinja-static.com/assets/images/logos/placeholders/default.png" : event.cover.source,
-            id: event.id,
-            event_time: new Date(event.end_time)
-          })
+          allEvents.push(event)
         }
 
       })
