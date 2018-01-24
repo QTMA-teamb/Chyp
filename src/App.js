@@ -33,13 +33,7 @@ const authenticate = (response) => {
     if (response.events) {
       response.events.data.forEach( event => {
         if (event.is_viewer_admin !== false) {
-          total.push({
-            name: event.name,
-            street: !event.place || !event.place.location || !event.place.location.street ? 'Address Not Stated' : event.place.location.street,
-            location: !event.place || !event.place.name ? 'Location Name Not Stated' : event.place.name,
-            cover: !event.cover ? "https://x.kinja-static.com/assets/images/logos/placeholders/default.png" : event.cover.source,
-            id: event.id
-          })
+          total.push(event);
         }
         else{
           allEvents.push({
@@ -85,7 +79,9 @@ class App extends Component {
                     callback={authenticate}
                     component={MyFacebookButton}
                     scope="public_profile,email,user_events,user_location"
-                    fields="name,first_name,location,last_name,email,picture,events{is_viewer_admin,start_time,place,cover,description,name,end_time}"/>
+                    fields="name,first_name,location,last_name,email,picture,events{is_viewer_admin,start_time,place,cover,description,name,end_time}"
+                    />
+
               </div>
 
           </div>

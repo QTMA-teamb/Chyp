@@ -44,7 +44,7 @@ class ModalExample extends React.Component {
   render() {
     return (
       <div>
-        <Button className = "initButton" onClick={this.toggle}>Add To Chyp!</Button>
+        <Button className="initButton" onClick={this.toggle}>Add To Chyp!</Button>
         <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
           <ModalHeader toggle={this.toggle}>Set a Ticket Price for this Event!</ModalHeader>
           <ModalBody>
@@ -55,7 +55,7 @@ class ModalExample extends React.Component {
           </ModalBody>
           { this.state.submitted ? null :
             <ModalFooter>
-              <Button color="primary" onClick={this.submitEvent}>Confirm and Add to Chyp</Button>{' '}
+              <Button style={{ backgroundColor: "#00CC89" }} onClick={this.submitEvent}>Confirm and Add to Chyp</Button>{' '}
               <Button color="secondary" onClick={this.toggle}>Back to Events</Button>
             </ModalFooter>
           }
