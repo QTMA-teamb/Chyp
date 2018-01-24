@@ -4,6 +4,7 @@ import "./popUp.css"
 import fire from '../../fire.js';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
+
 class ModalExample extends React.Component {
   constructor(props) {
     super(props);
