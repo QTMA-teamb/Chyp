@@ -24,6 +24,8 @@ class EventPage extends Component {
     // kill the event listener if it exists
     if (this.eventRef)
       this.eventRef.off();
+
+
   }
 
   render() {
