@@ -85,7 +85,7 @@ class App extends Component {
                       callback={authenticate}
                       component={MyFacebookButton}
                       scope="public_profile,email,user_events,user_location"
-                      fields="name,first_name,location,last_name,email,picture,events{is_viewer_admin,start_time,place,cover,description,name,end_time}"/>
+                      fields="name,first_name,location,last_name,email,picture,events{is_viewer_admin,start_time,place,cover,description,name,end_time,owner}"/>
                 }
 
               </div>

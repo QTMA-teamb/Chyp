@@ -15,6 +15,7 @@ class CreateCard extends Component {
     const processed_location = !this.props.event.place || !this.props.event.place.name ? 'Location Name Not Stated' : this.props.event.place.name;
     const processed_cover = !this.props.event.cover ? "https://x.kinja-static.com/assets/images/logos/placeholders/default.png" : this.props.event.cover.source;
     const processed_description = !this.props.event.description ? "No Description Has Been Added" : this.props.event.description;
+    const processed_owner_name = !this.props.event.owner.name ? "Unknown" : this.props.event.owner.name;
     let myURL = "https://www.facebook.com/events/"+this.props.event.id+"/"
     let processed_date = new Date(this.props.event.end_time).toLocaleDateString('en-US')
     return (
