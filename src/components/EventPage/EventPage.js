@@ -35,27 +35,27 @@ class EventPage extends Component {
       return( null );
     } else {
       return (
-        <div className = "Whole">
+        <div className = "Whole-e">
 
-          <div className="Init">
-            <img className="Cover" src={this.state.cover.source}></img>
+          <div className="Init-e">
+            <img className="Cover-e" src={this.state.cover.source}></img>
           </div>
 
-          <h1 className="Title">{this.state.name}<span id="Hosted"> Hosted By: {this.state.owner.name}</span></h1>
+          <h1 className="Title-e">{this.state.name}<span id="Hosted"> Hosted By: {this.state.owner.name}</span></h1>
 
-          <div className="Date">
+          <div className="Date-e">
             <h1><b>Date & Time</b></h1>
             <h2>Start: {Date(this.state.start_time)}</h2>
             <h2>End: 12/12/12</h2>
           </div>
 
-          <div className="Location">
+          <div className="Location-e">
             <h1><b>Location</b></h1>
             <h2>{this.state.place.name}</h2>
             <h2>{this.state.place.location.street}</h2>
           </div>
 
-          <div className="Description">
+          <div className="Description-e">
             <h1><b>Description</b></h1>
             <p>{this.state.description}</p>
           </div>

@@ -1,5 +1,6 @@
-.local{
-	font-size: 12px;
+#localTitle{
+	font-size: 50px;
+	text-align: center;
 }
 .custom{
 	font-size: 12px;
@@ -7,4 +8,12 @@
 .Card{
 	position: relative;
 	top:50px;
+}
+#customEvents{
+	font-size: 50px;
+	text-align: center;
+}
+#open{
+	font-size: 30px;
+	text-align: center;
 }

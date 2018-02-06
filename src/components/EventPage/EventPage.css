@@ -1,4 +1,4 @@
-.Whole{
+.Whole-e{
   width: 100%;
   max-width: 1200px;
   display: block;
@@ -6,7 +6,7 @@
   margin-top: 60px;
 }
 
-.Init{
+.Init-e{
   padding-top: 38%;
   width: 100%;
   overflow: hidden;
@@ -14,7 +14,7 @@
   height: 0;
 }
 
-.Cover{
+.Cover-e{
   position: absolute;
   width: 100%;
   top: 0;
@@ -22,7 +22,7 @@
   left: 0;
   right: 0;
 }
-.Title{
+.Title-e{
   font-size: 2em;
   color: black;
   text-align: left;
@@ -31,21 +31,21 @@ h1 #Hosted{
   font-size: 18px;
   color: grey;
 }
-.Date{
+.Date-e h2, h1{
   font-size: 14px;
   text-align: left;
   color: black;
 }
-.Location{
+.Location-e{
   position: relative;
   top: -68px;
 }
-.Location{
+.Location-e h1, h2{
   font-size: 14px;
   text-align: center;
   color: black;
 }
-p, .Description{
+.Description-e, p{
   font-size: 14px;
   text-align: left;
   color: black;

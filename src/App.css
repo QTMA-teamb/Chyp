@@ -34,6 +34,7 @@ button {
 	line-height: 100%;
 	text-overflow: inherit;
 	margin-top: 60px;
+	text-align: center;
 }
 
 .content h2{

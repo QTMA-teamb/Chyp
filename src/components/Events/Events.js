@@ -36,7 +36,7 @@ class Events extends Component {
       return (
         <div>
           <div class = "local">
-            <h1>Local Events</h1>
+            <h1 id = "localTitle">Local Events</h1>
             <h2 id = "open">{newLocation}</h2>
             <div className = "Card">
             {this.props.all_Events.map( (event) => (
@@ -45,7 +45,7 @@ class Events extends Component {
             </div>
           </div>
           <div class = "custom">
-            <h1>Events For You</h1>
+            <h1 id= "customEvents">Events For You</h1>
 
           </div>
         </div>
