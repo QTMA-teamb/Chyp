@@ -42,13 +42,13 @@ export default class Example extends React.Component {
                 <NavLink id="Navlink-overide" href="/">Home</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="/events">Events</NavLink>
+                <NavLink id="Navlink-overide" href="/events">Events</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="/create">Create</NavLink>
+                <NavLink id="Navlink-overide" href="/create">Create</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="/about">About</NavLink>
+                <NavLink id="Navlink-overide" href="/about">About</NavLink>
               </NavItem>
             </Nav>
           </Collapse>
