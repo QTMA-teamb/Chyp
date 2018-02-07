@@ -1,7 +1,6 @@
 
 import React, { Component } from 'react';
 import logo from '../../Logo.png';
-//import './Header.css';
 import {Link} from 'react-router-dom'
 import {
   Collapse,
@@ -15,6 +14,7 @@ import {
   DropdownToggle,
   DropdownMenu,
   DropdownItem } from 'reactstrap';
+import './Header.css';
 
 export default class Example extends React.Component {
   constructor(props) {
@@ -33,13 +33,13 @@ export default class Example extends React.Component {
   render() {
     return (
       <div>
-        <Navbar color="faded" light expand="md">
+        <Navbar color="dark" dark expand="md">
           <NavbarBrand href="/"><img id = "logo" src = {logo} width = '160' height="47" alt = 'logo'/></NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
-                <NavLink href="/">Home</NavLink>
+                <NavLink id="Navlink-overide" href="/">Home</NavLink>
               </NavItem>
               <NavItem>
                 <NavLink href="/events">Events</NavLink>

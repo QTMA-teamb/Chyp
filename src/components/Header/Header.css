@@ -1,4 +1,19 @@
 @import url("https://fonts.googleapis.com/css?family=Hind");
+
+.nav-link {
+    font-family: "Hind", sans-serif;
+	font-size: 120%;
+	line-height: 60px;
+	font-weight: 100;
+	color:  #e2edff;
+}
+
+.nav-link:hover{
+    color:  #e2edff;
+    background-color: #00CC89;
+}
+
+/*
 ul{
 	list-style-type:none;
 	margin: 0;
@@ -10,7 +25,7 @@ ul{
 
 nav ul{
 	float: right;
-	/*margin-right: 30px;*/
+	margin-right: 30px;
 }
 
 nav {
@@ -90,3 +105,4 @@ nav {
 		font-size: 57%
 	}
 }
+*/
