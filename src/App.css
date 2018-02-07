@@ -143,3 +143,26 @@ button {
 	}
 
 }
+@media screen and (max-width: 380px) {
+	.content{
+		padding-bottom: 100%;
+	}
+	.content h1{
+		font-size: 2.5em;
+		top: 90px;
+	}
+	.content h2{
+		font-size: 1.3rem;
+		top: 110px;
+		text-align: center;
+	}
+	.content h3{
+		font-size: 1.3rem;
+		top: 130px;
+	}
+	.content #btnLogin{
+		font-size: 1.3rem;
+		top: 120px;
+	}
+
+}

@@ -84,3 +84,8 @@ nav {
 		font-size: 60%
 	}
 }
+@media screen and (max-width: 380px) {
+	.nav a{
+		display: none;
+	}
+}
