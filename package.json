@@ -7,7 +7,7 @@
     "body-parser": "^1.18.2",
     "bootstrap": "^4.0.0-beta.3",
     "fb-react-sdk": "^1.0.4",
-    "firebase": "^4.8.2",
+    "firebase": "^4.9.1",
     "passport-facebook": "^2.1.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
@@ -17,7 +17,7 @@
     "reactstrap": "^5.0.0-alpha.4"
   },
   "devDependencies": {
-    "react-scripts": "^1.0.17"
+    "react-scripts": "^1.1.0"
   },
   "scripts": {
     "start": "serve -s build",
