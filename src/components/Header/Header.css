@@ -13,6 +13,10 @@
     background-color: #00CC89;
 }
 
+#Navlink-overide a {
+  color: white;
+}
+
 /*
 ul{
 	list-style-type:none;

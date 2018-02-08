@@ -42,13 +42,13 @@ export default class Example extends React.Component {
                 <NavLink id="Navlink-overide" href="/">Home</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink id="Navlink-overide" href="/events">Events</NavLink>
+                <NavLink id="Navlink-overide"><Link to='/events'>Events</Link></NavLink>
               </NavItem>
               <NavItem>
-                <NavLink id="Navlink-overide" href="/create">Create</NavLink>
+                <NavLink id="Navlink-overide"><Link to='/create'>Create</Link></NavLink>
               </NavItem>
               <NavItem>
-                <NavLink id="Navlink-overide" href="/about">About</NavLink>
+                <NavLink id="Navlink-overide"><Link to='/about'>About</Link></NavLink>
               </NavItem>
             </Nav>
           </Collapse>
@@ -57,7 +57,7 @@ export default class Example extends React.Component {
     );
   }
 }
-    
+
 /*class Header extends Component {
 
   render() {
