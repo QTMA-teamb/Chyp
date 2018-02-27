@@ -42,13 +42,13 @@ export default class Example extends React.Component {
                 <NavLink id="Navlink-overide" href="/">Home</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink id="Navlink-overide" href="/events">Events</NavLink>
+                <NavLink id="Navlink-overide"><Link to='/events'>Events</Link></NavLink>
               </NavItem>
               <NavItem>
-                <NavLink id="Navlink-overide" href="/create">Create</NavLink>
+                <NavLink id="Navlink-overide"><Link to='/create'>Create</Link></NavLink>
               </NavItem>
               <NavItem>
-                <NavLink id="Navlink-overide" href="/about">About</NavLink>
+                <NavLink id="Navlink-overide"><Link to='/about'>About</Link></NavLink>
               </NavItem>
             </Nav>
           </Collapse>
@@ -57,3 +57,29 @@ export default class Example extends React.Component {
     );
   }
 }
+<<<<<<< HEAD
+=======
+
+/*class Header extends Component {
+
+  render() {
+    return (
+      <div classhost="Header">
+      <header>
+        <nav class="nav">
+          <Link to = '/'><img id = "logo" src = {logo} width = '160' height="47" alt = 'logo'/></Link>
+            <ul class = 'nav'>
+              <li><Link to='/'>Home</Link></li>
+              <li><Link to='/events' id = "events">Events</Link></li>
+              <li><Link to ="/create">Create</Link></li>
+              <li><Link to ='/about'>About</Link></li>
+            </ul>
+        </nav>
+      </header>
+      </div>
+    );
+  }
+}
+
+export default Header;*/
+>>>>>>> 62ff207f868e84a3c1186b4d975ffadbcaae28fb
