@@ -50,7 +50,7 @@ class EventPage extends Component {
           </div>
 
           <div className="Location-e">
-            <h1><b>Location</b></h1>
+            <h1 id = "locationTitle"><b>Location</b></h1>
             <h2>{this.state.place.name}</h2>
             <h2>{this.state.place.location.street}</h2>
           </div>

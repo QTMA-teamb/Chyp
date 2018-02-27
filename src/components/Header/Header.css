@@ -1,108 +1,16 @@
 @import url("https://fonts.googleapis.com/css?family=Hind");
-
 #Navlink-overide {
-    font-family: "Hind", sans-serif;
-	font-size: 120%;
-	line-height: 60px;
-	font-weight: 100;
-	color:  #e2edff;
+  font-family: "Hind", sans-serif;
+  font-size: 120%;
+  line-height: 40px;
+  width: 100px;
+  text-align: center;
+  font-weight: 100;
+  color: #e2edff;
 }
 
-#Navlink-overide:hover{
-    color:  #e2edff;
-    background-color: #00CC89;
+#Navlink-overide:hover {
+  color: #e2edff;
+  background-color: #00CC89;
+  border-radius: 2px;
 }
-
-/*
-ul{
-	list-style-type:none;
-	margin: 0;
-	padding: 0;
-	overflow: hidden;
-	display: flex;
-	flex-direction: row;
-}
-
-nav ul{
-	float: right;
-	margin-right: 30px;
-}
-
-nav {
-	z-index: 99;
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 60px;
-	background-color: rgba(54,60,82,1);
-}
-
-.nav a{
-	float: right;
-	width: 150px;
-	text-align: center;
-	text-transform: uppercase;
-	transition: all 0.5s;
-	text-decoration: none;
-	font-family: "Hind", sans-serif;
-	font-size: 120%;
-	line-height: 60px;
-	font-weight: 100;
-	color:  #e2edff;
-	cursor: pointer;
-}
-.nav a:hover, a:active{
-	background-color: #00CC89;
-}
-
-.Header{
-  max-width: 600px;
-	margin: 0 auto;
-	text-align: center;
-	padding-bottom: 10%;
-}
-
-#logo {
-	float: left;
-	margin-top: 5px;
-	margin-left: 5px;
-}
-
-@media screen and (max-width: 900px) {
-	.nav a{
-		width: 100px;
-		font-size: 100%
-	}
-}
-@media screen and (max-width: 768px) {
-	.nav a{
-		width: 80px;
-		font-size: 80%
-	}
-	img{
-		top: 10px;
-		width: 120px;
-		height: 35px;
-	}
-}
-@media screen and (max-width: 480px) {
-	.nav a{
-		width: 60px;
-		font-size: 75%;
-	}
-
-}
-@media screen and (max-width: 400px) {
-	.nav a{
-		width: 60px;
-		font-size: 60%
-	}
-}
-@media screen and (max-width: 380px) {
-	.nav a{
-		width: 57px;
-		font-size: 57%
-	}
-}
-*/

@@ -57,26 +57,3 @@ export default class Example extends React.Component {
     );
   }
 }
-    
-/*class Header extends Component {
-
-  render() {
-    return (
-      <div classhost="Header">
-      <header>
-        <nav class="nav">
-          <Link to = '/'><img id = "logo" src = {logo} width = '160' height="47" alt = 'logo'/></Link>
-            <ul class = 'nav'>
-              <li><Link to='/'>Home</Link></li>
-              <li><Link to='/events' id = "events">Events</Link></li>
-              <li><Link to ="/create">Create</Link></li>
-              <li><Link to ='/about'>About</Link></li>
-            </ul>
-        </nav>
-      </header>
-      </div>
-    );
-  }
-}
-
-export default Header;*/

@@ -7,11 +7,15 @@ var newLocation;
 
 function userLocation(){
   var location = prompt("Please enter your location:", "Your Location");
-  if (location == null || location == "") {
+  if (location == "") {
     alert('Please Enter A Valid Location');
     userLocation();
     return
-  } else {
+  }
+  else if (location == null){
+    window.location.href = "../";
+  }
+  else {
      return location;
   }
 }

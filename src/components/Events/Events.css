@@ -1,5 +1,6 @@
 #localTitle{
 	font-size: 50px;
+	position: relative;
 	text-align: center;
 }
 .custom{
@@ -14,6 +15,6 @@
 	text-align: center;
 }
 #open{
-	font-size: 3s0px;
+	font-size: 30px;
 	text-align: center;
 }

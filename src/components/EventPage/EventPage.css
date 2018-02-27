@@ -31,7 +31,7 @@ h1 #Hosted{
   font-size: 18px;
   color: grey;
 }
-.Date-e h2, h1{
+.Date-e h2, .Date-e h1{
   font-size: 14px;
   text-align: left;
   color: black;
@@ -40,12 +40,13 @@ h1 #Hosted{
   position: relative;
   top: -68px;
 }
-.Location-e h1, h2{
+.Location-e h1, .Location-e h2{
   font-size: 14px;
   text-align: center;
   color: black;
 }
-.Description-e, p{
+
+.Description-e p{
   font-size: 14px;
   text-align: left;
   color: black;
