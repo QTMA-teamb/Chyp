@@ -84,8 +84,8 @@ class App extends Component {
                       appId="360886547672323"
                       callback={authenticate}
                       component={MyFacebookButton}
-                      scope="public_profile,email,user_events,user_location"
-                      fields="name,first_name,location,last_name,email,picture,events{is_viewer_admin,start_time,place,cover,description,name,end_time,owner}"/>
+                      scope="public_profile,email,user_events,user_location,user_friends"
+                      fields="name,first_name,location,last_name,email,picture,events{is_viewer_admin,start_time,place,cover,description,name,end_time,owner},friends"/>
                 }
               </div>
           </div>

@@ -3,13 +3,25 @@
   font-family: "Hind", sans-serif;
   font-size: 120%;
   line-height: 40px;
-  width: 100px;
+  width: 120px;
   text-align: center;
   font-weight: 100;
   color: #e2edff;
+  text-decoration: none;
 }
 
 #Navlink-overide:hover {
+  color: #e2edff;
+  background-color: #00CC89;
+  border-radius: 2px;
+}
+
+.NavLinker {
+  width: 120px;
+  text-align: center;
+}
+
+.NavLinker:hover {
   color: #e2edff;
   background-color: #00CC89;
   border-radius: 2px;

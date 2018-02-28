@@ -113,6 +113,10 @@ body {
   width: 100%;
 }
 
+.create {
+  font-size: 50px;
+}
+
 @media (max-width:768px) {
   .cover-photo {
     width: 400px;

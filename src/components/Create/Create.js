@@ -23,6 +23,9 @@ componentDidMount(){
     return (
       <div>
         <h1 id="title">Choose an Event to Set Up on Chyp</h1>
+        {/*<h1>Or</h1>
+        <button className="create">Create Your Own!</button>*/}
+
         <div className='create-cards-container'>
           {this.props.total.map( (event) => (
           <CreateCard event={event} key={event.id} />

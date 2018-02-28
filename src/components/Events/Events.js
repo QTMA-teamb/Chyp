@@ -49,7 +49,7 @@ class Events extends Component {
             </div>
           </div>
           <div class = "custom">
-            <h1 id= "customEvents">Events For You</h1>
+            {/*<h1 id= "customEvents">Events For You</h1>*/}
 
           </div>
         </div>
