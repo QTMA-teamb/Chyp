@@ -20,14 +20,6 @@ body {
   height: 100%;
 }
 
-#text-col {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding-left: 100px;
-}
-
 #text-col h1,h2 {
   text-align: left;
 }
@@ -43,8 +35,12 @@ body {
   font-size: 4rem;
 }
 
-@media (max-width: 768px) {
+@media (min-width: 768px) {
   #text-col {
-    padding-left: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 100px;
   }
 }

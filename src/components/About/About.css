@@ -15,13 +15,13 @@
   text-align: center;
 }
 
-h1, h2, p {
+/*h1, h2, p {
   top: 60px;
   position: relative;
   text-align: center;
   font-family: "Hind", sans-serif;
 }
-
+*/
 body {
   /* background-image: url("./Background_Pattern.png"); */
   background-size: cover;
