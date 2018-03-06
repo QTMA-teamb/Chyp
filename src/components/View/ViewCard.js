@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import PopUp from '../PopUp/popUp.js'
-import './Create.css';
+import './ViewCard.css';
 
-class CreateCard extends Component {
+class ViewCard extends Component {
 
   handleClick(){
     <PopUp />
@@ -30,7 +30,7 @@ class CreateCard extends Component {
                 <a key = {this.props.event.id}>{processed_date}</a>
               </div>
               <div class="card-info">
-                <PopUp event={this.props.event}/>
+                  <button id = "Create" className="initButton" onClick={this.handleClick}>View On Chyp!</button>
               </div>
           </div>
 
@@ -40,4 +40,4 @@ class CreateCard extends Component {
 
 }
 
-export default CreateCard;
+export default ViewCard;
