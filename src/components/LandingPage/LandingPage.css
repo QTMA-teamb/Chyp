@@ -1,0 +1,50 @@
+body {
+  background: none;
+}
+
+.container {
+  max-width: 100vw !important;
+}
+
+#landing-page {
+    height: 100%;
+}
+
+#root { height: 100%; }
+
+#App-container {
+  height: 100%;
+}
+
+#landing-page .row {
+  height: 100%;
+}
+
+#text-col {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 100px;
+}
+
+#text-col h1,h2 {
+  text-align: left;
+}
+
+#text-col h1 {
+  color: #00CC89;
+  font-weight: bold;
+  font-size: 5rem;
+}
+
+#text-col h2 {
+  color: #666666;
+  font-size: 4rem;
+}
+
+@media (max-width: 768px) {
+  #text-col {
+    padding-left: 0;
+  }
+}

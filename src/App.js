@@ -4,6 +4,7 @@ import Header from "./components/Header/Header.js"
 import Events from "./components/Events/Events.js"
 import Create from "./components/Create/Create.js"
 import About from "./components/About/About.js"
+import LandingPage from './components/LandingPage/LandingPage.js'
 import EventPage from "./components/EventPage/EventPage.js"
 import FacebookAuth from 'react-facebook-auth'
 import {
@@ -67,7 +68,7 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div classhost="App">
+        <div classhost="App" id='App-container'>
 
         <Header />
         <main>
@@ -91,7 +92,6 @@ class App extends Component {
           </div>
 
         )}/>
-          </main>
           <Route exact path="/events" render={(props) => (
             <Events {...props} userlocation = {user_location} token = {accessToken} all_Events = {allEvents} /> )}/>
 
@@ -103,6 +103,12 @@ class App extends Component {
 
             <Route exact path='/event' render={ (props) => (
               <EventPage {...props} /> )} />
+
+            <Route exact path='/landing' render={ (props) => (
+              <LandingPage {...props} /> )} />
+
+              </main>
+
         </div>
       </Router>
     );
