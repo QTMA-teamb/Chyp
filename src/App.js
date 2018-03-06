@@ -42,11 +42,11 @@ const authenticate = (response) => {
       response.events.data.forEach( event => {
 
         let eventTime = new Date(event.end_time).getTime();
-        let n = new Date().getTime();
+        let currentTime = new Date().getTime();
 
         if (event.is_viewer_admin !== false) {
           total.push(event);
-        } else if (event.end_time && (eventTime >= n)) {
+        } else if (event.end_time && (eventTime >= currentTime)) {
           allEvents.push(event)
         }
 

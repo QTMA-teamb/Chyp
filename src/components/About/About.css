@@ -1,25 +1,28 @@
-.main h1{
-	width: 100%;
-	text-align: center;
-	font-size: 50px;
-	color: rgba(54,60,82,1);
+.main h1 {
+  width: 100%;
+  text-align: center;
+  font-size: 50px;
+  color: rgba(54, 60, 82, 1);
 }
-.main h2{
-font-size: 30px;
-color: rgba(54,60,82,1);
-}
-.main p{
-	font-size: 1.5em;
-	text-align: center;
-}
-h1, h2, p{
-		top: 60px;
-		position: relative;
-		text-align: center;
-		font-family: "Hind", sans-serif;
-}
-body{
-	background-image: url("./Background_Pattern.png");
-	background-size: cover;
 
+.main h2 {
+  font-size: 30px;
+  color: rgba(54, 60, 82, 1);
+}
+
+.main p {
+  font-size: 1.5em;
+  text-align: center;
+}
+
+h1, h2, p {
+  top: 60px;
+  position: relative;
+  text-align: center;
+  font-family: "Hind", sans-serif;
+}
+
+body {
+  /* background-image: url("./Background_Pattern.png"); */
+  background-size: cover;
 }
