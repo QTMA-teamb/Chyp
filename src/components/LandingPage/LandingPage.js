@@ -19,7 +19,7 @@ export default class LandingPage extends React.Component {
         <div className='row'>
           <div className='col-12 col-md-6' id='text-col'>
             <h1>{'Chyp'}</h1>
-            <h2>{'Painlessly collect payments for your events.'}</h2>
+            <h2>{'Painlessly L collect payments for your events.'}</h2>
             <div role='button' onClick={this.buttonClick}>{'Start Here'}</div>
           </div>
           <div className='col-12 col-md-6' id='phone-col'>
