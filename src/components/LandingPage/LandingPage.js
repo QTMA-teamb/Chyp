@@ -23,7 +23,11 @@ export default class LandingPage extends React.Component {
             <div role='button' onClick={this.buttonClick}>{'Start Here'}</div>
           </div>
           <div className='col-12 col-md-6' id='phone-col'>
+<<<<<<< HEAD
             <img src={require('./Iphone.png')} alt='Iphone' id='Iphone'/>
+=======
+            <img src={require('./iphone.jpg')} alt='iPhne' id='iPhone'/>
+>>>>>>> 13bce3cdca2c96a889d52b247a60e613cea6b8bb
           </div>
         </div>
       </div>

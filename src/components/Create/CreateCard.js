@@ -30,7 +30,7 @@ class CreateCard extends Component {
                 <a key = {this.props.event.id}>{processed_date}</a>
               </div>
               <div class="card-info">
-                <PopUp event={this.props.event} />
+                <PopUp event={this.props.event}/>
               </div>
           </div>
 

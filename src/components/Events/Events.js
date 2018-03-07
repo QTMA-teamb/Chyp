@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Events.css';
 import axios from 'axios';
-import CreateCard from '../Create/CreateCard';
+import ViewCard from '../View/ViewCard';
 import firebase from '../../fire.js';
 
 var newLocation;
@@ -27,15 +27,23 @@ componentWillMount() {
   var recents = firebase.database().ref('events').orderByKey().limitToLast(15);
   recents.on('child_added', function(snapshot) {
     var ref = snapshot.val()
-    let eventTime = new Date(ref.end_time).getTime();
+      console.log(ref)
+
+    //let eventTime = new Date(ref.start_time).getTime();
     let currentTime = new Date().getTime();
-    if ((eventTime >= currentTime) && ref.place != null) {
-      if (ref.place.location != null) {
-        if (ref.place.location.city != null && ref.place.location.city == newLocation) {
-          events.push(ref);
+    if (/*(eventTime >= currentTime) &&*/ ref.place != null) {
+        if (ref.place.location == null){
+          if ((ref.place.name.indexOf(newLocation) >= 0)) {
+            events.push(ref);
+          }
+        }
+        else{
+          if ((ref.place.location.city.indexOf(newLocation) >= 0)) {
+            events.push(ref);
+          }
         }
       }
-    }
+
 
   });
   console.log(events)
@@ -65,7 +73,7 @@ componentDidMount() {
             <h2 id = "open">Looking for events in {newLocation}</h2>
             <div className = "Card">
             {events.map( (event) => (
-            <CreateCard event={event} key={event.id} />
+            <ViewCard event={event} key={event.id} />
             ))}
             </div>
           </div>

@@ -34,6 +34,7 @@ body {
 #text-col h2 {
   color: #666666;
   font-size: 3rem;
+<<<<<<< HEAD
 }
 #text-col div {
   color: #ffffffff;
@@ -42,6 +43,8 @@ body {
   text-align: center;
   border-radius: 5px;
   margin-top: 10px;
+=======
+>>>>>>> 13bce3cdca2c96a889d52b247a60e613cea6b8bb
 }
 @media (min-width: 768px) {
   #text-col {
@@ -58,8 +61,28 @@ body {
     justify-content: center;
     align-items: center;
   }
+<<<<<<< HEAD
 
 }
 #phone-col #Iphone {
   height: 95%;
+=======
+}
+
+#text-col div {
+  color: white;
+  font-size: 2rem;
+  background-color: #00CC89;
+  text-align: center;
+  border-radius: 7px;
+  width: 75%;
+}
+
+#text-col div:hover {
+  background-color: #00734dff;
+}
+
+#phone-col #iPhone {
+  height: 80%;
+>>>>>>> 13bce3cdca2c96a889d52b247a60e613cea6b8bb
 }
