@@ -65,6 +65,7 @@ body {
   border-radius: 7px;
   width: 75%;
   max-width: 300px;
+  cursor: pointer;
 }
 
 #text-col div:hover {
