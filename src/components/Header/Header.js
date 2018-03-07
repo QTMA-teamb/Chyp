@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react';
-import logo from '../../LogoDarkClear.png';
+import logo from '../../Logo.png';
 import {Link} from 'react-router-dom'
 import {
   Collapse,
@@ -33,7 +33,7 @@ export default class Example extends React.Component {
   render() {
     return (
       <div>
-        <Navbar color="light" dark expand="md">
+        <Navbar color="dark" dark expand="md">
           <NavbarBrand href="/"><img id = "logo" src = {logo} width = '200' height="60" alt = 'logo'/></NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
