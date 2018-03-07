@@ -73,13 +73,9 @@ class App extends Component {
         <Header />
         <main>
           <Route exact path="/" render={() => (
-            <div id="main" class='content'>
-              <h1><span>Welcome To Chyp</span></h1>
-              <h2>Chyp lets you collect payments for a<br></br> conference, party, or any other event in a click</h2>
-              <h3 id= 'lblLogin'>{username}</h3>
-
-              <div data-width="200" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="true">
-
+            <div id="main" className='content'>
+              <LandingPage />
+              <div style={{display: 'none'}} data-width="200" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="true">
                 { accessToken ? null :
                   <FacebookAuth
                       appId="360886547672323"
@@ -89,6 +85,7 @@ class App extends Component {
                       fields="name,first_name,location,last_name,email,picture,events{is_viewer_admin,start_time,place,cover,description,name,end_time,owner},friends"/>
                 }
               </div>
+
           </div>
 
         )}/>
@@ -103,9 +100,6 @@ class App extends Component {
 
             <Route exact path='/event' render={ (props) => (
               <EventPage {...props} /> )} />
-
-            <Route exact path='/landing' render={ (props) => (
-              <LandingPage {...props} /> )} />
 
               </main>
 
