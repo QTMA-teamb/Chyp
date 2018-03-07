@@ -10,6 +10,10 @@
   text-decoration: none;
 }
 
+#logo {
+  padding-left: 20px;
+}
+
 #Navlink-overide:hover {
   color: #e2edff;
   background-color: #00CC89;
