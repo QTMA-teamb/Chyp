@@ -5,7 +5,6 @@ import fire from '../../fire.js';
 import { withRouter } from 'react-router';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
-
 class ModalExample extends React.Component {
   constructor(props) {
     super(props);
@@ -43,7 +42,7 @@ class ModalExample extends React.Component {
   render() {
     return (
       <div>
-        <Button className="initButton" onClick={this.toggle}>Add To Chyp!</Button>
+        <Button id = "Create" className="initButton" onClick={this.toggle}>Add To Chyp!</Button>
         <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
           <ModalHeader toggle={this.toggle}>Set a Ticket Price for this Event!</ModalHeader>
           <ModalBody>

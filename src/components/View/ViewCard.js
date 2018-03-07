@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import PopUp from '../PopUp/popUp.js'
-import './Create.css';
+import './ViewCard.css';
 
-class CreateCard extends Component {
-
-  handleClick(){
-    <PopUp />
-  }
+let myURL = ''
+class ViewCard extends Component {
+handleClick(){
+  //myURL = "http://localhost:3000/event?id="+ this.props.event.id;
+window.open(myURL)
+}
 
   render() {
 
@@ -16,7 +17,7 @@ class CreateCard extends Component {
     const processed_cover = !this.props.event.cover ? "https://x.kinja-static.com/assets/images/logos/placeholders/default.png" : this.props.event.cover.source;
     const processed_description = !this.props.event.description ? "No Description Has Been Added" : this.props.event.description;
     const processed_owner_name = !this.props.event.owner || !this.props.event.owner.name ? "Unknown" : this.props.event.owner.name;
-    let myURL = "https://www.facebook.com/events/"+this.props.event.id+"/"
+    myURL = "http://localhost:3000/event?id="+ this.props.event.id;
     let processed_date = new Date(this.props.event.end_time).toLocaleDateString('en-US')
     return (
       <div class="block-card">
@@ -30,7 +31,7 @@ class CreateCard extends Component {
                 <a key = {this.props.event.id}>{processed_date}</a>
               </div>
               <div class="card-info">
-                <PopUp event={this.props.event}/>
+                  <button id = "Create" className="initButton" onClick = {this.handleClick}>View On Chyp!</button>
               </div>
           </div>
 
@@ -40,4 +41,4 @@ class CreateCard extends Component {
 
 }
 
-export default CreateCard;
+export default ViewCard;

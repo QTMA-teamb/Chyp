@@ -46,13 +46,13 @@ class EventPage extends Component {
           <div className="Date-e">
             <h1><b>Date & Time</b></h1>
             <h2>Start: {Date(this.state.start_time)}</h2>
-            <h2>End: 12/12/12</h2>
+            <h2>End:{Date(this.state.end_time)} </h2>
           </div>
 
           <div className="Location-e">
             <h1 id = "locationTitle"><b>Location</b></h1>
             <h2>{this.state.place.name}</h2>
-            <h2>{this.state.place.location.street}</h2>
+            <h2>{!this.state.place.location ? "" : this.state.place.location.street}</h2>
           </div>
 
           <div className="Description-e">
