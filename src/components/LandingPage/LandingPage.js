@@ -10,7 +10,7 @@ export default class LandingPage extends React.Component {
   }
 
   buttonClick(evt) {
-    window.alert('Button was clicked');
+    document.getElementById('btnLogin').click()
   }
 
   render() {
