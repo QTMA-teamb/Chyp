@@ -1,10 +1,23 @@
-.initButton{
+.initButton {
   margin-top: 20px;
-  height:40px;
+  height: 40px;
   width: 150px;
   background-color: #00CC89;
   border-color: transparent;
 }
-.initButton:hover{
-    background-color: #00CC89;
+
+.initButton:hover {
+  background-color: #00CC89;
+}
+
+#cardNumber {
+  width: 80%;
+}
+
+#expiry {
+  width: 35%;
+}
+
+#ccv {
+  width: 35%;
 }

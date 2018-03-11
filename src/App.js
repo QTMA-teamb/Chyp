@@ -59,6 +59,7 @@ const authenticate = (response) => {
 
   document.getElementById('lblLogin').innerHTML = username;
   document.getElementById('btnLogin').style.display = 'none';
+  document.getElementById('btnStart').style.display = 'none';
 }
 
 

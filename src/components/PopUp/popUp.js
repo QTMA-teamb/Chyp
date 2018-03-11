@@ -11,7 +11,10 @@ class ModalExample extends React.Component {
     this.state = {
       modal: false,
       submitted: false,
-      price: 0
+      price: 0,
+      cardNumber:0,
+      expiry:0,
+      ccv:0
     };
 
     this.toggle = this.toggle.bind(this);
@@ -43,13 +46,15 @@ class ModalExample extends React.Component {
     return (
       <div>
         <Button id = "Create" className="initButton" onClick={this.toggle}>Add To Chyp!</Button>
+
         <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
           <ModalHeader toggle={this.toggle}>Set a Ticket Price for this Event!</ModalHeader>
-          <ModalBody>
-            { this.state.submitted
-              ? 'Visit your event page.'
-              : <input type='number' step='0.01' value={this.state.price} onChange={this.handleChange}></input>
-            }
+          <ModalBody id = "information">
+             <input type='number' step='0.01' onChange={this.handleChange} placeholder="Ticket Price"></input><br></br>
+              <input id = "cardNumber" type='number' placeholder="Card Number" onChange={this.handleChange}></input><br></br>
+               <input id = "expiry" type='number'  placeholder="Expiry (MM/YYYY)" onChange={this.handleChange}></input><br></br>
+                <input id = "ccv" type='number' placeholder="CCV" onChange={this.handleChange}></input>
+
           </ModalBody>
           { this.state.submitted ? null :
             <ModalFooter>

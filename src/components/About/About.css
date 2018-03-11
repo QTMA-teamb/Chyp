@@ -8,21 +8,22 @@
 .main h2 {
   font-size: 30px;
   color: rgba(54, 60, 82, 1);
+  text-align: center;
 }
 
 .main p {
+  margin-top: 60px;
   font-size: 1.5em;
   text-align: center;
 }
 
-/*h1, h2, p {
-  top: 60px;
-  position: relative;
-  text-align: center;
-  font-family: "Hind", sans-serif;
+.main {
+  max-width: 100vw !important;
 }
-*/
-body {
-  /* background-image: url("./Background_Pattern.png"); */
-  background-size: cover;
+
+.imgiPhone {
+  float: left;
+  position: relative;
+  top: -450px;
+  left: 200px;
 }
