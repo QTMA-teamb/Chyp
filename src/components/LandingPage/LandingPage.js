@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router';
+import fire from '../../fire.js';
+import firebase from 'firebase';
 
 import './LandingPage.css';
 
-export default class LandingPage extends React.Component {
+var FB = require('fb')
+
+ class LandingPage extends React.Component {
 
   constructor(props) {
     super(props);
@@ -10,7 +15,39 @@ export default class LandingPage extends React.Component {
   }
 
   buttonClick(evt) {
-    document.getElementById('btnLogin').click()
+    //    document.getElementById('btnLogin').click();
+    var provider = new firebase.auth.FacebookAuthProvider();
+    provider.addScope("public_profile")
+    provider.addScope('email')
+    provider.addScope('user_events')
+    provider.addScope('user_location')
+    provider.addScope('user_friends')
+    fire.auth().signInWithPopup(provider).then((result) => {
+      fire.database().ref('users/' + result.user.uid).update({
+        access_token: result.credential.accessToken,
+        email: result.user.email,
+        name: result.user.displayName,
+        picture: result.user.photoURL,
+        uid: result.user.uid,
+        fb_id: result.additionalUserInfo.profile.id
+      }).then( () => {
+          FB.setAccessToken(result.credential.accessToken);
+          FB.api(result.additionalUserInfo.profile.id, { fields: ["name","first_name","location","last_name","email","picture","events{is_viewer_admin,start_time,place,cover,description,name,end_time,owner}","friends"] }, function (res) {
+          if(!res || res.error) {
+            console.log(!res ? 'error occurred' : res.error);
+          } else {
+            fire.database().ref('users/' + result.user.uid).update({
+              events: res.events,
+              first_name: res.first_name,
+              last_name: res.last_name,
+              location: res.location
+            });
+          }
+        });
+      }).catch(function(error) {
+        console.log(error);
+      });
+    });
   }
 
   render() {
@@ -19,8 +56,7 @@ export default class LandingPage extends React.Component {
         <div className='row'>
           <div className='col-12 col-md-6' id='text-col'>
             <h1>{'Chyp'}</h1>
-            <h2>{'Painlessly collect payments for your events.'}</h2>
-            <h3 id = 'lblLogin'>{'Login with Facebook'}</h3>
+            <h2>{'Instant ticketing for Facebook events.'}</h2>
             <div role='button' id = "btnStart" onClick={this.buttonClick}>{'Start Here'}</div>
           </div>
           <div className='col-12 col-md-6' id='phone-col'>
@@ -31,3 +67,5 @@ export default class LandingPage extends React.Component {
     );
   }
 }
+
+export default LandingPage;

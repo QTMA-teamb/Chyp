@@ -12,9 +12,7 @@ class ModalExample extends React.Component {
       modal: false,
       submitted: false,
       price: 0,
-      cardNumber:0,
-      expiry:0,
-      ccv:0
+      stage: 'price'
     };
 
     this.toggle = this.toggle.bind(this);
@@ -38,22 +36,26 @@ class ModalExample extends React.Component {
     let event_data = this.props.event;
     event_data.price = this.state.price;
     const newRef = fire.database().ref('events/' + this.props.event.id).set(event_data).then( () => {
-      this.props.history.push('/event?id=' + this.props.event.id);
+      this.setState({
+        stage: 'stripe'
+      })
     });
   }
 
   render() {
+
     return (
       <div>
         <Button id = "Create" className="initButton" onClick={this.toggle}>Add To Chyp!</Button>
 
         <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-          <ModalHeader toggle={this.toggle}>Set a Ticket Price for this Event!</ModalHeader>
+          <ModalHeader toggle={this.toggle}>{'Set a Ticket Price for this Event!'}</ModalHeader>
           <ModalBody id = "information">
-             <input type='number' step='0.01' onChange={this.handleChange} placeholder="Ticket Price"></input><br></br>
-              <input id = "cardNumber" type='number' placeholder="Card Number" onChange={this.handleChange}></input><br></br>
-               <input id = "expiry" type='number'  placeholder="Expiry (MM/YYYY)" onChange={this.handleChange}></input><br></br>
-                <input id = "ccv" type='number' placeholder="CCV" onChange={this.handleChange}></input>
+
+             { this.state.stage === 'price'
+              ? <input type='number' step='0.01' onChange={this.handleChange} placeholder="Ticket Price"></input>
+              : <a href={"https://connect.stripe.com/oauth/authorize?response_type=code&client_id=ca_CRiyeuFWnWEukuvXDGVIDP7ggGdMbm5r&scope=read_write&state=" + fire.auth().currentUser.uid} className="stripe-connect"><span>{'Connect with Stripe'}</span></a>
+             }
 
           </ModalBody>
           { this.state.submitted ? null :
