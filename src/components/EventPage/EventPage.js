@@ -28,6 +28,9 @@ class EventPage extends Component {
 
 
   }
+  Stripe(){
+    alert("helo")
+  }
 
   render() {
     console.log(this.state);
@@ -41,7 +44,7 @@ class EventPage extends Component {
             <img className="Cover-e" src={this.state.cover.source}></img>
           </div>
 
-          <h1 className="Title-e">{this.state.name}<span id="Hosted"> Hosted By: {this.state.owner.name}</span></h1>
+          <h1 className="Title-e"><b>{this.state.name}</b><span id="Hosted"> Hosted By: {!this.state.owner ? "Undefined" : this.state.owner.name}</span></h1>
 
           <div className="Date-e">
             <h1><b>Date & Time</b></h1>
@@ -59,6 +62,7 @@ class EventPage extends Component {
             <h1><b>Description</b></h1>
             <p>{this.state.description}</p>
           </div>
+          <button id = "tickets" onClick = {this.Stripe}>Buy Tickets!</button>
         </div>
       );
     }

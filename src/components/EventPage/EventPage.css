@@ -3,7 +3,7 @@
   max-width: 1200px;
   display: block;
   margin: 0 auto;
-  margin-top: 60px;
+  margin-top: 40px;
 }
 
 .Init-e {
@@ -27,6 +27,7 @@
   font-size: 2em;
   color: black;
   text-align: left;
+  margin-top: 20px;
 }
 
 h1 #Hosted {
@@ -35,7 +36,7 @@ h1 #Hosted {
 }
 
 .Date-e h2, .Date-e h1 {
-  font-size: 14px;
+  font-size: 15px;
   text-align: left;
   color: black;
 }
@@ -46,13 +47,28 @@ h1 #Hosted {
 }
 
 .Location-e h1, .Location-e h2 {
-  font-size: 14px;
+  font-size: 15px;
   text-align: center;
   color: black;
 }
 
+.Description-e h1 {
+  font-size: 2em;
+}
+
 .Description-e p {
-  font-size: 14px;
+  font-size: 15px;
   text-align: left;
   color: black;
+}
+
+#tickets {
+  width: 300px;
+  background-color: #00cc89;
+  border-radius: 10px;
+  font-size: 20px;
+  display: flex;
+  margin: 0 auto;
+  display: block;
+  margin-bottom: 100px;
 }
