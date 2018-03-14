@@ -1,7 +1,7 @@
 const functions = require('firebase-functions');
 var axios = require('axios');
 
-exports.stripeConfirm = functions.database.ref('users/${uid}/stripe_creds/access_token').onCreate( event => {
+exports.stripeConfirm = functions.database.ref('users/{uid}/stripe_creds/access_token').onCreate( event => {
   axios.post('https://connect.stripe.com/oauth/token', {
     client_secret:'sk_test_1Cv6nBVNv76yYsbcECLddaYT',
     code: event.data.val(),
