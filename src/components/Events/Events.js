@@ -4,9 +4,9 @@ import ViewCard from '../View/ViewCard';
 import firebase from '../../fire.js';
 
 var newLocation;
-const events = [];
+var events = [];
 
-function userLocation(){
+function userLocation() {
   var location = prompt("Please enter your city:", "Your Location");
   if (location == "") {
     alert('Please Enter A Valid Location');
@@ -25,37 +25,38 @@ class Events extends Component {
 
   constructor(props) {
     super(props);
-    this.state = { events: []}
+    this.state = { events: [] }
   }
 
-componentWillMount() {
-  var recents = firebase.database().ref('events').orderByKey().limitToLast(15);
-  recents.on('child_added', function(snapshot) {
-    var ref = snapshot.val()
-      console.log(ref)
+  componentWillMount() {
+    var recents = firebase.database().ref('events').orderByKey().limitToLast(15);
+    recents.on('child_added', snapshot => {
+      var ref = snapshot.val()
+        console.log(ref)
 
-    //let eventTime = new Date(ref.start_time).getTime();
-    let currentTime = new Date().getTime();
-    if (/*(eventTime >= currentTime) &&*/ ref.place != null) {
-        if (!ref.place.location){
-          if ((ref.place.name.indexOf(newLocation) >= 0)) {
-            events.push(ref);
+      //let eventTime = new Date(ref.start_time).getTime();
+      let currentTime = new Date().getTime();
+      if (/*(eventTime >= currentTime) &&*/ ref.place != null) {
+          if (!ref.place.location){
+            if ((ref.place.name.indexOf(newLocation) >= 0)) {
+              events.push(ref);
+            }
           }
-        }
-        else{
-          if ((ref.place.location.city.indexOf(newLocation) >= 0)) {
-            events.push(ref);
+          else {
+            if ((ref.place.location.city.indexOf(newLocation) >= 0)) {
+              events.push(ref);
+            }
           }
         }
         this.setState({events: events})
-      }
-  });
-  console.log(events)
-}
 
-componentDidMount() {
-  newLocation = userLocation();
-}
+    })
+    console.log(events)
+  }
+
+  componentDidMount() {
+    newLocation = userLocation();
+  }
 
 
   render() {

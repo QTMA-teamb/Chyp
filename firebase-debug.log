@@ -1,0 +1,37 @@
+[debug] [2018-03-14T21:29:30.747Z] ----------------------------------------------------------------------
+[debug] [2018-03-14T21:29:30.750Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Cameron Perry\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase deploy --only hosting
+[debug] [2018-03-14T21:29:30.750Z] CLI Version:   3.16.0
+[debug] [2018-03-14T21:29:30.750Z] Platform:      win32
+[debug] [2018-03-14T21:29:30.750Z] Node Version:  v8.9.3
+[debug] [2018-03-14T21:29:30.750Z] Time:          Wed Mar 14 2018 17:29:30 GMT-0400 (Eastern Daylight Time)
+[debug] [2018-03-14T21:29:30.750Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-03-14T21:29:30.765Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-03-14T21:29:30.766Z] > authorizing via signed-in user
+[debug] [2018-03-14T21:29:30.768Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2018-03-14T21:29:30.769Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ { refresh_token: '1/e5qI96G_9T0jT2oURxawaDYRIDUPomUqZwGwPCtdxOs',
+  client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
+  client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
+  grant_type: 'refresh_token',
+  scope: 'email https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
+ Wed Mar 14 2018 17:29:30 GMT-0400 (Eastern Daylight Time)
+[debug] [2018-03-14T21:29:31.000Z] <<< HTTP RESPONSE 200
+[debug] [2018-03-14T21:29:31.064Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/chyp-43d38  
+  
+ Wed Mar 14 2018 17:29:31 GMT-0400 (Eastern Daylight Time)
+[debug] [2018-03-14T21:29:31.540Z] <<< HTTP RESPONSE 200
+[debug] [2018-03-14T21:29:31.542Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/chyp-43d38/tokens  
+  
+ Wed Mar 14 2018 17:29:31 GMT-0400 (Eastern Daylight Time)
+[debug] [2018-03-14T21:29:31.862Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'chyp-43d38'...
+[info] 
+[info] i  deploying hosting
+[info] i  hosting: preparing build directory for upload...
+[debug] [2018-03-14T21:29:32.849Z] >>> HTTP REQUEST PUT https://deploy.firebase.com/v1/hosting/chyp-43d38/uploads/-L7aPkDvxz361G5X6dj7?fileCount=11&message=  
+  
+ Wed Mar 14 2018 17:29:32 GMT-0400 (Eastern Daylight Time)
+[debug] [2018-03-14T21:29:34.195Z] <<< HTTP RESPONSE 200
+[debug] [2018-03-14T21:29:34.195Z] [hosting] .tgz uploaded successfully, waiting for extraction
