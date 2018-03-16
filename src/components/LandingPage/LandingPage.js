@@ -7,7 +7,7 @@ import './LandingPage.css';
 
 var FB = require('fb')
 
- class LandingPage extends React.Component {
+class LandingPage extends React.Component {
 
   constructor(props) {
     super(props);
@@ -32,7 +32,7 @@ var FB = require('fb')
         fb_id: result.additionalUserInfo.profile.id
       }).then( () => {
           FB.setAccessToken(result.credential.accessToken);
-          FB.api(result.additionalUserInfo.profile.id, { fields: ["name","first_name","location","last_name","email","picture","events{is_viewer_admin,start_time,place,cover,description,name,end_time,owner}","friends"] }, function (res) {
+          FB.api(result.additionalUserInfo.profile.id, { fields: ["name","first_name","location","last_name","email","picture","events{is_viewer_admin,start_time,place,cover,description,name,end_time,owner}","friends"] }, res => {
           if(!res || res.error) {
             console.log(!res ? 'error occurred' : res.error);
           } else {
@@ -41,7 +41,10 @@ var FB = require('fb')
               first_name: res.first_name,
               last_name: res.last_name,
               location: res.location
-            });
+            }).then( () => {
+              console.log('pushed')
+              this.props.history.push('/create')              
+            })
           }
         });
       }).catch(function(error) {
@@ -68,4 +71,4 @@ var FB = require('fb')
   }
 }
 
-export default LandingPage;
+export default withRouter(LandingPage);
