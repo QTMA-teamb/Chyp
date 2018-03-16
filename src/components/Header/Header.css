@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Hind");
-#Navlink-overide {
+.navlink {
   font-family: "Hind", sans-serif;
   font-size: 120%;
   line-height: 40px;
@@ -8,17 +8,21 @@
   font-weight: 100;
   color: white;
   text-decoration: none;
+  height: 40px;
+  padding: 10px 1.5rem;
+}
+
+.navlink:hover {
+  color: #e2edff;
+  background-color: #00CC89;
+  border-radius: 2px;
+  text-decoration: none;
 }
 
 #logo {
   padding-left: 20px;
 }
 
-#Navlink-overide:hover {
-  color: #e2edff;
-  background-color: #00CC89;
-  border-radius: 2px;
-}
 
 .NavLinker {
   width: 120px;

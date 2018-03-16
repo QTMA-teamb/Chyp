@@ -5,7 +5,7 @@ import firebase from 'firebase';
 
 import './LandingPage.css';
 
-var FB = require('fb')
+import FB from 'fb';
 
 class LandingPage extends React.Component {
 
@@ -43,7 +43,7 @@ class LandingPage extends React.Component {
               location: res.location
             }).then( () => {
               console.log('pushed')
-              this.props.history.push('/create')              
+              this.props.history.push('/create')
             })
           }
         });
@@ -60,7 +60,9 @@ class LandingPage extends React.Component {
           <div className='col-12 col-md-6' id='text-col'>
             <h1>{'Chyp'}</h1>
             <h2>{'Instant ticketing for Facebook events.'}</h2>
-            <div role='button' id = "btnStart" onClick={this.buttonClick}>{'Start Here'}</div>
+            { fire.auth().currentUser ? null :
+              <div role='button' id = "btnStart" onClick={this.buttonClick}>{'Start Here'}</div>              
+            }
           </div>
           <div className='col-12 col-md-6' id='phone-col'>
             <img src={require('./iphone.jpg')} alt='iPhone' id='iPhone'/>

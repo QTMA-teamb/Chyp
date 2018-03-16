@@ -34,21 +34,21 @@ export default class Example extends React.Component {
     return (
       <div>
         <Navbar color="dark" dark expand="md">
-          <NavbarBrand href="/"><img id = "logo" src = {logo} width = 'auto' height="60" alt = 'logo'/></NavbarBrand>
+          <NavbarBrand><Link to='/'><img id = "logo" src = {logo} width = 'auto' height="60" alt = 'logo'/></Link>  </NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
-                <NavLink id="Navlink-overide" href="/">Home</NavLink>
+                <Link to='/' className="navlink">Home</Link>
               </NavItem>
               <NavItem>
-                <NavLink className="NavLinker"><Link to='/events' id="Navlink-overide">Events</Link></NavLink>
+                <Link to='/events' className="navlink">Events</Link>
               </NavItem>
               <NavItem>
-                <NavLink className="NavLinker"><Link to='/create' id="Navlink-overide">Create</Link></NavLink>
+                <Link to='/create' className="navlink">Create</Link>
               </NavItem>
               <NavItem>
-                <NavLink  className="NavLinker"><Link to='/about' id="Navlink-overide">About</Link></NavLink>
+                <Link to='/about' className="navlink">About</Link>
               </NavItem>
             </Nav>
           </Collapse>
