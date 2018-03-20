@@ -5,7 +5,7 @@ import firebase from 'firebase';
 
 import './LandingPage.css';
 
-import FB from 'fb';
+var FB = require('../../fb');
 
 class LandingPage extends React.Component {
 
@@ -61,7 +61,7 @@ class LandingPage extends React.Component {
             <h1>{'Chyp'}</h1>
             <h2>{'Instant ticketing for Facebook events.'}</h2>
             { fire.auth().currentUser ? null :
-              <div role='button' id = "btnStart" onClick={this.buttonClick}>{'Start Here'}</div>              
+              <div role='button' id = "btnStart" onClick={this.buttonClick}>{'Start Here'}</div>
             }
           </div>
           <div className='col-12 col-md-6' id='phone-col'>
