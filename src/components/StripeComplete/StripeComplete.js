@@ -14,7 +14,10 @@ class StripeComplete extends Component {
     if (qs.error) {
       console.log('stripe declined')
     } else {
-      firebase.database().ref('users/' + qs.state + '/stripe_creds/access_token').set(qs.code);
+      const words = qs.state.split("event")
+      console.log(words);
+      firebase.database().ref('users/' + words[0] + '/stripe_creds/access_token').set(qs.code);
+      this.props.history.push("/event?id=" + words[1]);
     }
   }
 

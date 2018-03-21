@@ -59,7 +59,7 @@ class ModalExample extends React.Component {
                   <InputGroupAddon addonType="append">.00</InputGroupAddon>
                 </InputGroup>
 
-              : <a href={"https://connect.stripe.com/oauth/authorize?response_type=code&client_id=ca_CRiyeuFWnWEukuvXDGVIDP7ggGdMbm5r&scope=read_write&state=" + fire.auth().currentUser.uid} className="stripe-connect"><span>{'Connect with Stripe'}</span></a>
+              : <a href={"https://connect.stripe.com/oauth/authorize?response_type=code&client_id=ca_CRiyeuFWnWEukuvXDGVIDP7ggGdMbm5r&scope=read_write&state=" + fire.auth().currentUser.uid + "event" + this.props.event.id} className="stripe-connect"><span>{'Connect with Stripe'}</span></a>
              }
 
           </ModalBody>
