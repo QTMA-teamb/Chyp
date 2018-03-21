@@ -41,6 +41,7 @@ class ModalExample extends React.Component {
       })
     });
     document.getElementsByClassName('modal-footer')[0].remove();
+    document.getElementsByClassName('modal-title')[0].innerHTML = "Connect Your Bank Account";
   }
 
   render() {
@@ -59,12 +60,7 @@ class ModalExample extends React.Component {
                     </div>
                     <Input type="number" step="1" onChange={this.handleChange} placeholder="Ticket Price" />
                 </InputGroup>
-<<<<<<< HEAD
-
-              : <a href={"https://connect.stripe.com/oauth/authorize?response_type=code&client_id=ca_CRiyeuFWnWEukuvXDGVIDP7ggGdMbm5r&scope=read_write&state=" + fire.auth().currentUser.uid + "event" + this.props.event.id} className="stripe-connect"><span>{'Connect with Stripe'}</span></a>
-=======
-              : <div><p><a href={"https://connect.stripe.com/oauth/authorize?response_type=code&client_id=ca_CRiyeuFWnWEukuvXDGVIDP7ggGdMbm5r&scope=read_write&state=" + fire.auth().currentUser.uid} className="stripe-connect"><span>{'Connect with Stripe'}</span></a></p><p>Please add your bank account to Stripe so that we can send you your ticket sales.</p></div>
->>>>>>> 57a34a540926fd20ee829ea135413b29c16dcfc2
+              : <div><p class="text-center"><a href={"https://connect.stripe.com/oauth/authorize?response_type=code&client_id=ca_CRiyeuFWnWEukuvXDGVIDP7ggGdMbm5r&scope=read_write&state=" + fire.auth().currentUser.uid} className="stripe-connect"><span>{'Connect with Stripe'}</span></a></p><p>Please add your bank account to Stripe so that we can send you your ticket sales.</p></div>
              }
 
           </ModalBody>
