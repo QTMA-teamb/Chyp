@@ -36,7 +36,9 @@ class EventPage extends Component {
   }
 
   render() {
-    console.log(this.state);
+
+    const TESTING_TICKET_COMPLETION_RATE = 25;
+
     if (!this.state) {
       return( null );
     } else {
@@ -73,10 +75,11 @@ class EventPage extends Component {
 
                 <div className='row'>
                   <div className='col-12 col-md-9 ticket-col'>
-                    <Progress color='success' value={50} />
+                    <Progress color='success' value={TESTING_TICKET_COMPLETION_RATE} />
+                    <p>{ TESTING_TICKET_COMPLETION_RATE + '% SOLD'}</p>
                   </div>
                   <div className='col-12 col-md-3 ticket-col'>
-                    <Button color='primary' onClick={this.Stripe}>{'REGISTER'}</Button>
+                    <Button color='primary' onClick={this.Stripe} disabled={TESTING_TICKET_COMPLETION_RATE >= 100}>{ TESTING_TICKET_COMPLETION_RATE >= 100 ? 'SOLD OUT' : 'REGISTER'}</Button>
                   </div>
                 </div>
 

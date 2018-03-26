@@ -35,13 +35,23 @@
 
 .ticket-col {
   display: flex;
-  flex-direction: row;
-  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
 }
 
-.ticket-col .progress,
 .ticket-col button {
   flex-grow: 1;
+}
+
+.ticket-col p {
+  width: 100%;
+  text-align: center;
+  margin: 0;
+  color: grey;
+  font-size: 0.8em;
+  position: absolute;
+  top: 70%;
 }
 
 @media (max-width: 768px) {
@@ -54,6 +64,9 @@
   }
   .ticket-col button {
     margin-top: 0.5em;
+  }
+  .ticket-col p {
+    position: static;
   }
 }
 
