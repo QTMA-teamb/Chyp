@@ -12,6 +12,7 @@ class ModalExample extends React.Component {
       modal: false,
       submitted: false,
       price: 0,
+      amount: 0,
       stage: 'price'
     };
 
@@ -28,12 +29,14 @@ class ModalExample extends React.Component {
 
   handleChange(event) {
     this.setState({
-      price: event.target.value
+      [event.target.name]: event.target.value
+
     });
   }
 
   submitEvent() {
     let event_data = this.props.event;
+    event_data.max_tickets = this.state.amount;
     event_data.price = this.state.price;
     const newRef = fire.database().ref('events/' + this.props.event.id).set(event_data).then( () => {
       this.setState({
@@ -52,15 +55,17 @@ class ModalExample extends React.Component {
         <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
           <ModalHeader toggle={this.toggle}>{'Set a Ticket Price for this Event!'}</ModalHeader>
           <ModalBody id = "information">
-        
+
              { this.state.stage === 'price'
-              ? <InputGroup>
+
+              ? <div> <InputGroup>
                     <div class="input-group-prepend">
                         <span class="input-group-text" id="basic-addon1">$</span>
                     </div>
-                    <Input type="number" step="1" onChange={this.handleChange} placeholder="Ticket Price" />
-                </InputGroup>
-              : <div><p class="text-center"><a href={"https://connect.stripe.com/oauth/authorize?response_type=code&client_id=ca_CRiyeuFWnWEukuvXDGVIDP7ggGdMbm5r&scope=read_write&state=" + fire.auth().currentUser.uid} className="stripe-connect"><span>{'Connect with Stripe'}</span></a></p><p>Please add your bank account to Stripe so that we can send you your ticket sales.</p></div>
+                    <Input name = "price" type="number" step="1" onChange={this.handleChange} placeholder="Ticket Price (USD)" />
+                </InputGroup><br></br>
+                <Input name = "amount" type="number" step="1" onChange={this.handleChange} placeholder="Tickets Available (Leave Blank For Unlimited)" /></div>
+              : <div><p><a href={"https://connect.stripe.com/oauth/authorize?response_type=code&client_id=ca_CRiyeuFWnWEukuvXDGVIDP7ggGdMbm5r&scope=read_write&state=" + fire.auth().currentUser.uid + "event" + this.props.event.id} className="stripe-connect"><span>{'Connect with Stripe'}</span></a></p><p>Please add your bank account to Stripe so that we can send you your ticket sales.</p></div>
              }
 
           </ModalBody>

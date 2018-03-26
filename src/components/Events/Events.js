@@ -64,7 +64,7 @@ class Events extends Component {
         <div>
           <div class = "local">
             <h1 id = "localTitle">Local Events</h1>
-            <h2 id = "open">Looking for events in {newLocation}</h2>
+            <h2 id = "open">Found events in {newLocation}</h2>
             <div className = "Card">
             {this.state.events.map( (event) => (
             <ViewCard event={event} key={event.id} />
