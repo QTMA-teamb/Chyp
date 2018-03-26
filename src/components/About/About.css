@@ -1,29 +1,48 @@
-.main h1 {
-  width: 100%;
-  text-align: center;
-  font-size: 50px;
-  color: rgba(54, 60, 82, 1);
-}
+ .main h2, .main h3, .main img {
+   padding-left: 40px;
+   color: rgba(54, 60, 82, 1);
+ }
 
-.main h2 {
-  font-size: 30px;
-  color: rgba(54, 60, 82, 1);
-  text-align: center;
-}
+ .pplCont {
+   display: flex;
+ }
 
-.main p {
-  margin-top: 60px;
-  font-size: 1.5em;
-  text-align: center;
-}
+ .greg, .cam, .brian, .tim {
+   width: 500px;
+ }
 
-.main {
-  max-width: 100vw !important;
-}
+ .main h1 {
+   text-align: center;
+   color: rgba(54, 60, 82, 1);
+   width: 100%;
+   font-size: 50px;
+   margin-bottom: 20px;
+ }
 
-.imgiPhone {
-  float: left;
-  position: relative;
-  top: -450px;
-  left: 200px;
-}
+ .main h2 {
+   font-size: 30px;
+ }
+
+ .main h3 {
+   font-size: 20px;
+ }
+
+ .main p {
+   margin-top: 60px;
+   font-size: 1.5em;
+   text-align: center;
+ }
+
+ .main {
+   max-width: 100vw !important;
+ }
+
+ img {
+   padding-bottom: 20px;
+ }
+
+ .main address {
+   font-size: 16px;
+   position: fixed;
+   bottom: 0;
+ }
