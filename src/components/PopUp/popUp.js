@@ -44,6 +44,7 @@ class ModalExample extends React.Component {
       })
     });
     document.getElementsByClassName('modal-footer')[0].remove();
+    document.getElementsByClassName('modal-title')[0].innerHTML = "Connect Your Bank Account";
   }
 
   render() {
