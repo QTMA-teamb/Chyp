@@ -9,8 +9,8 @@ main {
   width: 100%;
 }
 
-#root { height: 100%; }
-#App-container { height: 100%; }
+#root { height: 100%; width: 100%; }
+#App-container { height: 100%; width: 100%;}
 
 button {
   padding: 15px 25px;
