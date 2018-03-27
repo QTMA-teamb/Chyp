@@ -17,7 +17,9 @@ class Create extends Component {
         let total = [];
         res.val() && res.val().forEach( event => {
           console.log(event);
-          if (event.is_viewer_admin) {
+          let eventTime = new Date(event.start_time).getTime();
+          let currentTime = new Date().getTime();
+          if (event.is_viewer_admin && (eventTime >= currentTime)) {
             total.push(event);
           }
         });

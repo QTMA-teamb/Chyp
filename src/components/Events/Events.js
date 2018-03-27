@@ -34,9 +34,10 @@ class Events extends Component {
       var ref = snapshot.val()
         console.log(ref)
 
-      //let eventTime = new Date(ref.start_time).getTime();
+      let eventTime = new Date(ref.start_time).getTime();
       let currentTime = new Date().getTime();
-      if (/*(eventTime >= currentTime) &&*/ ref.place != null) {
+
+      if ((eventTime >= currentTime) && ref.place != null) {
           if (!ref.place.location){
             if ((ref.place.name.indexOf(newLocation) >= 0)) {
               events.push(ref);
