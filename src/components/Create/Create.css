@@ -20,7 +20,6 @@ body {
   max-width: 550px;
   width: 400px;
   height: 380px;
-  margin: 30px;
   margin-bottom: 30px;
   float: left;
   font-family: 'Hind', sans-serif;
@@ -71,7 +70,7 @@ body {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: left;
+  justify-content: space-around;
   margin-top: 60px;
 }
 
@@ -80,7 +79,6 @@ body {
   padding: 0;
   width: 100%;
   bottom: 0px;
-  /*left: 50px;*/
   margin: 0 auto;
   padding: 0 50px;
   font-style: 16px;

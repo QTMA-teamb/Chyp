@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PopUp from '../PopUp/popUp.js'
-import './Create.css';
 
 class CreateCard extends Component {
 
