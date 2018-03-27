@@ -63,7 +63,7 @@ class LandingPage extends React.Component {
             { fire.auth().currentUser ? null :
               <div role='button' id = "btnStart" onClick={this.buttonClick}>{'Start Here'}</div>
             }
-            
+
           </div>
           <div className='col-12 col-md-6' id='phone-col'>
             <img src={require('./iphone.jpg')} alt='iPhone' id='iPhone'/>
