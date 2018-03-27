@@ -68,6 +68,9 @@
   .ticket-col p {
     position: static;
   }
+  #map {
+    padding: 0;
+  }
 }
 
 

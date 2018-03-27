@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router';
 import { Button, Progress } from 'reactstrap';
+import { GoogleMap, Marker, withScriptjs, withGoogleMap } from "react-google-maps"
 import fire from '../../fire.js';
 import moment from 'moment';
 import './EventPage.css';
-
+import EventMap from './EventMap';
 const queryString = require('query-string');
 
 class EventPage extends Component {
@@ -53,7 +54,7 @@ class EventPage extends Component {
 
           <div className='row' id='title-row'>
             <div className='col-10 offset-1'>
-              <h3>{this.state.name}<span>{!this.state.owner ? "by blank" : 'by ' + this.state.owner.name}</span></h3>
+              <h3>{this.state.name}<span>{!this.state.owner ? "" : 'by ' + this.state.owner.name}</span></h3>
             </div>
           </div>
 
@@ -64,7 +65,7 @@ class EventPage extends Component {
             </div>
             <div className='col-10 offset-1 col-md-3'>
               <h6 className='event-page-header' id='location-header'>{'LOCATION'}</h6>
-              <p>{this.state.place.name}<br/>{this.state.place.location ? this.state.place.location.street : ''}</p>
+              <p>{this.state.place.name}<br/>{this.state.place.location ? this.state.place.location.street : ''}<br/><a href='#map'>{'View Map'}</a></p>
             </div>
           </div>
 
@@ -92,6 +93,21 @@ class EventPage extends Component {
               <p>{this.state.description}</p>
             </div>
           </div>
+
+          { this.state.place.location ? (
+            <div className='row'>
+              <div className='col-12 col-md-8 offset-md-2' id='map'>
+                <EventMap
+                  lat={this.state.place.location.latitude}
+                  lng={this.state.place.location.longitude}
+                  googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places"
+                  loadingElement={<div style={{ height: `100%` }} />}
+                  containerElement={<div style={{ height: `400px` }} />}
+                  mapElement={<div style={{ height: `100%` }} />}
+                />
+              </div>
+            </div>
+          ) : null }
 
         </div>
       );
