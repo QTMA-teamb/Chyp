@@ -1,22 +1,26 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router';
 import { Button, Progress } from 'reactstrap';
-import { GoogleMap, Marker, withScriptjs, withGoogleMap } from "react-google-maps"
-import fire from '../../fire.js';
 import moment from 'moment';
+import fire from '../../fire.js';
 import './EventPage.css';
 import EventMap from './EventMap';
+import TicketPurchase from './TicketPurchase';
 const queryString = require('query-string');
 
 class EventPage extends Component {
 
-  componentWillMount() {
+  constructor(props) {
+    super(props);
+    this.state = {modal: true};
+    this.toggleModal = this.toggleModal.bind(this);
+  }
 
+  componentWillMount() {
     // ensure that an id is passed in the URL, otherwise redirect to home page
     if (!queryString.parse(this.props.location.search).id) {
       this.props.history.push('/');
     }
-
     // listen for changes to event data
     this.eventRef = fire.database().ref('events/' + queryString.parse(this.props.location.search).id);
     this.eventRef.on('value', eventRes => {
@@ -28,23 +32,24 @@ class EventPage extends Component {
     // kill the event listener if it exists
     if (this.eventRef)
       this.eventRef.off();
-
-
   }
 
-  Stripe() {
-    window.alert("helo")
+  toggleModal() {
+    const new_state = !this.state.modal;
+    this.setState({ modal: new_state });
   }
 
   render() {
 
     const TESTING_TICKET_COMPLETION_RATE = 25;
 
-    if (!this.state) {
+    if (!this.state.cover) {
       return( null );
     } else {
       return (
         <div id="event-page" className='container-fluid'>
+
+          <TicketPurchase modalOpen={this.state.modal} toggleModal={this.toggleModal}/>
 
           <div className='row'>
             <div className="col-12" id="cover-image">
@@ -82,7 +87,7 @@ class EventPage extends Component {
                     <p>{ TESTING_TICKET_COMPLETION_RATE + '% SOLD'}</p>
                   </div>
                   <div className='col-12 col-md-3 ticket-col'>
-                    <Button color='primary' onClick={this.Stripe} disabled={TESTING_TICKET_COMPLETION_RATE >= 100}>{ TESTING_TICKET_COMPLETION_RATE >= 100 ? 'SOLD OUT' : 'REGISTER'}</Button>
+                    <Button color='primary' onClick={this.toggleModal} disabled={TESTING_TICKET_COMPLETION_RATE >= 100}>{ TESTING_TICKET_COMPLETION_RATE >= 100 ? 'SOLD OUT' : 'REGISTER'}</Button>
                   </div>
                 </div>
 

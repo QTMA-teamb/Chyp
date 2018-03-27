@@ -7,7 +7,7 @@ import './LandingPage.css';
 
 var FB = require('../../fb');
 
-class LandingPage extends React.Component {
+class LandingPage extends Component {
 
   constructor(props) {
     super(props);

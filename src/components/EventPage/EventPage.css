@@ -84,3 +84,25 @@
   display: block;
   margin-bottom: 100px;
 }
+
+#ticket-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#ticket-form .StripeElement {
+  width: 100%;
+}
+
+.form-divider {
+  height: 2px;
+  border-radius: 1px;
+  width: 100%;
+  background-color: 'grey';
+}
+
+#ticket-form button {
+  width: 100%;
+  margin-top: 1em;
+}
