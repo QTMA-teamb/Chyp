@@ -7,7 +7,7 @@ import './LandingPage.css';
 
 var FB = require('../../fb');
 
-class LandingPage extends React.Component {
+class LandingPage extends Component {
 
   constructor(props) {
     super(props);
@@ -66,7 +66,7 @@ class LandingPage extends React.Component {
 
           </div>
           <div className='col-12 col-md-6' id='phone-col'>
-            <img src={require('./iphone.jpg')} alt='iPhone' id='iPhone'/>
+            <img src={require('./iPhoneX.png')} alt='iPhone' id='iPhone'/>
           </div>
         </div>
       </div>
