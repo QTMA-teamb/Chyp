@@ -73,7 +73,6 @@
   }
 }
 
-
 #tickets {
   width: 300px;
   background-color: #00cc89;
@@ -105,4 +104,6 @@
 #ticket-form button {
   width: 100%;
   margin-top: 1em;
+  background-color: #00CC89;
+  border-color: white;
 }

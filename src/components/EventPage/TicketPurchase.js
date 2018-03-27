@@ -10,6 +10,7 @@ export class TicketPurchase extends Component {
   constructor(props) {
     super(props);
     fire.auth().onAuthStateChanged( user => {
+      console.log(user);
       this.setState({ logged_in: user ? true : false });
     })
   }
@@ -24,7 +25,7 @@ export class TicketPurchase extends Component {
           <ModalBody>
             {this.state.logged_in ? (
               <div>
-                <p>{'A receipt will be sent to ' + fire.auth().currentUser.name}</p>
+                <p>{'A receipt will be sent to ' + fire.auth().currentUser.displayName}</p>
                 <Button color='primary' onClick={ () => {fire.auth().signOut()} }>{'Not You?'}</Button>
               </div>
             ) : (
