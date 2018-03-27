@@ -19,18 +19,22 @@ export class TicketPurchase extends Component {
       return null
     } else {
       return (
-        <Modal isOpen={this.props.modalOpen} toggle={this.props.toggleModal}>
+        <Modal isOpen={this.props.modalOpen} toggle={this.props.toggleModal} id='checkout-modal'>
           <ModalHeader>{'Purchase Your Ticket'}</ModalHeader>
           <ModalBody>
-            {this.state.logged_in ? (
-              <div>
-                <p>{'A receipt will be sent to ' + fire.auth().currentUser.name}</p>
-                <Button color='primary' onClick={ () => {fire.auth().signOut()} }>{'Not You?'}</Button>
-              </div>
-            ) : (
-              <Button color='primary'>{'Log In'}</Button>
-            )}
+            <div id='purchaser-container'>
+              <h6>{'CONFIRM YOUR PROFILE'}</h6>
+                {this.state.logged_in ? (
+                  <div id='purchaser'>
+                    <p>{'A receipt will be sent to ' + fire.auth().currentUser.displayName}</p>
+                    <Button color='primary' onClick={ () => {fire.auth().signOut()} }>{'Not You?'}</Button>
+                  </div>
+                ) : (
+                  <Button color='primary'>{'Log In'}</Button>
+                )}
+            </div>
             <div className='form-divider'></div>
+            <h6>{'YOUR PAYMENT DETAILS'}</h6>
             <Elements>
               <CheckoutForm disabled={!this.state.logged_in}/>
             </Elements>

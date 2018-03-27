@@ -12,7 +12,7 @@ class EventPage extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {modal: true};
+    this.state = {modal: false};
     this.toggleModal = this.toggleModal.bind(this);
   }
 
