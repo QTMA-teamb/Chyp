@@ -1,23 +1,16 @@
  .main h2, .main h3, .main img {
-   padding-left: 40px;
    color: rgba(54, 60, 82, 1);
- }
-
-
- .greg, .cam, .brian, .tim {
-   width: 500px;
  }
 
  .main h1 {
    text-align: center;
    color: rgba(54, 60, 82, 1);
-   width: 100%;
    font-size: 50px;
    margin-bottom: 20px;
  }
 
  .main h2 {
-   font-size: 30px;
+   font-size: 25px;
  }
 
  .main h3 {
