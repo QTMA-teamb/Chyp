@@ -18,7 +18,7 @@ class ViewCard extends Component {
     const processed_description = !this.props.event.description ? "No Description Has Been Added" : this.props.event.description;
     const processed_owner_name = !this.props.event.owner || !this.props.event.owner.name ? "Unknown" : this.props.event.owner.name;
     const myURL = "http://localhost:3000/event?id="+ this.props.event.id;
-    let processed_date = new Date(this.props.event.end_time).toLocaleDateString('en-US')
+    let processed_date = new Date(this.props.event.end_time).toLocaleString('en-US')
     return (
       <div class="block-card">
         <img class = "cover-photo" key = {this.props.event.id + 'cover'} src = {processed_cover} height = '210' width = '400' alt = "Cover Photo"/>

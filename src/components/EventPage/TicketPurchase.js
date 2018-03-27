@@ -10,6 +10,7 @@ export class TicketPurchase extends Component {
   constructor(props) {
     super(props);
     fire.auth().onAuthStateChanged( user => {
+      console.log(user);
       this.setState({ logged_in: user ? true : false });
     })
   }
