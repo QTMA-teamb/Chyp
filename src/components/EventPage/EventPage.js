@@ -65,7 +65,9 @@ class EventPage extends Component {
             </div>
             <div className='col-10 offset-1 col-md-3'>
               <h6 className='event-page-header' id='location-header'>{'LOCATION'}</h6>
-              <p>{this.state.place.name}<br/>{this.state.place.location ? this.state.place.location.street : ''}<br/><a href='#map'>{'View Map'}</a></p>
+              <p>{this.state.place.name}<br/>
+                 {this.state.place.location ? this.state.place.location.street : ''}<br/>
+                 {this.state.place.location ? (<a href='#map'>{'View Map'}</a>) : null}</p>
             </div>
           </div>
 
