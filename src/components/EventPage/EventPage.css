@@ -95,10 +95,10 @@
 }
 
 .form-divider {
-  height: 2px;
-  border-radius: 1px;
+  height: 1px;
   width: 100%;
-  background-color: 'grey';
+  background-color: grey;
+  margin: 1em 0;
 }
 
 #ticket-form button {
@@ -106,4 +106,21 @@
   margin-top: 1em;
   background-color: #00CC89;
   border-color: white;
+}
+
+#checkout-modal h6 {
+  text-align: left;
+  font-weight: bold;
+  font-size: 13px;
+}
+
+#purchaser-container div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1em;
+}
+
+#purchaser-container p {
+  margin: 0;
 }
