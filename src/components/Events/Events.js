@@ -38,17 +38,16 @@ class Events extends Component {
       let currentTime = new Date().getTime();
 
       if ((eventTime >= currentTime) && ref.place != null) {
-          if (!ref.place.location){
-            if ((ref.place.name.indexOf(newLocation) >= 0)) {
+        if ((ref.place.name.indexOf(newLocation) >= 0)) {
+          events.push(ref);
+        }
+        if (ref.place.location){
+          if ((ref.place.location.city.indexOf(newLocation) >= 0)) {
               events.push(ref);
-            }
-          }
-          else {
-            if ((ref.place.location.city.indexOf(newLocation) >= 0)) {
-              events.push(ref);
-            }
           }
         }
+
+      }
         this.setState({events: events})
 
     })
