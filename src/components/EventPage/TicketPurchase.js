@@ -10,10 +10,32 @@ export class TicketPurchase extends Component {
 
   constructor(props) {
     super(props);
+    this.state = { stage: 'purchase' };
     fire.auth().onAuthStateChanged( user => {
       this.setState({ logged_in: user ? true : false });
     })
     this.calcPrices = this.calcPrices.bind(this);
+    this.completePurchase = this.completePurchase.bind(this);
+  }
+
+  completePurchase(token) {
+    // create the ticket object
+    const ticket = {
+      'prices': this.calcPrices(),
+      'event': this.props.event,
+      'purchaser': fire.auth().currentUser.uid,
+      'status': 'placed',
+      'card': token
+    }
+    console.log(ticket)
+
+    // generate a ticket ID and push it to the event's node
+    const ticketRef = fire.database().ref('events/' + ticket.event + '/tickets').push();
+    ticketRef.set(ticket)
+    // insert it to the user's node
+    fire.database().ref('users/' + ticket.purchaser + '/tickets/' + ticketRef.key).set(ticket);
+    // show a completed message
+    this.setState({ stage: 'placed' })
   }
 
   onLoginClick() {
@@ -56,50 +78,58 @@ export class TicketPurchase extends Component {
       const prices = this.calcPrices();
       return (
         <Modal isOpen={this.props.modalOpen} toggle={this.props.toggleModal} id='checkout-modal'>
-          <ModalHeader>{'Purchase Your Ticket'}</ModalHeader>
+          <ModalHeader>{{
+            'purchase': 'Purchase Your Ticket',
+            'placed': 'Ticket Purchased!'
+          }[this.state.stage]}</ModalHeader>
           <ModalBody>
-            <div id='purchaser-container'>
-              <h6>{'YOUR PROFILE'}</h6>
-                {this.state.logged_in ? (
-                  <div id='purchaser'>
-                    <img src={fire.auth().currentUser.photoURL} />
-                    <div>
-                      <p>{fire.auth().currentUser.displayName}</p>
-                      <p>{fire.auth().currentUser.email}</p>
+            { this.state.stage === 'purchase' ? (
+              <div id='purchaser-container'>
+                <h6>{'YOUR PROFILE'}</h6>
+                  {this.state.logged_in ? (
+                    <div id='purchaser'>
+                      <img src={fire.auth().currentUser.photoURL} />
+                      <div>
+                        <p>{fire.auth().currentUser.displayName}</p>
+                        <p>{fire.auth().currentUser.email}</p>
+                      </div>
+                      <Button color='primary' onClick={ () => {fire.auth().signOut()} }>{'Not You?'}</Button>
                     </div>
-                    <Button color='primary' onClick={ () => {fire.auth().signOut()} }>{'Not You?'}</Button>
+                  ) : (
+                    <Button color='primary' id='login-btn' onClick={this.onLoginClick}>{'Connect with Facebook to Continue'}</Button>
+                  )}
+                <div className='form-divider'></div>
+                <h6>{'YOUR TICKET'}</h6>
+                <div id='checkout-cart'>
+                  <div>
+                    <p>{'Ticket Price'}</p>
+                    <p>{'$' + prices.ticket.toFixed(2)}</p>
                   </div>
-                ) : (
-                  <Button color='primary' id='login-btn' onClick={this.onLoginClick}>{'Connect with Facebook to Continue'}</Button>
-                )}
-            </div>
+                  <div>
+                    <p>{'Chyp Fee'}</p>
+                    <p>{'$' + prices.fees.toFixed(2)}</p>
+                  </div>
+                  <div>
+                    <p>{'HST'}</p>
+                    <p>{'$' + prices.tax.toFixed(2)}</p>
+                  </div>
+                  <div id='total-row'>
+                    <p>{'Total'}</p>
+                    <p>{'$' + prices.total.toFixed(2)}</p>
+                  </div>
+                </div>
+                <div className='form-divider'></div>
 
-            <div className='form-divider'></div>
-            <h6>{'YOUR TICKET'}</h6>
-            <div id='checkout-cart'>
-              <div>
-                <p>{'Ticket Price'}</p>
-                <p>{'$' + prices.ticket.toFixed(2)}</p>
+                <h6>{'YOUR PAYMENT'}</h6>
+                <Elements>
+                  <CheckoutForm disabled={!this.state.logged_in} price={prices.total} completePurchase={this.completePurchase} />
+                </Elements>
               </div>
-              <div>
-                <p>{'Chyp Fee'}</p>
-                <p>{'$' + prices.fees.toFixed(2)}</p>
-              </div>
-              <div>
-                <p>{'HST'}</p>
-                <p>{'$' + prices.tax.toFixed(2)}</p>
-              </div>
-              <div id='total-row'>
-                <p>{'Total'}</p>
-                <p>{'$' + prices.total.toFixed(2)}</p>
-              </div>
-            </div>
-            <div className='form-divider'></div>
+            ) : null }
 
-            <h6>{'YOUR PAYMENT'}</h6>
-            <Elements>
-              <CheckoutForm disabled={!this.state.logged_in} price={prices.total} />
-            </Elements>
+            { this.state.stage === 'placed' ? (
+              'Check your email for a proof of payment.'
+            ) : null }
           </ModalBody>
         </Modal>
       )

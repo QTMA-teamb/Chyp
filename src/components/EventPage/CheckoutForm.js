@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { injectStripe, CardElement } from 'react-stripe-elements';
+import fire from '../../fire.js';
 
 class CheckoutForm extends Component {
   handleSubmit = (ev) => {
@@ -7,8 +8,9 @@ class CheckoutForm extends Component {
     ev.preventDefault();
     // Within the context of `Elements`, this call to createToken knows which Element to
     // tokenize, since there's only one in this group.
-    this.props.stripe.createToken({name: 'Jenny Rosen'}).then(({token}) => {
-      console.log('Received Stripe token:', token);
+    this.props.stripe.createToken({name: fire.auth().currentUser.displayName}).then(({token}) => {
+      if (token)
+        this.props.completePurchase(token);
     });
   }
 

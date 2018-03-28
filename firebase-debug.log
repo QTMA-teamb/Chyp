@@ -1,0 +1,57 @@
+[debug] [2018-03-28T02:55:36.067Z] ----------------------------------------------------------------------
+[debug] [2018-03-28T02:55:36.069Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Cameron Perry\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase deploy --only functions
+[debug] [2018-03-28T02:55:36.070Z] CLI Version:   3.16.0
+[debug] [2018-03-28T02:55:36.070Z] Platform:      win32
+[debug] [2018-03-28T02:55:36.070Z] Node Version:  v8.9.3
+[debug] [2018-03-28T02:55:36.070Z] Time:          Tue Mar 27 2018 22:55:36 GMT-0400 (Eastern Daylight Time)
+[debug] [2018-03-28T02:55:36.070Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-03-28T02:55:36.083Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-03-28T02:55:36.084Z] > authorizing via signed-in user
+[debug] [2018-03-28T02:55:36.086Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/chyp-43d38  
+  
+ Tue Mar 27 2018 22:55:36 GMT-0400 (Eastern Daylight Time)
+[debug] [2018-03-28T02:55:36.395Z] <<< HTTP RESPONSE 200
+[debug] [2018-03-28T02:55:36.396Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/chyp-43d38/tokens  
+  
+ Tue Mar 27 2018 22:55:36 GMT-0400 (Eastern Daylight Time)
+[debug] [2018-03-28T02:55:36.755Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'chyp-43d38'...
+[info] 
+[info] i  deploying functions
+[debug] [2018-03-28T02:55:37.092Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase serve --only functions",
+    "shell": "firebase experimental:functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "firebase-admin": "~5.4.2",
+    "firebase-functions": "^0.7.5"
+  },
+  "private": true
+}
+[info] i  functions: ensuring necessary APIs are enabled...
+[debug] [2018-03-28T02:55:37.100Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/cloudfunctions.googleapis.com/projectSettings/chyp-43d38?view=CONSUMER_VIEW  
+  
+ Tue Mar 27 2018 22:55:37 GMT-0400 (Eastern Daylight Time)
+[debug] [2018-03-28T02:55:37.101Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/runtimeconfig.googleapis.com/projectSettings/chyp-43d38?view=CONSUMER_VIEW  
+  
+ Tue Mar 27 2018 22:55:37 GMT-0400 (Eastern Daylight Time)
+[debug] [2018-03-28T02:55:37.769Z] <<< HTTP RESPONSE 200
+[debug] [2018-03-28T02:55:37.862Z] <<< HTTP RESPONSE 200
+[info] +  functions: all necessary APIs are enabled
+[debug] [2018-03-28T02:55:37.867Z] >>> HTTP REQUEST GET https://appengine.googleapis.com/v1/apps/chyp-43d38  
+  
+ Tue Mar 27 2018 22:55:37 GMT-0400 (Eastern Daylight Time)
+[debug] [2018-03-28T02:55:37.868Z] >>> HTTP REQUEST GET https://apikeys.googleapis.com/v1/projects/chyp-43d38/apiKeys  
+  
+ Tue Mar 27 2018 22:55:37 GMT-0400 (Eastern Daylight Time)
+[debug] [2018-03-28T02:55:38.226Z] <<< HTTP RESPONSE 200
+[debug] [2018-03-28T02:55:38.268Z] <<< HTTP RESPONSE 200

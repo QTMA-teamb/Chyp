@@ -41,11 +41,17 @@ class EventPage extends Component {
 
   render() {
 
-    const TESTING_TICKET_COMPLETION_RATE = 25;
+    const TICKET_COMPLETION_RATE = this.state.max_tickets ? Math.round(100 * Object.keys(this.state.tickets).length / this.state.max_tickets) : 99;
+
       return (
         <div id="event-page" className='container-fluid'>
 
-          <TicketPurchase modalOpen={this.state.modal} toggleModal={this.toggleModal} price={this.state.price} />
+          <TicketPurchase
+            modalOpen={this.state.modal}
+            toggleModal={this.toggleModal}
+            price={this.state.price}
+            event={queryString.parse(this.props.location.search).id}
+          />
 
           <div className='row'>
             <div className="col-12" id="cover-image">
@@ -83,11 +89,11 @@ class EventPage extends Component {
 
                 <div className='row'>
                   <div className='col-12 col-md-9 ticket-col'>
-                    <Progress color='success' value={TESTING_TICKET_COMPLETION_RATE} />
-                    <p>{ TESTING_TICKET_COMPLETION_RATE + '% SOLD'}</p>
+                    <Progress color='success' value={TICKET_COMPLETION_RATE} />
+                    <p>{ TICKET_COMPLETION_RATE + '% SOLD'}</p>
                   </div>
                   <div className='col-12 col-md-3 ticket-col'>
-                    <Button color='primary' onClick={this.toggleModal} disabled={TESTING_TICKET_COMPLETION_RATE >= 100}>{ TESTING_TICKET_COMPLETION_RATE >= 100 ? 'SOLD OUT' : 'REGISTER'}</Button>
+                    <Button color='primary' onClick={this.toggleModal} disabled={TICKET_COMPLETION_RATE >= 100}>{ TICKET_COMPLETION_RATE >= 100 ? 'SOLD OUT' : 'REGISTER'}</Button>
                   </div>
                 </div>
 

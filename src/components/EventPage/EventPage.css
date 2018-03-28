@@ -130,9 +130,9 @@
 }
 
 #purchaser-container img {
-  height: 5em;
-  width: 5em;
-  border-radius: 2.5em;
+  height: 4em;
+  width: 4em;
+  border-radius: 2em;
 }
 
 #checkout-cart div {
