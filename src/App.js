@@ -16,6 +16,7 @@ import About from "./components/About/About.js"
 import LandingPage from './components/LandingPage/LandingPage.js'
 import EventPage from "./components/EventPage/EventPage.js"
 import StripeComplete from './components/StripeComplete/StripeComplete.js'
+import Privacy from './components/Privacy/Privacy.js'
 
 class App extends Component {
 
@@ -38,6 +39,8 @@ class App extends Component {
                 <EventPage {...props} /> )} />
               <Route exact path='/stripe-complete' render={ (props) => (
                 <StripeComplete {...props} /> )} />
+              <Route exact path='/privacy' render={ (props) => (
+                <Privacy {...props} /> )} />
               </main>
           </div>
         </Router>
