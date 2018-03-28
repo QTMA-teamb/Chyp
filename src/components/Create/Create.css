@@ -71,7 +71,6 @@ body {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
-  margin-top: 60px;
 }
 
 .card-info {

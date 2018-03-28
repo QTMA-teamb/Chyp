@@ -1,5 +1,6 @@
 #localTitle {
   font-size: 50px;
+  margin-top: 1em;
   position: relative;
   text-align: center;
 }
@@ -91,14 +92,6 @@ body {
   line-height: 18px;
 }
 
-.create-cards-container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  margin-top: 60px;
-}
-
 .card-info {
   box-sizing: border-box;
   padding: 0;
@@ -138,6 +131,14 @@ body {
 
 .create {
   font-size: 50px;
+}
+
+#events-location input {
+  margin-bottom: 1em;
+}
+
+#events-location button {
+  width: 100%;
 }
 
 @media (max-width:768px) {

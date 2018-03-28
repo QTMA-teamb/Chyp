@@ -41,11 +41,19 @@ class EventPage extends Component {
 
   render() {
 
-    const TICKET_COMPLETION_RATE = this.state.max_tickets ? Math.round(100 * Object.keys(this.state.tickets).length / this.state.max_tickets) : 99;
+    const {modal, ...event_data} = this.state;
+    if (!event_data) {
+      return null
+    } else {
+      let TICKET_COMPLETION_RATE = 0;
+      if (this.state.tickets && this.state.max_tickets) {
+        TICKET_COMPLETION_RATE =  Math.round(100 * Object.keys(this.state.tickets).length / this.state.max_tickets);
+      } else if (this.state.tickets) {
+        TICKET_COMPLETION_RATE = 99;
+      }
 
       return (
         <div id="event-page" className='container-fluid'>
-
           <TicketPurchase
             modalOpen={this.state.modal}
             toggleModal={this.toggleModal}
@@ -84,7 +92,6 @@ class EventPage extends Component {
 
           <div className='row'>
             <div className='col-10 offset-1'>
-
               <h6 className='event-page-header'>{'TICKETS'}</h6>
 
                 <div className='row'>
@@ -96,34 +103,34 @@ class EventPage extends Component {
                     <Button color='primary' onClick={this.toggleModal} disabled={TICKET_COMPLETION_RATE >= 100}>{ TICKET_COMPLETION_RATE >= 100 ? 'SOLD OUT' : 'REGISTER'}</Button>
                   </div>
                 </div>
-
-            </div>
-          </div>
-
-          <div className='row'>
-            <div className='col-10 offset-1'>
-              <h6 className='event-page-header'>{'DESCRIPTION'}</h6>
-              <p>{this.state.description}</p>
-            </div>
-          </div>
-
-          { this.state.place && this.state.place.location ? (
-            <div className='row'>
-              <div className='col-12 col-md-8 offset-md-2' id='map'>
-                <EventMap
-                  lat={this.state.place.location.latitude}
-                  lng={this.state.place.location.longitude}
-                  googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places"
-                  loadingElement={<div style={{ height: `100%` }} />}
-                  containerElement={<div style={{ height: `400px` }} />}
-                  mapElement={<div style={{ height: `100%` }} />}
-                />
               </div>
             </div>
-          ) : null }
 
-        </div>
-      );
+            <div className='row'>
+              <div className='col-10 offset-1'>
+                <h6 className='event-page-header'>{'DESCRIPTION'}</h6>
+                <p>{this.state.description}</p>
+              </div>
+            </div>
+
+            { this.state.place && this.state.place.location ? (
+              <div className='row'>
+                <div className='col-12 col-md-8 offset-md-2' id='map'>
+                  <EventMap
+                    lat={this.state.place.location.latitude}
+                    lng={this.state.place.location.longitude}
+                    googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places"
+                    loadingElement={<div style={{ height: `100%` }} />}
+                    containerElement={<div style={{ height: `400px` }} />}
+                    mapElement={<div style={{ height: `100%` }} />}
+                  />
+                </div>
+              </div>
+            ) : null }
+
+          </div>
+        );
+      }
   }
 
 }

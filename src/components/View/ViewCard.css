@@ -80,14 +80,6 @@ body {
   line-height: 18px;
 }
 
-.create-cards-container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: left;
-  margin-top: 60px;
-}
-
 .card-info {
   box-sizing: border-box;
   padding: 0;

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Modal, ModalBody} from 'reactstrap';
+import { Modal, ModalBody, ModalHeader } from 'reactstrap';
 import './Events.css';
 import ViewCard from '../View/ViewCard';
 import firebase from '../../fire.js';
@@ -55,25 +55,25 @@ class Events extends Component {
       const events = this.getEventsInLocation();
       return (
         <div>
-          <div class = "local">
-            <h1 id = "localTitle">Local Events</h1>
-            <h2 id = "open">Found events in {this.state.userLocation}</h2>
-            <div className = "create-cards-container">
-            {events.map( (event) => (
-            <ViewCard event={event} key={event.id} />
-            ))}
+
+          { this.state.userLocation ? (
+            <div className="local">
+              <h1 id="localTitle">Local Events</h1>
+              <h2 id="open">Found events in {this.state.userLocation}</h2>
+              <div className = "create-cards-container">
+              {events.map( (event) => (
+              <ViewCard event={event} key={event.id} />
+              ))}
+              </div>
             </div>
-          </div>
-          <div class = "custom">
-            {/*<h1 id= "customEvents">Events For You</h1>*/}
+          ) : null }
 
-          </div>
-
-          <Modal isOpen={this.state.modal}>
-              <ModalBody>
-                <input className='form-control' onChange={this.handleInputChange} type='text' placeholder='Your City'/>
-                <button className='btn btn-success' onClick={this.submitLocation}>{'SUBMIT'}</button>
-              </ModalBody>
+          <Modal isOpen={this.state.modal} id='events-location'>
+            <ModalHeader>{'Where are you?'}</ModalHeader>
+            <ModalBody>
+              <input className='form-control' onChange={this.handleInputChange} value={this.state.userInput} type='text' placeholder='Toronto'/>
+              <button className='btn btn-success' onClick={this.submitLocation}>{'FIND EVENTS IN MY CITY'}</button>
+            </ModalBody>
           </Modal>
         </div>
 
