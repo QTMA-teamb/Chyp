@@ -15,7 +15,6 @@ class LandingPage extends Component {
   }
 
   buttonClick(evt) {
-    //    document.getElementById('btnLogin').click();
     var provider = new firebase.auth.FacebookAuthProvider();
     provider.addScope("public_profile")
     provider.addScope('email')
