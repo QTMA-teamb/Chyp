@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import firebase from '../../fire.js';
 import { withRouter } from 'react-router';
 import query_string from 'query-string';
-import axios from 'axios';
 
 class StripeComplete extends Component {
 

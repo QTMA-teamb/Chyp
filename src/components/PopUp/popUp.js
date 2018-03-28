@@ -62,7 +62,7 @@ class ModalExample extends React.Component {
                     <div class="input-group-prepend">
                         <span class="input-group-text" id="basic-addon1">$</span>
                     </div>
-                    <Input name = "price" type="number" step="1" onChange={this.handleChange} placeholder="Ticket Price (USD)" />
+                    <Input name = "price" type="number" step="1" onChange={this.handleChange} placeholder="Ticket Price (CAD)" />
                 </InputGroup><br></br>
                 <Input name = "amount" type="number" step="1" onChange={this.handleChange} placeholder="Tickets Available (Leave Blank For Unlimited)" /></div>
               : <div><p><a href={"https://connect.stripe.com/oauth/authorize?response_type=code&client_id=ca_CRiyeuFWnWEukuvXDGVIDP7ggGdMbm5r&scope=read_write&state=" + fire.auth().currentUser.uid + "event" + this.props.event.id} className="stripe-connect"><span>{'Connect with Stripe'}</span></a></p><p>Please add your bank account to Stripe so that we can send you your ticket sales.</p></div>

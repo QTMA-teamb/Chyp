@@ -1,80 +1,80 @@
 import React, { Component } from 'react';
+import { Modal, ModalBody, ModalHeader } from 'reactstrap';
 import './Events.css';
 import ViewCard from '../View/ViewCard';
 import firebase from '../../fire.js';
-
-var newLocation;
-var events = [];
-
-function userLocation() {
-  var location = prompt("Please enter your city:", "Your Location");
-  if (location == "") {
-    alert('Please Enter A Valid Location');
-    userLocation();
-    return
-  }
-  else if (location == null){
-    window.location.href = "../";
-  }
-  else {
-     return location;
-  }
-}
 
 class Events extends Component {
 
   constructor(props) {
     super(props);
-    this.state = { events: [] }
+    this.state = { events: [], modal: true }
+    this.getEventsInLocation = this.getEventsInLocation.bind(this);
+    this.submitLocation = this.submitLocation.bind(this);
+    this.handleInputChange = this.handleInputChange.bind(this);
   }
 
-  componentWillMount() {
-    var recents = firebase.database().ref('events').orderByKey().limitToLast(15);
-    recents.on('child_added', snapshot => {
-      var ref = snapshot.val()
-        console.log(ref)
+    componentWillMount() {
+        this.recents = firebase.database().ref('events').orderByKey().limitToLast(15).once('value', snapshot => {
+            console.log(snapshot.val())
+            this.setState({ events: snapshot.val() })
+        })
+    }
 
-      //let eventTime = new Date(ref.start_time).getTime();
+   getEventsInLocation() {
+      let ref = this.state.events;
+      let events = [];
+      Object.keys(ref).forEach(event_id => {
+      let eventTime = new Date(ref[event_id].start_time).getTime();
       let currentTime = new Date().getTime();
-      if (/*(eventTime >= currentTime) &&*/ ref.place != null) {
-          if (!ref.place.location){
-            if ((ref.place.name.indexOf(newLocation) >= 0)) {
-              events.push(ref);
+      if ((eventTime >= currentTime) && ref[event_id].place != null) {
+          if (!ref[event_id].place.location){
+            if ((ref[event_id].place.name.indexOf(this.state.userLocation) >= 0)) {
+              events.push(ref[event_id]);
             }
           }
           else {
-            if ((ref.place.location.city.indexOf(newLocation) >= 0)) {
-              events.push(ref);
+            if ((ref[event_id].place.location.city.indexOf(this.state.userLocation) >= 0)) {
+              events.push(ref[event_id]);
             }
           }
         }
-        this.setState({events: events})
+      })
+      return(events);
+    }
 
-    })
-    console.log(events)
-  }
+    submitLocation() {
+        this.setState({ userLocation: this.state.userInput, modal: false })
+    }
 
-  componentDidMount() {
-    newLocation = userLocation();
-  }
-
+    handleInputChange(evt) {
+        this.setState({userInput: evt.target.value})
+    }
 
   render() {
+      const events = this.getEventsInLocation();
       return (
         <div>
-          <div class = "local">
-            <h1 id = "localTitle">Local Events</h1>
-            <h2 id = "open">Found events in {newLocation}</h2>
-            <div className = "Card">
-            {this.state.events.map( (event) => (
-            <ViewCard event={event} key={event.id} />
-            ))}
-            </div>
-          </div>
-          <div class = "custom">
-            {/*<h1 id= "customEvents">Events For You</h1>*/}
 
-          </div>
+          { this.state.userLocation ? (
+            <div className="local">
+              <h1 id="localTitle">Local Events</h1>
+              <h2 id="open">Found events in {this.state.userLocation}</h2>
+              <div className = "create-cards-container">
+              {events.map( (event) => (
+              <ViewCard event={event} key={event.id} />
+              ))}
+              </div>
+            </div>
+          ) : null }
+
+          <Modal isOpen={this.state.modal} id='events-location'>
+            <ModalHeader>{'Where are you?'}</ModalHeader>
+            <ModalBody>
+              <input className='form-control' onChange={this.handleInputChange} value={this.state.userInput} type='text' placeholder='Toronto'/>
+              <button className='btn btn-success' onClick={this.submitLocation}>{'FIND EVENTS IN MY CITY'}</button>
+            </ModalBody>
+          </Modal>
         </div>
 
       )
