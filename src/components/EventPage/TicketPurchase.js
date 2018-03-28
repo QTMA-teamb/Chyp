@@ -13,6 +13,7 @@ export class TicketPurchase extends Component {
     fire.auth().onAuthStateChanged( user => {
       this.setState({ logged_in: user ? true : false });
     })
+    this.calcPrices = this.calcPrices.bind(this);
   }
 
   onLoginClick() {
@@ -34,17 +35,31 @@ export class TicketPurchase extends Component {
     });
   }
 
+  calcPrices() {
+    const ticketCENTS = parseFloat(this.props.price) * 100;
+    const feesCENTS = Math.round(ticketCENTS * 0.033 + 40);
+    const taxCENTS = Math.round((ticketCENTS + feesCENTS) * 0.13);
+    const totalCENTS = ticketCENTS + feesCENTS + taxCENTS;
+    return {
+      ticket: ticketCENTS / 100,
+      fees: feesCENTS / 100,
+      tax: taxCENTS / 100,
+      total: totalCENTS / 100
+    }
+  }
+
   render() {
     console.log(fire.auth().currentUser)
     if (!this.state) {
       return null
     } else {
+      const prices = this.calcPrices();
       return (
         <Modal isOpen={this.props.modalOpen} toggle={this.props.toggleModal} id='checkout-modal'>
           <ModalHeader>{'Purchase Your Ticket'}</ModalHeader>
           <ModalBody>
             <div id='purchaser-container'>
-              <h6>{'CONFIRM YOUR PROFILE'}</h6>
+              <h6>{'YOUR PROFILE'}</h6>
                 {this.state.logged_in ? (
                   <div id='purchaser'>
                     <img src={fire.auth().currentUser.photoURL} />
@@ -58,10 +73,32 @@ export class TicketPurchase extends Component {
                   <Button color='primary' id='login-btn' onClick={this.onLoginClick}>{'Connect with Facebook to Continue'}</Button>
                 )}
             </div>
+
             <div className='form-divider'></div>
-            <h6>{'YOUR PAYMENT DETAILS'}</h6>
+            <h6>{'YOUR TICKET'}</h6>
+            <div id='checkout-cart'>
+              <div>
+                <p>{'Ticket Price'}</p>
+                <p>{'$' + prices.ticket.toFixed(2)}</p>
+              </div>
+              <div>
+                <p>{'Chyp Fee'}</p>
+                <p>{'$' + prices.fees.toFixed(2)}</p>
+              </div>
+              <div>
+                <p>{'HST'}</p>
+                <p>{'$' + prices.tax.toFixed(2)}</p>
+              </div>
+              <div id='total-row'>
+                <p>{'Total'}</p>
+                <p>{'$' + prices.total.toFixed(2)}</p>
+              </div>
+            </div>
+            <div className='form-divider'></div>
+
+            <h6>{'YOUR PAYMENT'}</h6>
             <Elements>
-              <CheckoutForm disabled={!this.state.logged_in}/>
+              <CheckoutForm disabled={!this.state.logged_in} price={prices.total} />
             </Elements>
           </ModalBody>
         </Modal>

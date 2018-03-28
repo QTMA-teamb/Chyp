@@ -45,7 +45,7 @@ class EventPage extends Component {
       return (
         <div id="event-page" className='container-fluid'>
 
-          <TicketPurchase modalOpen={this.state.modal} toggleModal={this.toggleModal}/>
+          <TicketPurchase modalOpen={this.state.modal} toggleModal={this.toggleModal} price={this.state.price} />
 
           <div className='row'>
             <div className="col-12" id="cover-image">

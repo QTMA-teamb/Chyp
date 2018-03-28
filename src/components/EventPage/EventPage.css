@@ -134,3 +134,18 @@
   width: 5em;
   border-radius: 2.5em;
 }
+
+#checkout-cart div {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#checkout-cart p {
+  margin: 0;
+}
+
+#checkout-cart #total-row p {
+  font-weight: bold;
+}

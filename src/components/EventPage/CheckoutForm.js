@@ -16,7 +16,7 @@ class CheckoutForm extends Component {
     return (
       <form onSubmit={this.handleSubmit} id='ticket-form'>
         <CardElement style={{base: {fontSize: '18px'}}} />
-        <button disabled={this.props.disabled} className='btn btn-primary'>{'PURCHASE TICKET'}</button>
+        <button disabled={this.props.disabled} className='btn btn-primary'>{'PURCHASE TICKET: $' + parseFloat(this.props.price).toFixed(2) }</button>
       </form>
     );
   }
