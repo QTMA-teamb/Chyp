@@ -20,7 +20,7 @@ class Events extends Component {
             this.setState({ events: snapshot.val() })
         })
     }
-    
+
    getEventsInLocation() {
       let ref = this.state.events;
       let events = [];
@@ -38,7 +38,7 @@ class Events extends Component {
               events.push(ref[event_id]);
             }
           }
-        }          
+        }
       })
       return(events);
     }
@@ -50,7 +50,7 @@ class Events extends Component {
     handleInputChange(evt) {
         this.setState({userInput: evt.target.value})
     }
-    
+
   render() {
       const events = this.getEventsInLocation();
       return (
@@ -68,7 +68,7 @@ class Events extends Component {
             {/*<h1 id= "customEvents">Events For You</h1>*/}
 
           </div>
-          
+
           <Modal isOpen={this.state.modal}>
               <ModalBody>
                 <input className='form-control' onChange={this.handleInputChange} type='text' placeholder='Your City'/>

@@ -66,6 +66,7 @@ class LandingPage extends Component {
           </div>
           <div className='col-12 col-md-6' id='phone-col'>
             <img src={require('./iPhoneX.png')} alt='iPhone' id='iPhone'/>
+
           </div>
         </div>
       </div>
