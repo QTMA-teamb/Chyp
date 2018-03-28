@@ -114,13 +114,23 @@
   font-size: 13px;
 }
 
-#purchaser-container div {
+#purchaser-container #purchaser {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   margin-bottom: 1em;
+}
+
+#purchaser-container #login-btn {
+  width: 100%;
 }
 
 #purchaser-container p {
   margin: 0;
+}
+
+#purchaser-container img {
+  height: 5em;
+  width: 5em;
+  border-radius: 2.5em;
 }

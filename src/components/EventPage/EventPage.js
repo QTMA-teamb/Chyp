@@ -42,10 +42,6 @@ class EventPage extends Component {
   render() {
 
     const TESTING_TICKET_COMPLETION_RATE = 25;
-
-    if (!this.state.cover) {
-      return( null );
-    } else {
       return (
         <div id="event-page" className='container-fluid'>
 
@@ -53,7 +49,9 @@ class EventPage extends Component {
 
           <div className='row'>
             <div className="col-12" id="cover-image">
-              <img src={this.state.cover.source} alt='cover' />
+              { this.state.cover ?
+                  <img src={this.state.cover.source} alt='cover' />
+               : null }
             </div>
           </div>
 
@@ -68,12 +66,14 @@ class EventPage extends Component {
               <h6 className='event-page-header'>{'DATE AND TIME'}</h6>
               <p>{moment(this.state.start_time).format('llll') + ' -'}<br/>{moment(this.state.end_time).format('llll')}</p>
             </div>
-            <div className='col-10 offset-1 col-md-3'>
-              <h6 className='event-page-header' id='location-header'>{'LOCATION'}</h6>
-              <p>{this.state.place.name}<br/>
-                 {this.state.place.location ? this.state.place.location.street : ''}<br/>
-                 {this.state.place.location ? (<a href='#map'>{'View Map'}</a>) : null}</p>
-            </div>
+            { this.state.place ?
+              <div className='col-10 offset-1 col-md-3'>
+                <h6 className='event-page-header' id='location-header'>{'LOCATION'}</h6>
+                <p>{this.state.place.name}<br/>
+                   {this.state.place.location ? this.state.place.location.street : ''}<br/>
+                   {this.state.place.location ? (<a href='#map'>{'View Map'}</a>) : null}</p>
+              </div>
+              : null }
           </div>
 
           <div className='row'>
@@ -101,7 +101,7 @@ class EventPage extends Component {
             </div>
           </div>
 
-          { this.state.place.location ? (
+          { this.state.place && this.state.place.location ? (
             <div className='row'>
               <div className='col-12 col-md-8 offset-md-2' id='map'>
                 <EventMap
@@ -118,8 +118,6 @@ class EventPage extends Component {
 
         </div>
       );
-    }
-
   }
 
 }
