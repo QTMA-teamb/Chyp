@@ -1,72 +1,65 @@
 import React, { Component } from 'react';
+import { Modal, ModalBody} from 'reactstrap';
 import './Events.css';
 import ViewCard from '../View/ViewCard';
 import firebase from '../../fire.js';
-
-var newLocation;
-var events = [];
-
-function userLocation() {
-  var location = prompt("Please enter your city:", "Your Location");
-  if (location == "") {
-    alert('Please Enter A Valid Location');
-    userLocation();
-    return
-  }
-  else if (location == null){
-    window.location.href = "../";
-  }
-  else {
-     return location;
-  }
-}
 
 class Events extends Component {
 
   constructor(props) {
     super(props);
-    this.state = { events: [] }
+    this.state = { events: [], modal: true }
+    this.getEventsInLocation = this.getEventsInLocation.bind(this);
+    this.submitLocation = this.submitLocation.bind(this);
+    this.handleInputChange = this.handleInputChange.bind(this);
   }
 
-  componentWillMount() {
-    var recents = firebase.database().ref('events').orderByKey().limitToLast(15);
-    recents.on('child_added', snapshot => {
-      var ref = snapshot.val()
-        console.log(ref)
-
-      let eventTime = new Date(ref.start_time).getTime();
+    componentWillMount() {
+        this.recents = firebase.database().ref('events').orderByKey().limitToLast(15).once('value', snapshot => {
+            console.log(snapshot.val())
+            this.setState({ events: snapshot.val() })
+        })
+    }
+    
+   getEventsInLocation() {
+      let ref = this.state.events;
+      let events = [];
+      Object.keys(ref).forEach(event_id => {
+      let eventTime = new Date(ref[event_id].start_time).getTime();
       let currentTime = new Date().getTime();
-
-      if ((eventTime >= currentTime) && ref.place != null) {
-        if ((ref.place.name.indexOf(newLocation) >= 0)) {
-          events.push(ref);
-        }
-        if (ref.place.location){
-          if ((ref.place.location.city.indexOf(newLocation) >= 0)) {
-              events.push(ref);
+      if ((eventTime >= currentTime) && ref[event_id].place != null) {
+          if (!ref[event_id].place.location){
+            if ((ref[event_id].place.name.indexOf(this.state.userLocation) >= 0)) {
+              events.push(ref[event_id]);
+            }
           }
-        }
+          else {
+            if ((ref[event_id].place.location.city.indexOf(this.state.userLocation) >= 0)) {
+              events.push(ref[event_id]);
+            }
+          }
+        }          
+      })
+      return(events);
+    }
 
-      }
-        this.setState({events: events})
+    submitLocation() {
+        this.setState({ userLocation: this.state.userInput, modal: false })
+    }
 
-    })
-    console.log(events)
-  }
-
-  componentDidMount() {
-    newLocation = userLocation();
-  }
-
-
+    handleInputChange(evt) {
+        this.setState({userInput: evt.target.value})
+    }
+    
   render() {
+      const events = this.getEventsInLocation();
       return (
         <div>
           <div class = "local">
             <h1 id = "localTitle">Local Events</h1>
-            <h2 id = "open">Found events in {newLocation}</h2>
+            <h2 id = "open">Found events in {this.state.userLocation}</h2>
             <div className = "create-cards-container">
-            {this.state.events.map( (event) => (
+            {events.map( (event) => (
             <ViewCard event={event} key={event.id} />
             ))}
             </div>
@@ -75,6 +68,13 @@ class Events extends Component {
             {/*<h1 id= "customEvents">Events For You</h1>*/}
 
           </div>
+          
+          <Modal isOpen={this.state.modal}>
+              <ModalBody>
+                <input className='form-control' onChange={this.handleInputChange} type='text' placeholder='Your City'/>
+                <button className='btn btn-success' onClick={this.submitLocation}>{'SUBMIT'}</button>
+              </ModalBody>
+          </Modal>
         </div>
 
       )
