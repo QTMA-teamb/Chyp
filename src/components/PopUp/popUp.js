@@ -50,7 +50,7 @@ class ModalExample extends React.Component {
   render() {
     return (
       <div>
-        <Button id = "Create" className="initButton" onClick={this.toggle}>Add To Chyp!</Button>
+        <Button id="Create" color='success' onClick={this.toggle}>Add To Chyp!</Button>
 
         <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
           <ModalHeader toggle={this.toggle}>{'Set a Ticket Price for this Event!'}</ModalHeader>

@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router';
 import PopUp from '../PopUp/popUp.js'
 import './ViewCard.css';
 
 
 class ViewCard extends Component {
 
-  handleClick(url2){
-    window.open(url2)
+  handleClick = (event_id) => {
+    this.props.history.push('/event?id=' + event_id);
   }
 
   render() {
@@ -17,21 +18,20 @@ class ViewCard extends Component {
     const processed_cover = !this.props.event.cover ? "https://x.kinja-static.com/assets/images/logos/placeholders/default.png" : this.props.event.cover.source;
     const processed_description = !this.props.event.description ? "No Description Has Been Added" : this.props.event.description;
     const processed_owner_name = !this.props.event.owner || !this.props.event.owner.name ? "Unknown" : this.props.event.owner.name;
-    const myURL = "http://localhost:3000/event?id="+ this.props.event.id;
     const processed_date = new Date(this.props.event.start_time).toLocaleString('en-US')
     return (
-      <div class="block-card">
-        <img class = "cover-photo" key = {this.props.event.id + 'cover'} src = {processed_cover} height = '210' width = '400' alt = "Cover Photo"/>
-          <div class="title-content">
-            <h3><a href={myURL}  key = {this.props.event.id}>{processed_name}</a></h3>
+      <div className="block-card">
+        <img className = "cover-photo" key = {this.props.event.id + 'cover'} src = {processed_cover} height = '210' width = '400' alt = "Cover Photo"/>
+          <div className="title-content">
+            <h3 onClick={ () => { this.handleClick(this.props.event.id) }}><a key={this.props.event.id} style={{color: 'blue'}}>{processed_name}</a></h3>
 
-              <div class="intro">
+              <div className="intro">
                 <a key = {this.props.event.id}>{processed_location}</a><br></br>
                 <a key = {this.props.event.id}>{processed_street}</a><br></br>
                 <a key = {this.props.event.id}>{processed_date}</a>
               </div>
-              <div class="card-info">
-                  <button id = "Create" className="initButton" onClick={() => this.handleClick(myURL)}>View On Chyp!</button>
+              <div className="card-info">
+                <button className="btn btn-success" style={{marginTop: '1em'}} onClick={ () => { this.handleClick(this.props.event.id) }}>{'View On Chyp!'}</button>
               </div>
           </div>
 
@@ -41,4 +41,4 @@ class ViewCard extends Component {
 
 }
 
-export default ViewCard;
+export default withRouter(ViewCard);

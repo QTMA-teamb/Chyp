@@ -54,23 +54,6 @@ body {
   white-space: nowrap;
 }
 
-.block-card h3 a button {
-  transition: all 0.2s
-}
-
-.initButton {
-  margin-top: 10px;
-  height: 40px;
-  width: 160px;
-  background-color: #00CC89;
-  border-radius: 5px;
-  border-color: transparent;
-}
-
-.initButton:hover {
-  background-color: #00BC89;
-}
-
 .intro {
   white-space: nowrap;
   color: rgba(54, 60, 82, 1);
@@ -92,19 +75,6 @@ body {
   line-height: 15px;
 }
 
-.card-info a button {
-  display: block;
-  width: 120px;
-  height: 30px;
-  vertical-align: middle;
-  line-height: 30px;
-  margin: 15px auto;
-  background: #00CC89;
-  color: #444;
-  padding: 3px 10px;
-  border-radius: 2px;
-  font-size: 0.9em
-}
 
 .card-info a:hover {
   background: #00CC89;
