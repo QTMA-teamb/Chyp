@@ -13,6 +13,7 @@
 #event-page #cover-image img {
   width: 100%;
   max-width: 1200px;
+  max-height: 500px;
   height: auto;
 }
 
